@@ -1,0 +1,485 @@
+body {
+    background-color: #060f29;
+    color: white;
+}
+
+/* header  */
+
+.header{
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    margin: 15px 25px;
+}
+
+.header_logo{
+
+}
+
+.header_logo_img{
+    width: 80px;
+}
+
+
+.item-header{
+    display: flex;
+}
+
+.list_item-header{
+    list-style: none;
+}
+
+.list_item-header a{
+    color: var(--white-color);
+    list-style: none;
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 60px;
+}
+
+.list_item-header a:hover{
+
+    color:#715d43 ;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+}
+
+.search-box {
+    margin: 3vh 0;
+    background-color: #666666;
+    display: inline-block;
+    /* padding: 15px 15px; */
+    border-radius: 5px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.search-form{
+    margin: 10px 10px 0 10px;
+}
+.search-box h3 {
+    margin: 10px 10px;
+}
+
+.search-input-form {
+    width: 100%;
+    background: white;
+    display: flex;
+    border-radius: 12px;
+}
+
+.search-input {
+    background: transparent;
+    color: black;
+    flex: 1;
+    outline: none;
+    margin: 15px 15px;
+    border: 0;
+    font-size: 25px;
+}
+
+.search-button {
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: red;
+    margin: 5px 5px;
+    cursor: pointer;
+}
+
+.search-button img {
+    width: 40px
+}
+
+.inn-filter {
+    margin-top: 10px;
+}
+
+.inn-filter select {
+    width: 153.9px;
+    height: 40px;
+    border-radius: 6px;
+    outline: none;
+    margin: 0 5px 10px 0px;
+}
+
+.inn-filter_select{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.prominent-area {
+    display: flex;
+    margin: 3vh 0;
+}
+
+.pro-area {
+    width: 50%;
+    height: 150px;
+    display: flex;
+    float: left;
+    border-radius: 5px;
+}
+
+.pro-area.hochiminh {
+    background-image: url(https://lp-cms-production.imgix.net/image_browser/Ho%20Chi%20Minh%20City%20skyline.jpg);
+    background-size: 100% 100%;
+    margin-right: 10px;
+
+}
+
+
+
+.pro-area.hanoi {
+    background-image: url(https://fridayshopping.vn/wp-content/uploads/2022/02/top-30-danh-lam-thang-canh-ha-noi-dong-khach-nhat-hien-nay-1.jpeg);
+    background-size: 100% 100%;
+}
+
+.pro-area a {
+    color: white;
+    position: relative;
+    z-index: 1;
+    display: block;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.pro-area a span {
+    display: block;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.pro-area a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* newpost */
+.new-post{
+    display: flex;
+    justify-content: center;
+}
+
+.list_new_post{
+    margin: 3vh 0;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 2px 0px;
+    width: 80%;
+}
+
+.list_new_post:hover{
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+
+.branding_landlords{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--black-color);
+    padding: 10px 0;
+    height: 40px;
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
+}
+
+.branding_image_landlord{
+    margin: 6px;
+}
+
+.branding_image{
+
+}
+
+.agent_with-photo{
+    display: flex;
+}
+
+.agent_name{
+    margin: 12px;
+    color: var(--white-color);
+}
+
+.agent_img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.agent_img_item{
+    z-index: 1;
+
+}
+
+.residential-card__image{
+
+}
+
+.residential-card__image-content{
+    position: relative;
+}
+
+.residential-slides{
+
+}
+
+.residential-slides_img{
+    width: 100%;
+    height: 500px;
+}
+
+.arrow_right{
+    background-color: transparent;
+    color: var(--white-color);
+    position: absolute;
+    top: 50%;
+    left:12px;
+    border: none;
+    font-size: 40px;
+    transform: translate3d(0, -50%, 0);
+}
+
+.arrow_left{
+    background-color: transparent;
+    color: var(--white-color);
+    border: none;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    font-size: 40px;
+    transform: translate3d(0, -50%, 0);
+}
+
+.arrow_right:hover{
+    opacity: .7;
+    cursor: pointer;
+}
+
+.arrow_left:hover{
+    opacity: .7;
+    cursor: pointer;
+}
+
+.posting_time{
+    position: relative;
+}
+
+.posting_time_position{
+    border-radius: 4px;
+    background-color: #fff;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+
+}
+
+.posting_time_icon{
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(0, 190, 179);
+    border: 0.075rem solid rgb(0, 190, 179);
+    border-radius: 50%;
+    margin: 4px;
+}
+
+.posting_time_text{
+    color:var(--text-color);
+}
+
+
+.residential-card__content{
+    background-color: var(--white-color);
+    color: var(--text-color);
+    margin-top: -4px;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius: 10px ;
+}
+
+.residential-card_item{
+    padding: 20px;
+}
+
+.residential-card_item_list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+
+.residential-card_price{
+
+}
+
+.residential-card_item_extend{
+    display: flex;
+    
+}
+
+.residential-card_item_save_property{
+    margin: 0 8px;
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background-color: transparent;
+    border-radius: 8px;
+    color: var(--text-color);
+
+}
+
+.residential-card_item_save_property:hover{
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+.residential-card_item_ellipsis{
+    background-color: transparent;
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-color);
+}
+
+.residential-card_item_ellipsis:hover{
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+
+.residential-card_address{
+    margin-bottom: 12px;
+
+}
+
+.residential-card_type{
+    display: flex;
+    align-items: center;
+}
+
+.residential-card_type_quanity{
+    margin: 0 16px 0 0 ;
+}
+
+.residential-card_house_type{
+    border-left: 1.5px solid #ccc;
+}
+
+.residential-card_house_type_text{
+    margin-left: 8px;
+}
+
+
+/* footer */
+
+.footer{
+    background-color: #111;
+    display: grid;
+    grid-template-columns: 30% 20% 20% 30%;
+    grid-column-gap: 10px;
+}
+
+.footer_list-item{
+    padding: 40px;
+}
+
+.logo_footer{
+    margin-bottom: 40px;
+}
+
+.logo_footer img{
+    width: 100px;
+}
+.contact_footer{
+    
+}
+.contact_footer li{
+    list-style: none;
+    display: flex;
+    margin-top: 20px;
+}
+
+.contact_footer li i{
+    padding-right: 12px;
+}
+
+
+.footer_text{
+    color: var(--white-color);
+}
+
+.footer_text ul{
+    padding: 0;
+}
+
+.footer_text li{
+    list-style: none;
+    text-decoration: none;
+    color: #ccc;
+}
+
+.footer_text li{
+    list-style: none;
+    margin: 20px 0;
+}
+
+
+.footer_text li a{
+    text-decoration: none;
+    color: #ccc;
+
+}
+
+.input_footer_text{
+    color: var(--white-color);
+}
+
+.input_submit{
+    width: 40px;
+    border: none;
+    height: 25px;
+    background-color: #e64141;
+    color: var(--white-color);
+}
+
+.input_submit:hover{
+    cursor: pointer;
+}
+
+.input_footer{
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    outline: none;
+
+}
+
+.input_submit-btn{
+    margin-top: 15px;
+    padding: 0;
+}
+
+.input_submit-btn:hover{
+    opacity: .7;
+    cursor: pointer;
+}

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/Home.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.css' %}">
+    <title>Trang chủ</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header_logo">
+            <a href="Home.html"><img class="header_logo_img" src="{% static 'assets/img/logo_inn.jpg' %}" alt=""></a>
+        </div>
+
+        <div class="menu_header">
+            <ul class="item-header">
+                <li class="list_item-header"><a href="">Home</a></li>
+                <li class="list_item-header"><a href="">About</a></li>
+                <li class="list_item-header"><a href="">Services</a></li>
+                <li class="list_item-header"><a href="">Blog</a></li>
+                <li class="list_item-header"><a href="">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+    <nav class="menu"></nav>
+    <nav class="container">
+        <div class="search-box">
+            <form class="search-form" method="get">
+                <div class="search-input-form">
+                    <input class="search-input" type="text" name="title" placeholder="Nhập để tìm kiếm">
+                    <button class="search-button" type="submit" name="search-song"><img
+                            src="{% static './assets/img/search.png' %}"></button>
+                </div>
+                <div class="inn-filter">
+                    <div class="inn-filter_select">
+                        <select name="house-type">
+                            <option>Loại nhà đất</option>
+                        </select>
+                        <select name="province">
+                            <option>Tỉnh thành</option>
+                        </select>
+                        <select name="district">
+                            <option>Quận/Huyện</option>
+                        </select>
+                        <select name="ward">
+                            <option>Phường/Xã</option>
+                        </select>
+                        <select name="street">
+                            <option>Đường/Phố</option>
+                        </select>
+                        <select name="price-level">
+                            <option>Mức giá</option>
+                        </select>
+                        <select name="area">
+                            <option>Diện tích</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="page-content">
+            <h1 name="prominent-area">Khu vực nổi bật</h1>
+            <div class="prominent-area">
+                <div class="pro-area hochiminh">
+                    <a href="index" title="Cho thuê phòng trọ Hồ Chí Minh">
+                        <span>Cho thuê phòng trọ
+                            <br>
+                            <b>Hồ Chí Minh</b>
+                        </span>
+                    </a>
+                </div>
+                <div class="pro-area hanoi">
+                    <a href="index" title="Cho thuê phòng trọ Hà Nội">
+                        <span>Cho thuê phòng trọ
+                            <br>
+                            <b>Hà Nội</b>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <h1 class="">Bài cho thuê mới nhất</h1>
+
+            <a href="index.html" class="new-post_link">
+                <div class="new-post">
+                    <article class="list_new_post">
+                        <!-- branding_landlords -->
+                        <div class="branding_landlords">
+                            <picture class="branding_image_landlord">
+                                <img src="{% static './assets/img/logo_LJ_Hocker.avif' %}" alt="" class="branding_image">
+                            </picture>
+        
+                            <div class="agent_with-photo">
+                                <p class="agent_name">Elon Musk</p>
+                                <span class="agent_img_item">
+                                    <img src="{% static './assets/img/Elon_Musk_Royal_Society.jpg' %}" alt="" class="agent_img">
+                                </span>
+                            </div>
+                        </div>
+        
+        
+                        <!-- residential-card__image -->
+                        <div class="residential-card__image">
+                            <div class="residential-card__image-content">
+                                <div class="residential-slides">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                                <button class="arrow_right">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </button>
+                                
+                                <button class="arrow_left">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+        
+                        <!-- posting_time -->
+                        <div class="posting_time">
+                            <div class="posting_time_position">
+                                <span class="posting_time_icon">
+            
+                                </span>
+            
+                                <span class="posting_time_text">1 GIỜ TRƯỚC</span>
+                            </div>
+                        </div>
+        
+        
+                        <!-- residential-card__content -->
+                        <div class="residential-card__content">
+                            <div class="residential-card_item">
+                                <div class="residential-card_item_list">
+                                    <div class="residential-card_price">
+                                        <h2>$450.00</h2>
+                                    </div>
+                                    <div class="residential-card_item_extend">
+                                        <button class="residential-card_item_save_property">
+                                            <i class="fa-regular fa-star"></i>
+                                        </button>
+                                        <button class="residential-card_item_ellipsis">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </div>
+                                </div>
+            
+                                <div class="residential-card_address">
+                                    <span>6/126 TERRACE ROAD, PERTH</span>
+                                </div>
+            
+                                <div class="residential-card_type">
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bed"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bath"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-car"></i>
+                                        <span>1</span>
+                                    </div>
+        
+                                    <div class="residential-card_house_type">
+                                        <div class="residential-card_house_type_text">Unit</div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </article>
+                </div>
+            </a>
+
+            <a href="index.html" class="new-post_link">
+                <div class="new-post">
+                    <article class="list_new_post">
+                        <!-- branding_landlords -->
+                        <div class="branding_landlords">
+                            <picture class="branding_image_landlord">
+                                <img src="{% static './assets/img/logo_LJ_Hocker.avif' %}" alt="" class="branding_image">
+                            </picture>
+        
+                            <div class="agent_with-photo">
+                                <p class="agent_name">Elon Musk</p>
+                                <span class="agent_img_item">
+                                    <img src="{% static './assets/img/Elon_Musk_Royal_Society.jpg' %}" alt="" class="agent_img">
+                                </span>
+                            </div>
+                        </div>
+        
+        
+                        <!-- residential-card__image -->
+                        <div class="residential-card__image">
+                            <div class="residential-card__image-content">
+                                <div class="residential-slides">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                                <button class="arrow_right">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </button>
+                                
+                                <button class="arrow_left">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+        
+                        <!-- posting_time -->
+                        <div class="posting_time">
+                            <div class="posting_time_position">
+                                <span class="posting_time_icon">
+            
+                                </span>
+            
+                                <span class="posting_time_text">1 GIỜ TRƯỚC</span>
+                            </div>
+                        </div>
+        
+        
+                        <!-- residential-card__content -->
+                        <div class="residential-card__content">
+                            <div class="residential-card_item">
+                                <div class="residential-card_item_list">
+                                    <div class="residential-card_price">
+                                        <h2>$450.00</h2>
+                                    </div>
+                                    <div class="residential-card_item_extend">
+                                        <button class="residential-card_item_save_property">
+                                            <i class="fa-regular fa-star"></i>
+                                        </button>
+                                        <button class="residential-card_item_ellipsis">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </div>
+                                </div>
+            
+                                <div class="residential-card_address">
+                                    <span>6/126 TERRACE ROAD, PERTH</span>
+                                </div>
+            
+                                <div class="residential-card_type">
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bed"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bath"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-car"></i>
+                                        <span>1</span>
+                                    </div>
+        
+                                    <div class="residential-card_house_type">
+                                        <div class="residential-card_house_type_text">Unit</div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </article>
+                </div>
+            </a>
+
+            <a href="index.html" class="new-post_link">
+                <div class="new-post">
+                    <article class="list_new_post">
+                        <!-- branding_landlords -->
+                        <div class="branding_landlords">
+                            <picture class="branding_image_landlord">
+                                <img src="{% static './assets/img/logo_LJ_Hocker.avif' %}" alt="" class="branding_image">
+                            </picture>
+        
+                            <div class="agent_with-photo">
+                                <p class="agent_name">Elon Musk</p>
+                                <span class="agent_img_item">
+                                    <img src="{% static './assets/img/Elon_Musk_Royal_Society.jpg' %}" alt="" class="agent_img">
+                                </span>
+                            </div>
+                        </div>
+        
+        
+                        <!-- residential-card__image -->
+                        <div class="residential-card__image">
+                            <div class="residential-card__image-content">
+                                <div class="residential-slides">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                                <button class="arrow_right">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </button>
+                                
+                                <button class="arrow_left">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+        
+                        <!-- posting_time -->
+                        <div class="posting_time">
+                            <div class="posting_time_position">
+                                <span class="posting_time_icon">
+            
+                                </span>
+            
+                                <span class="posting_time_text">1 GIỜ TRƯỚC</span>
+                            </div>
+                        </div>
+        
+        
+                        <!-- residential-card__content -->
+                        <div class="residential-card__content">
+                            <div class="residential-card_item">
+                                <div class="residential-card_item_list">
+                                    <div class="residential-card_price">
+                                        <h2>$450.00</h2>
+                                    </div>
+                                    <div class="residential-card_item_extend">
+                                        <button class="residential-card_item_save_property">
+                                            <i class="fa-regular fa-star"></i>
+                                        </button>
+                                        <button class="residential-card_item_ellipsis">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </div>
+                                </div>
+            
+                                <div class="residential-card_address">
+                                    <span>6/126 TERRACE ROAD, PERTH</span>
+                                </div>
+            
+                                <div class="residential-card_type">
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bed"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bath"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-car"></i>
+                                        <span>1</span>
+                                    </div>
+        
+                                    <div class="residential-card_house_type">
+                                        <div class="residential-card_house_type_text">Unit</div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </article>
+                </div>
+            </a>
+
+        </div>
+    </nav>
+
+
+    <footer class="footer">
+        <div class="footer_list-item">
+            <div class="footer_text">
+                <div class="contact_footer">
+                    CÔNG TY CỔ PHẦN PROPERTYGURU VIỆT NAM
+                    <li><i class="fa-regular fa-location-dot"></i><p>Tầng 31, Keangnam Hanoi Landmark, Phạm Hùng, Nam Từ Liêm, Hà Nội</p></li>
+                    <li><i class="fa-regular fa-phone-volume"></i><p>(024) 3562 5939 - (024) 3562 5940</p></li>
+                </div>
+            </div>
+        </div>
+        <div class="footer_list-item">
+            <div class="footer_text">HƯỚNG DẪN
+                    <li><a href="">Báo giá & hỗ trợ</a></li>
+                    <li><a href="">Câu hỏi thường gặp</a></li>
+                    <li><a href="">Thông báo</a></li>
+                    <li><a href="">Liên hệ</a></li>
+                    <li><a href="">Sitemap</a></li>
+                
+            </div>
+        </div>
+        <div class="footer_list-item">
+            <div class="footer_text">QUY ĐỊNH
+                <ul>
+                    <li><a href="">Quy định đăng tin</a></li>
+                    <li><a href="">Quy chế hoạt động</a></li>
+                    <li><a href="">Điều khoản thỏa thuận</a></li>
+                    <li><a href="">Chính sách bảo mật</a></li>
+                    <li><a href="">Giải quyết khiếu nại</a></li>
+                    <li><a href="">Góp ý báo lỗi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer_list-item">
+            <div class="input_footer_text">
+                ĐĂNG KÝ NHẬN TIN
+            </div>
+            <input type="text" class="input_footer" placeholder="Nhập Email của bạn">
+
+            </input>
+            <button class="input_submit-btn"><input type="submit" class="input_submit"></button>
+            
+        </div>
+    </footer>
+</body>
+
+</html>

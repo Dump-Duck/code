@@ -16,7 +16,7 @@
 <body>
     <header class="header">
         <div class="header_logo">
-            <a href="Home.html"><img class="header_logo_img" src="{% static 'assets/img/logo_inn.jpg' %}" alt=""></a>
+            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/logo_inn.jpg' %}" alt=""></a>
         </div>
 
         <div class="menu_header">
@@ -26,6 +26,7 @@
                 <li class="list_item-header"><a href="">Services</a></li>
                 <li class="list_item-header"><a href="">Blog</a></li>
                 <li class="list_item-header"><a href="">Contact</a></li>
+                <li class="list_item-header"><a href="{% url 'login' %}">Login</a></li>
             </ul>
         </div>
     </header>

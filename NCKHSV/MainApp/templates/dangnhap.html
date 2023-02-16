@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <title>Webpage Design</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static './assets/style.css' %}">
 </head>
 <body>
 
@@ -18,8 +19,8 @@
                     <input type="password" class="input-login-password"  placeholder="Password"/>
                     <button class="btnn"><a class="login__signInButton" href="#">Login</a></button>
 
-                    <p class="link">Nếu bạn chưa có tài khoản<br>
-                    <a href="dangky.html">Đăng ký </a> </a></p>
+                    <p class="link">Trang đăng nhập dành riêng cho tài khoản admin<br>
+                    <a href="{% url 'main' %}">Trở về trang chủ </a> </a></p>
                     <p class="liw">tại đây</p>
 
                     <div class="icons">

@@ -61,7 +61,6 @@ class streets(models.Model):
     
 class wards(models.Model):
     ward = models.CharField(max_length=255, null=False)
-    streets = models.ManyToManyField(streets, null=False)
     
     
 class districts(models.Model):

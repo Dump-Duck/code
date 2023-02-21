@@ -106,7 +106,3 @@ class Image(models.Model):
     
     images = models.ImageField(upload_to=upload_photo, null=False)
     
-    
-class admin_account(models.Model):
-    admin_account_name = models.CharField(max_length=255, null=False)
-    password = models.CharField(max_length=255, null=False)

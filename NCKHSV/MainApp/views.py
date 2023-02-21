@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from .forms import *
 
 # Create your views here.
 
@@ -10,5 +11,3 @@ def main(request):
 def index(request):
     return render(request, 'index.html')
 
-def admin_login(request):
-    return render(request, 'dangnhap.html')

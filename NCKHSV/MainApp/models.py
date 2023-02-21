@@ -55,20 +55,23 @@ class house_types(models.Model):
     house_type = models.CharField(max_length=255, null=False)
     
 
-class provinces(models.Model):
-    province = models.CharField(max_length=255, null=False)
-    
-    
-class districts(models.Model):
-    district = models.CharField(max_length=255, null=False)
+class streets(models.Model):
+    street = models.CharField(max_length=255, null=False)
     
     
 class wards(models.Model):
     ward = models.CharField(max_length=255, null=False)
+    streets = models.ManyToManyField(streets, null=False)
     
     
-class streets(models.Model):
-    street = models.CharField(max_length=255, null=False)
+class districts(models.Model):
+    district = models.CharField(max_length=255, null=False)
+    wards = models.ManyToManyField(wards, null=False)
+    
+    
+class provinces(models.Model):
+    province = models.CharField(max_length=255, null=False)
+    districts = models.ManyToManyField(districts, null=False)
     
     
 class houses_for_rent(models.Model):

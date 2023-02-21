@@ -4,5 +4,5 @@ from . import views
 urlpatterns = [
     path('', views.main, name='main'),
     path('index/', views.index, name='index'),
-    # path('account/', include('django.contrib.auth.urls')),
+    path('upload/', views.upload, name='upload'),
 ]

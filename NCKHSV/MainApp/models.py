@@ -53,22 +53,20 @@ IMG_DIR = os.path.join(BASE_DIR, 'MainApp/static/assets/img/house_photo')
 # ! new models
 class house_types(models.Model):
     house_type = models.CharField(max_length=255, null=False)
-    
 
-# class streets(models.Model):
-    # street = models.CharField(max_length=255, null=False) 
-class wards(models.Model):
-    ward = models.CharField(max_length=255, null=False)
-    
-    
+
+class provinces(models.Model):
+    province = models.CharField(max_length=255, null=False)  
+
+
 class districts(models.Model):
     district = models.CharField(max_length=255, null=False)
-    wards = models.ManyToManyField(wards, null=False)
+    province = models.ForeignKey(provinces, null=True, on_delete=models.CASCADE)
     
     
-class provinces(models.Model):
-    province = models.CharField(max_length=255, null=False)
-    districts = models.ManyToManyField(districts, null=False)
+class wards(models.Model):
+    ward = models.CharField(max_length=255, null=False)
+    district = models.ForeignKey(districts, null=True, on_delete=models.CASCADE)
     
     
 class houses_for_rent(models.Model):
@@ -92,7 +90,7 @@ class houses_for_rent(models.Model):
     parking_area = models.IntegerField(null=False)
     car_parking_area = models.IntegerField(null=False)
     pet_allow = models.IntegerField(null=False)
-    coordinates = models.CharField(max_length=255, null=False)
+    coordinates = models.CharField(max_length=255, null=True)
     
     
 class Image(models.Model):

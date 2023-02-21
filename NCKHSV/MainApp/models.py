@@ -99,4 +99,10 @@ class Image(models.Model):
         return f'{IMG_DIR}/{filename}'
     
     images = models.ImageField(upload_to=upload_photo, null=False)
+    # houses = models.ManyToManyField(houses_for_rent, through='HouseImage')
+    
+    
+# class HouseImage(models.Model):
+#     house = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
+#     image = models.ForeignKey(Image, on)
     

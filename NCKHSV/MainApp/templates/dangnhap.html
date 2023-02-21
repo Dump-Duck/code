@@ -14,14 +14,19 @@
 
 
                 <div class="form">
-                    <h2>Đăng nhập</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btnn"><a class="login__signInButton" href="">Login</a></button>
+                </form>
+                    {% comment %} <h2>Đăng nhập</h2>
                     <input type="text" class="input-login-username"  placeholder="Email">
                     <input type="password" class="input-login-password"  placeholder="Password"/>
                     <button class="btnn"><a class="login__signInButton" href="#">Login</a></button>
 
                     <p class="link">Trang đăng nhập dành riêng cho tài khoản admin<br>
                     <a href="{% url 'main' %}">Trở về trang chủ </a> </a></p>
-                    <p class="liw">tại đây</p>
+                    <p class="liw">tại đây</p> {% endcomment %}
 
                     <div class="icons">
                         <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>

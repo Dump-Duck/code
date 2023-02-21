@@ -55,10 +55,8 @@ class house_types(models.Model):
     house_type = models.CharField(max_length=255, null=False)
     
 
-class streets(models.Model):
-    street = models.CharField(max_length=255, null=False)
-    
-    
+# class streets(models.Model):
+    # street = models.CharField(max_length=255, null=False) 
 class wards(models.Model):
     ward = models.CharField(max_length=255, null=False)
     
@@ -79,7 +77,6 @@ class houses_for_rent(models.Model):
     province = models.ForeignKey(provinces, null=False, on_delete=models.CASCADE)
     district = models.ForeignKey(districts, null=False, on_delete=models.CASCADE)
     ward = models.ForeignKey(wards, null=False, on_delete=models.CASCADE)
-    street = models.ForeignKey(streets, null=False, on_delete=models.CASCADE)
     price_per_month = models.IntegerField(null=False)
     area = models.IntegerField(null=False)
     images = models.ManyToManyField('Image')

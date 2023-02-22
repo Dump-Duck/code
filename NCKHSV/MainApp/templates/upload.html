@@ -30,10 +30,9 @@
         {% elif field.name == 'images' %}
         <input type='file' name="images" multiple>
         {% else %}
-        <input>
+        <input type="text" name="{{ field.name }}" placeholder="Nhập {{ field.label.title }}"> <span>{{ field.help_text }}</span>
         {% endif %}
     </p>
     {% endfor %}
     <input type="submit" value="Đăng tin">
 </form>
-{{ error }}

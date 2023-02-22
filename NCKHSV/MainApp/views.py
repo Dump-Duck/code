@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .forms import *
-from .models import *
+from .models import HouseImage, Image, houses_for_rent
 
 # Create your views here.
 
@@ -41,14 +41,20 @@ def upload(request):
             car_parking_area = request.POST.get('car_parking_area')
             pet_allow = request.POST.get('pet_allow')
             
-            for image in images:
-                save_img = Image.objects.create(images=image)
-                save_img.save()
-            all_img = Image.objects.all()
-            
             save_house = houses_for_rent.objects.create(house_type=house_type, address=address, province=province, district=district, ward=ward, price_per_month=price_per_month, area=area, description=description, price_per_water_num=price_per_water_num, price_per_electric_num=price_per_electric_num, junk_money=junk_money, air_conditioner=air_conditioner, wardrobe=wardrobe, fan=fan, wc=wc, cooking_area=cooking_area, parking_area=parking_area, car_parking_area=car_parking_area, pet_allow=pet_allow)
             save_house.save()
             
+            for image in images:
+                save_img = Image.objects.create(images=image)
+                save_img.save()
+                house_img = HouseImage.objects.create(house=save_house, image=save_img)
+                house_img.save()
+                
+            # all_img = Image.objects.all()
+            
+            # for img in range(0, len(all_img)):
+                # pass
+                
             
             # if house_for_rent.save() == True:
             #     response = HttpResponse()
@@ -57,7 +63,10 @@ def upload(request):
             # else:
             #     response = HttpResponse()
             #     response.write('<h1>Đã xảy ra lỗi! Vui lòng thử lại.<h1>')
-            return redirect('main')
+            if save_house.save() == False:
+                return render(request, 'upload.html', {'uploadForm': uploadForm, 'house_types': house_type, 'provinces': province, 'districts': district, 'wards': ward})
+            else:
+                return render(request, 'Home.html')
     else:
         uploadForm = UploadForm()
     return render(request, 'upload.html', {'uploadForm': uploadForm, 'house_types': house_type, 'provinces': province, 'districts': district, 'wards': ward})

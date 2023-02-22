@@ -33,7 +33,6 @@ class houses_for_rent(models.Model):
     ward = models.ForeignKey(wards, null=False, on_delete=models.CASCADE)
     price_per_month = models.IntegerField(null=False)
     area = models.IntegerField(null=False)
-    # images = models.ManyToManyField('Image')
     description = models.TextField(null=False)
     price_per_water_num = models.IntegerField(null=False)
     price_per_electric_num = models.IntegerField(null=False)
@@ -50,11 +49,11 @@ class houses_for_rent(models.Model):
     
     
 class Image(models.Model):
-    images = models.ImageField(upload_to=IMG_DIR, null=False)
-    houses = models.ManyToManyField(houses_for_rent, through='HouseImage')
+    images = models.FileField(upload_to=IMG_DIR, null=False)
+    houses = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
     
     
-class HouseImage(models.Model):
-    house = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+# class HouseImage(models.Model):
+#     house = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
+#     image = models.ForeignKey(Image, on_delete=models.CASCADE)
     

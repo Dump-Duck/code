@@ -13,6 +13,7 @@ def main(request):
 def index(request):
     return render(request, 'index.html')
 
+# Upload new post of Inn information
 def upload(request):
     filter_house = house_types.objects.all()
     filter_province = provinces.objects.all()
@@ -53,9 +54,14 @@ def upload(request):
             for image in images:
                 save_img = Image.objects.create(images=image, houses=save_house)
                 save_img.save()
-            return render(request,'Home.html')
+            return redirect('/')
         else:
             print(uploadForm.errors)
     else:
         uploadForm = UploadForm()
     return render(request, 'upload.html', {'uploadForm': uploadForm, 'house_types': filter_house, 'provinces': filter_province, 'districts': filter_district, 'wards': filter_ward})
+
+# Manage all posts of Inn
+def manage(request):
+    all_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()
+    return render(request, 'manage.html', {'allPosts': all_posts})

@@ -27,11 +27,11 @@ class wards(models.Model):
     
     
 class houses_for_rent(models.Model):
-    house_type = models.ForeignKey(house_types, null=False, on_delete=models.CASCADE)
+    house_type = models.ForeignKey(house_types, null=False, on_delete=models.CASCADE, related_name='types')
     address = models.CharField(max_length=255, null=False)
-    province = models.ForeignKey(provinces, null=False, on_delete=models.CASCADE)
-    district = models.ForeignKey(districts, null=False, on_delete=models.CASCADE)
-    ward = models.ForeignKey(wards, null=False, on_delete=models.CASCADE)
+    province = models.ForeignKey(provinces, null=False, on_delete=models.CASCADE, related_name='provinces')
+    district = models.ForeignKey(districts, null=False, on_delete=models.CASCADE, related_name='districts')
+    ward = models.ForeignKey(wards, null=False, on_delete=models.CASCADE, related_name='wards')
     price_per_month = models.IntegerField(null=False)
     area = models.IntegerField(null=False)
     description = models.TextField(null=False)

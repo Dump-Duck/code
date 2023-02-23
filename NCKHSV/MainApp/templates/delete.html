@@ -1,0 +1,6 @@
+<h1>Xóa bài đăng {{house_post.id}}?</h1>
+<form method="post" action="{%url 'delete' house_post.id%}">
+    {% csrf_token %}
+    <a href="{% url 'manage' %}">Cancle</a>
+    <input type="submit" value="Confirm">
+</form>

@@ -10,6 +10,7 @@
         <th>Diện tích (m2)</th>
         <th>Mô tả</th>
         <th>Update</th>
+        <th>Delete</th>
     </tr>
     {% for field in allPosts %}
     <tr>
@@ -23,6 +24,7 @@
         <td>{{ field.area }}</td>
         <td>{{ field.description }}</td>
         <td><button><a href="{% url 'update' field.id %}">Cập nhật</a></button></td>
+        <td><button><a href="{% url 'delete' field.id %}">Xóa</a></button></td>
     <tr>
     {% endfor %}
 </table>

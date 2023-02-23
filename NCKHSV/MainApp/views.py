@@ -111,6 +111,14 @@ def update(request, id):
         updateForm = UpdateForm(id)
     return render(request, 'update.html', {'updateForm': updateForm, 'house_types': filter_house, 'provinces': filter_province, 'districts': filter_district, 'wards': filter_ward, 'oldData': house_for_rent})
 
+# Delete
+def delete(request, id):
+    house_post = houses_for_rent.objects.get(id=id)
+    if request.method == 'POST':
+        house_post.delete()
+        return redirect('/manage')
+    return render(request, 'delete.html', {'house_post':house_post})
+
 # Manage all posts of Inn
 def manage(request):
     all_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()

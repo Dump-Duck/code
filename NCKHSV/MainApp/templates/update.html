@@ -6,31 +6,47 @@
         {% if field.name == 'house_type' %}
         <select name="{{ field.name }}">
             {% for i in house_types %}
+            {% if i.house_type == field.initial %}
+            <option value="{{ i.id }}" selected>{{ field.initial }}</option>
+            {% else %}
             <option value="{{ i.id }}">{{ i.house_type }}</option>
+            {% endif %}
             {% endfor %}
         </select>
         {% elif field.name == 'province' %}
         <select name="{{ field.name }}">
             {% for i in provinces %}
+            {% if i.province == field.initial %}
+            <option value="{{ i.id }}" selected>{{ field.initial }}</option>
+            {% else %}
             <option value="{{ i.id }}">{{ i.province }}</option>
+            {% endif %}
             {% endfor %}
         </select>
         {% elif field.name == 'district' %}
         <select name="{{ field.name }}">
             {% for i in districts %}
+            {% if i.district == field.initial %}
+            <option value="{{ i.id }}" selected>{{ field.initial }}</option>
+            {% else %}
             <option value="{{ i.id }}">{{ i.district }}</option>
+            {% endif %}
             {% endfor %}
         </select>
         {% elif field.name == 'ward' %}
         <select name="{{ field.name }}">
             {% for i in wards %}
+            {% if i.ward == field.initial %}
+            <option value="{{ i.id }}" selected>{{ field.initial }}</option>
+            {% else %}
             <option value="{{ i.id }}">{{ i.ward }}</option>
+            {% endif %}
             {% endfor %}
         </select>
         {% elif field.name == 'images' %}
-        <input type='file' name="images" multiple>
+        <input type='file' name="images" value="{{ field.initial }}" multiple>
         {% else %}
-        <input type="text" name="{{ field.name }}""> <span>{{ field.help_text }}</span>
+        <input type="text" name="{{ field.name }}" value="{{field.initial}}"> <span>{{ field.help_text }}</span>
         {% endif %}
     </p>
     {% endfor %}

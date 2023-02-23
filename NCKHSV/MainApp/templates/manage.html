@@ -9,6 +9,7 @@
         <th>Giá tiền 1 tháng</th>
         <th>Diện tích (m2)</th>
         <th>Mô tả</th>
+        <th>Update</th>
     </tr>
     {% for field in allPosts %}
     <tr>
@@ -21,6 +22,7 @@
         <td>{{ field.price_per_month }}</td>
         <td>{{ field.area }}</td>
         <td>{{ field.description }}</td>
+        <td><button><a href="{% url 'update' field.id %}">Update</a></button></td>
     <tr>
     {% endfor %}
 </table>

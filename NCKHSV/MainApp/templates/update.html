@@ -1,0 +1,38 @@
+<h2>Đăng tải thông tin nhà trọ</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in updateForm %}
+    <p>{{ field.label }}:
+        {% if field.name == 'house_type' %}
+        <select name="{{ field.name }}">
+            {% for i in house_types %}
+            <option value="{{ i.id }}">{{ i.house_type }}</option>
+            {% endfor %}
+        </select>
+        {% elif field.name == 'province' %}
+        <select name="{{ field.name }}">
+            {% for i in provinces %}
+            <option value="{{ i.id }}">{{ i.province }}</option>
+            {% endfor %}
+        </select>
+        {% elif field.name == 'district' %}
+        <select name="{{ field.name }}">
+            {% for i in districts %}
+            <option value="{{ i.id }}">{{ i.district }}</option>
+            {% endfor %}
+        </select>
+        {% elif field.name == 'ward' %}
+        <select name="{{ field.name }}">
+            {% for i in wards %}
+            <option value="{{ i.id }}">{{ i.ward }}</option>
+            {% endfor %}
+        </select>
+        {% elif field.name == 'images' %}
+        <input type='file' name="images" multiple>
+        {% else %}
+        <input type="text" name="{{ field.name }}""> <span>{{ field.help_text }}</span>
+        {% endif %}
+    </p>
+    {% endfor %}
+    <input type="submit" value="Update">
+</form>

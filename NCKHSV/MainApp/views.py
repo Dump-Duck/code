@@ -7,6 +7,7 @@ from .models import *
 # Create your views here.
 
 def main(request):
+    
     return render(request, 'Home.html')
 
 def index(request):
@@ -20,11 +21,11 @@ def upload(request):
     if request.method == "POST":
         uploadForm = UploadForm(request.POST, request.FILES)
         if uploadForm.is_valid():
-            house_type = request.POST.get('house_type')
+            house_type = house_types.objects.get(id=request.POST.get('house_type'))
             address = request.POST.get('address')
-            province = request.POST.get('province')
-            district = request.POST.get('district')
-            ward = request.POST.get('ward')
+            province = provinces.objects.get(id=request.POST.get('province'))
+            district = districts.objects.get(id=request.POST.get('district'))
+            ward = wards.objects.get(id=request.POST.get('ward'))
             price_per_month = request.POST.get('price_per_month')
             area = request.POST.get('area')
             images = request.FILES.getlist('images')
@@ -50,12 +51,10 @@ def upload(request):
             save_house.save()
             
             for image in images:
-                name_img = image.name
-                save_img = Image.objects.create(images=name_img, houses=save_house)
+                save_img = Image.objects.create(images=image, houses=save_house)
                 save_img.save()
             return render(request,'Home.html')
         else:
-            print(house_type)
             print(uploadForm.errors)
     else:
         uploadForm = UploadForm()

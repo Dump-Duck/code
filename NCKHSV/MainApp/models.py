@@ -1,9 +1,10 @@
-import os
 from django.db import models
-from pathlib import Path
+# from django.conf import settings
+# import os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-IMG_DIR = os.path.join(BASE_DIR, 'MainApp\\static\\assets\\img\\house_photo')
+# BASE_DIR = Path(__file__).resolve().parent.parent
+# IMG_DIR = os.path.join(BASE_DIR, 'MainApp\\static\\assets\\img\\house_photo')
+# save_img = os.path.join(settings.BASE_DIR, '\\house_photo')
 
 # Create your models here.
 # ! new models
@@ -49,7 +50,7 @@ class houses_for_rent(models.Model):
     
     
 class Image(models.Model):
-    images = models.FileField(upload_to=IMG_DIR, null=False)
+    images = models.FileField(upload_to='MainApp/static/assets/img/house_photo', null=False)
     houses = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
     
     

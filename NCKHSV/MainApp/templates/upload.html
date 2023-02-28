@@ -1,38 +1,71 @@
-<h2>Đăng tải thông tin nhà trọ</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for field in uploadForm %}
-    <p>{{ field.label }}:
-        {% if field.name == 'house_type' %}
-        <select name="{{ field.name }}">
-            {% for i in house_types %}
-            <option value="{{ i.id }}">{{ i.house_type }}</option>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/upload.css' %}">
+
+    <title>UPLOAD</title>
+</head>
+<body>
+    
+<div class="container">
+    <div class="nav">
+        <h2 class="text_content">Đăng tải thông tin nhà trọ</h2>
+        <div class="link_home"> 
+            <ul class="item-header">
+                <li class="list_item-header"><a href="">Home</a></li> 
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <form method="post" enctype="multipart/form-data">  
+            {% csrf_token %}
+            {% for field in uploadForm %}
+            <div class="content_upload"> 
+                <p class="label">{{ field.label }}:  </p>
+                    {% if field.name == 'house_type' %}
+                    <select class="select" name="{{ field.name }}">
+                        {% for i in house_types %}
+                        <option class="option_item" value="{{ i.id }}">{{ i.house_type }}</option>
+                        {% endfor %}    
+                    </select>
+                    {% elif field.name == 'province' %}
+                    <select class="select" t name="{{ field.name }}">
+                        {% for i in provinces %}
+                        <option class="option_item" value="{{ i.id }}">{{ i.province }}</option>
+                        {% endfor %}
+                    </select>
+                    {% elif field.name == 'district' %}
+                    <select class="select"  name="{{ field.name }}">
+                        {% for i in districts %}
+                        <option class="option_item" value="{{ i.id }}">{{ i.district }}</option>
+                        {% endfor %}
+                    </select>
+                    {% elif field.name == 'ward' %}
+                    <select class="select"  name="{{ field.name }}">
+                        {% for i in wards %}
+                        <option  class="option_item" value="{{ i.id }}">{{ i.ward }}</option>
+                        {% endfor %}
+                    </select>
+                    {% elif field.name == 'images' %}
+                    <input class="input_img" type='file' name="images" multiple>
+                    {% else %}
+                    <input class="input" type="text" name="{{ field.name }}" placeholder="Nhập {{ field.label.title }}"> 
+                    {% endif %}
+            </div>
             {% endfor %}
-        </select>
-        {% elif field.name == 'province' %}
-        <select name="{{ field.name }}">
-            {% for i in provinces %}
-            <option value="{{ i.id }}">{{ i.province }}</option>
-            {% endfor %}
-        </select>
-        {% elif field.name == 'district' %}
-        <select name="{{ field.name }}">
-            {% for i in districts %}
-            <option value="{{ i.id }}">{{ i.district }}</option>
-            {% endfor %}
-        </select>
-        {% elif field.name == 'ward' %}
-        <select name="{{ field.name }}">
-            {% for i in wards %}
-            <option value="{{ i.id }}">{{ i.ward }}</option>
-            {% endfor %}
-        </select>
-        {% elif field.name == 'images' %}
-        <input type='file' name="images" multiple>
-        {% else %}
-        <input type="text" name="{{ field.name }}" placeholder="Nhập {{ field.label.title }}"> <span>{{ field.help_text }}</span>
-        {% endif %}
-    </p>
-    {% endfor %}
-    <input type="submit" value="Đăng tin">
-</form>
+            <div class="box">
+                <input class="btn_submit" type="submit" value="Đăng tin">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
+

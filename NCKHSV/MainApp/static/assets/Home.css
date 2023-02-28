@@ -1,9 +1,7 @@
 
-
 body {
-    background-color: #060f29;
-    color: white;
-    font-family: 'Raleway', sans-serif;
+    background-color: #eaecf4;
+    color: rgb(20, 19, 19);
 }
 
 /* header  */
@@ -18,67 +16,40 @@ body {
 .header_logo{
 
 }
+.dark {
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 60px;
+}
 
 .header_logo_img{
     width: 80px;
 }
 
 
-nav a {
-    position: relative;
-    display: inline-block;
-    margin: 15px 15px;
-    outline: none;
-    color: #ccc;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 100;
-    text-shadow: 0 0 1px rgba(255,255,255,0.3);
-    font-size: 1em;
-  }
-  
-  nav a:hover,
-  nav a:focus {
-    outline: none;
-  }
-  
-  
-
 .item-header{
+    display: flex;
+}
+
+.list_item-header{
     list-style: none;
 }
 
-.item-header a{
-    padding: 8px 0;
+.list_item-header a{
+    color: var(--white-color);
+    list-style: none;
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 60px;
+    color: rgb(8, 5, 5);
 }
 
-.item-header a::after {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: rgba(255,255,255,0.3);
-    content: '';
-    opacity: 0;
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    -webkit-transform: translateY(10px);
-    -moz-transform: translateY(10px);
-    transform: translateY(10px);
-}
-  
-.item-header a:hover::after,
-.item-header a:focus::after {
-    opacity: 1;
-    -webkit-transform: translateY(0px);
-    -moz-transform: translateY(0px);
-    transform: translateY(0px);
-}
+.list_item-header a:hover{
 
-
+    color:#715d43 ;
+}
 
 
 a {
@@ -99,24 +70,47 @@ a {
     width: 100%;
     max-width: 100%;
 }
-
+/* 
 .search-form{
     margin: 10px 10px 0 10px;
 }
 .search-box h3 {
     margin: 10px 10px;
+} */
+input[type="text"] {
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+    border-bottom: 1px solid #cabdbd;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+    background-color: #ffffff;
+    font-size: 16px;
+  }
+  ul {
+    list-style: none;
+  }
+  .list {
+    width: 100%;
+    background-color: #918787;
+    border-radius: 0 0 5px 5px;
 }
-
+  .list-items {
+    padding: 10px 5px;
+  }
+  .list-items:hover {
+    background-color: #dddddd;
+  }
 .search-input-form {
     width: 100%;
-    background: white;
+    background: rgb(91, 20, 20);
     display: flex;
     border-radius: 12px;
 }
 
 .search-input {
     background: transparent;
-    color: black;
+    color: rgb(214, 197, 197);
     flex: 1;
     outline: none;
     margin: 15px 15px;
@@ -124,7 +118,7 @@ a {
     font-size: 25px;
 }
 
-.search-button {
+/* .search-button {
     border: 0;
     border-radius: 50%;
     width: 60px;
@@ -132,11 +126,11 @@ a {
     background: red;
     margin: 5px 5px;
     cursor: pointer;
-}
+} */
 
-.search-button img {
+/* .search-button img {
     width: 40px
-}
+} */
 
 .inn-filter {
     margin-top: 10px;
@@ -204,8 +198,43 @@ a {
 .pro-area a:hover {
     text-decoration: underline;
 }
-
-
+/* css cho dark mode */
+body.dark {
+    background: #000;
+    color: #eaecf4;
+}
+body.dark .list_item-header a{
+    color: var(--white-color);
+    list-style: none;
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 60px;
+    color: rgb(247, 241, 241);
+}
+ /* body.dark input[type="text"] {
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+    border-bottom: 1px solid #f3f3f3;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+    background-color: #ffffff;
+    font-size: 16px;
+  }
+ body.dark ul {
+    list-style: none;
+  }
+  body.dark .list {
+    width: 100%;
+    background-color: #050404;
+    border-radius: 0 0 5px 5px;
+  }
+  body.dark .list-items {
+    padding: 10px 5px;
+  }
+  body.dark .list-items:hover {
+    background-color: #dddddd;
+  } */
 
 /* newpost */
 .new-post{
@@ -499,11 +528,6 @@ a {
     background-color: #e64141;
     color: var(--white-color);
 }
-
-.input_submit:hover{
-    cursor: pointer;
-}
-
 .input_footer{
     margin-top: 20px;
     width: 100%;

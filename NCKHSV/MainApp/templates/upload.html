@@ -6,22 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'assets/base.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/upload.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/upload_update.css' %}">
 
     <title>UPLOAD</title>
 </head>
 <body>
     
-<div class="container">
-    <div class="nav">
-        <h2 class="text_content">Đăng tải thông tin nhà trọ</h2>
-        <div class="link_home"> 
-            <ul class="item-header">
-                <li class="list_item-header"><a href="">Home</a></li> 
-            </ul>
+    <header class="header">
+        <div class="header_logo">
+            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/logo_inn.jpg' %}" alt=""></a>
         </div>
-    </div>
+
+        <section class="menu_header">
+            <nav class="item-header">
+               <a href="">Home</a>
+               <a href="">About</a>
+               <a href="">Services</a>
+               <a href="">Blog</a>
+               <a href="">Contact</a>
+                {% if user.is_authenticated %}
+               <a href="{% url 'manage' %}">Manage</a>
+               <a href="{% url 'upload' %}">Upload</a>
+               <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+               <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </nav>
+        </section>
+    </header>
+
+
     <div class="content">
+        <h2 class="text_content">Đăng tải thông tin nhà trọ</h2>
         <form method="post" enctype="multipart/form-data">  
             {% csrf_token %}
             {% for field in uploadForm %}
@@ -63,7 +79,6 @@
             </div>
         </form>
     </div>
-</div>
 
 
 </body>

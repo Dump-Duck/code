@@ -85,129 +85,130 @@ a {
     text-decoration: none;
 }
 
+
+
+
+/* container */
+
 .container {
     width: 70%;
-    margin: auto;
+    margin: auto ;
 }
+
 
 .search-box {
     margin: 3vh 0;
-    background-color: #666666;
     display: inline-block;
-    /* padding: 15px 15px; */
-    border-radius: 5px;
     width: 100%;
-    max-width: 100%;
 }
 
 .search-form{
     margin: 10px 10px 0 10px;
-}
-.search-box h3 {
-    margin: 10px 10px;
+    display: flex;
+
 }
 
 .search-input-form {
-    width: 100%;
-    background: white;
+    width: 40%;
     display: flex;
-    border-radius: 12px;
+    margin-left: 16px;
 }
 
-.search-input {
-    background: transparent;
-    color: black;
-    flex: 1;
-    outline: none;
-    margin: 15px 15px;
-    border: 0;
-    font-size: 25px;
-}
-
-.search-button {
-    border: 0;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    background: red;
-    margin: 5px 5px;
-    cursor: pointer;
-}
 
 .search-button img {
     width: 40px
 }
 
-.inn-filter {
-    margin-top: 10px;
-}
 
-.inn-filter select {
-    width: 153.9px;
-    height: 40px;
-    border-radius: 6px;
-    outline: none;
-    margin: 0 5px 10px 0px;
-}
+select {
+    outline:0;
+    box-shadow:none;
+    border:0!important; 
+    background: #666;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color:#fff;
+    cursor:pointer;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+ }
 
-.inn-filter_select{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.prominent-area {
-    display: flex;
-    margin: 3vh 0;
-}
-
-.pro-area {
-    width: 50%;
-    height: 150px;
-    display: flex;
-    float: left;
-    border-radius: 5px;
-}
-
-.pro-area.hochiminh {
-    background-image: url(https://lp-cms-production.imgix.net/image_browser/Ho%20Chi%20Minh%20City%20skyline.jpg);
-    background-size: 100% 100%;
-    margin-right: 10px;
-
-}
-
-
-
-.pro-area.hanoi {
-    background-image: url(https://fridayshopping.vn/wp-content/uploads/2022/02/top-30-danh-lam-thang-canh-ha-noi-dong-khach-nhat-hien-nay-1.jpeg);
-    background-size: 100% 100%;
-}
-
-.pro-area a {
-    color: white;
+ .select {
     position: relative;
-    z-index: 1;
-    display: block;
-    text-align: left;
+    display: flex;
+    width: 16em;
+    height: 3em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+    margin: 0 8px;
+ }
+ .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #2b2e2e;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+ .select:hover::after {
+    color: var(--primary-color);
+ }
+
+
+
+
+ .search {
     width: 100%;
-    height: 100%;
-    text-decoration: none;
-}
-
-.pro-area a span {
-    display: block;
-    margin-top: 15px;
-    margin-left: 15px;
-}
-
-.pro-area a:hover {
-    text-decoration: underline;
-}
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #666;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    height: 32px;
+  }
+  
+  .searchTerm:focus{
+    color: #555;
+  }
+  
+  .searchButton {
+    width: 60px;
+    height:48px;
+    border: 1px solid #666;
+    background: #666;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
 
 
 
 /* newpost */
+.page-content{
+    margin-top: 40px;
+}
+
+.new-post_link{
+    display: block;
+    margin: 0;
+}
+
 .new-post{
     display: flex;
     justify-content: center;
@@ -239,41 +240,11 @@ a {
     margin: 6px;
 }
 
-.branding_image{
-
-}
-
-.agent_with-photo{
-    display: flex;
-}
-
-.agent_name{
-    margin: 12px;
-    color: var(--white-color);
-}
-
-.agent_img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-.agent_img_item{
-    z-index: 1;
-
-}
-
-.residential-card__image{
-
-}
 
 .residential-card__image-content{
     position: relative;
 }
 
-.residential-slides{
-
-}
 
 .residential-slides_img{
     width: 100%;
@@ -521,3 +492,13 @@ a {
     opacity: .7;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+

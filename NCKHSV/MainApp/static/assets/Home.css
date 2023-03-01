@@ -100,7 +100,7 @@ transform: translateY(0px);
 
 .search-form{
     margin: 10px 10px 0 10px;
-    display: flex;
+    display: flex;    
 }
 
 
@@ -124,7 +124,7 @@ select {
  .select {
     position: relative;
     display: flex;
-    width: 11.5em;
+    width: 12em;
     height: 3em;
     line-height: 3;
     overflow: hidden;
@@ -150,11 +150,11 @@ select {
 
 
 .search-input-form{
-    margin-left: 12px;
+    margin: -15px 0 0 32px;
 }
 
 .search {
-    width: 440px;
+    width: 562px;
     position: relative;
     display: flex;
   }
@@ -164,7 +164,7 @@ select {
     border: 3px solid #666;
     border-right: none;
     padding: 5px;
-    height: 32px;
+    height: 60px;
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #9DBFAF;
@@ -176,7 +176,7 @@ select {
   
   .searchButton {
     width: 60px;
-    height: 48px;
+    height: 76px;
     border: 1px solid #666;
     background: #666;
     text-align: center;

@@ -138,6 +138,7 @@ select {
     right: 0;
     padding: 0 1em;
     background: #2b2e2e;
+    color:#c6c7c6;
     cursor:pointer;
     pointer-events:none;
     transition:.25s all ease;

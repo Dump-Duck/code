@@ -103,6 +103,7 @@ transform: translateY(0px);
 }
 
 
+
 select {
     outline:0;
     box-shadow:none;
@@ -191,10 +192,6 @@ select {
     display: block;
     margin: 0;
 }
-
-
-
-
 
 .new-post{
     display: flex;

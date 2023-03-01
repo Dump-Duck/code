@@ -92,11 +92,10 @@
     </div>
     <nav class="container">
         <div class="page-content">
-
-            <div class="new-post">
-                <article class="list_new_post">
-                    <a href="{% url 'index' %}" class="new-post_link">
-                    <!-- branding_landlords -->
+                <div class="new-post">
+                    <article class="list_new_post">
+                        <a href="{% url 'index' %}" class="new-post_link">
+                        <!-- branding_landlords -->
                         <div class="branding_landlords">
                             <picture class="branding_image_landlord">
                                 <img src="{% static './assets/img/logo_LJ_Hocker.avif' %}" alt="" class="branding_image">
@@ -105,43 +104,23 @@
         
         
                         <!-- residential-card__image -->
-                        <div class="slider">
-                            <i class="fa fa-angle-left slider-prev"></i>
-                            <ul class="slider-dots">
-                              <li class="slider-dot-item active" data-index="0"></li>
-                              <li class="slider-dot-item" data-index="1"></li>
-                              <li class="slider-dot-item" data-index="2"></li>
-                              <li class="slider-dot-item" data-index="3"></li>
-                              <li class="slider-dot-item" data-index="4"></li>
-                            </ul>
-                            <div class="slider-wrapper">
-                              <div class="slider-main">
-                                <div class="slider-item">
+                        <div class="residential-card__image">
+                            <div class="residential-card__image-content">
+                                <div class="residential-slides">
                                     <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
                                 </div>
-                                <div class="slider-item">
-                                 
-                                  <img class="residential-slides_img" src="{% static './assets/img/20230129103403-4baa_wm.jpg' %}" alt="">
+                                <button class="arrow_right">
+                                    <i class="fa-solid fa-angle-left"></i>
+                                </button>
                                 
-                                </div>
-                                <div class="slider-item">
-                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
-                                </div>
-                                <div class="slider-item">
-                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-8071_wm.jpg' %}" alt="">
-                                </div>
-                                <div class="slider-item">
-                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
-                                </div>
-                              </div>
+                                <button class="arrow_left">
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
                             </div>
-                            <i class="fa fa-angle-right slider-next"></i>
-                          </div>
-
-
+                        </div>
         
                         <!-- posting_time -->
-                        <div class="posting_time">
+                        {% comment %} <div class="posting_time">
                             <div class="posting_time_position">
                                 <span class="posting_time_icon">
             
@@ -149,7 +128,7 @@
             
                                 <span class="posting_time_text">1 GIỜ TRƯỚC</span>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
         
         
                         <!-- residential-card__content -->
@@ -229,7 +208,7 @@
                         </div>
         
                         <!-- posting_time -->
-                        <div class="posting_time">
+                        {% comment %} <div class="posting_time">
                             <div class="posting_time_position">
                                 <span class="posting_time_icon">
             
@@ -237,95 +216,7 @@
             
                                 <span class="posting_time_text">1 GIỜ TRƯỚC</span>
                             </div>
-                        </div>
-        
-        
-                        <!-- residential-card__content -->
-                        <div class="residential-card__content">
-                            <div class="residential-card_item">
-                                <div class="residential-card_item_list">
-                                    <div class="residential-card_price">
-                                        <h2>$450.00</h2>
-                                    </div>
-                                    <div class="residential-card_item_extend">
-                                        <button class="residential-card_item_save_property">
-                                            <i class="fa-regular fa-star"></i>
-                                        </button>
-                                        <button class="residential-card_item_ellipsis">
-                                            <i class="fa-solid fa-ellipsis"></i>
-                                        </button>
-                                    </div>
-                                </div>
-            
-                                <div class="residential-card_address">
-                                    <span>6/126 TERRACE ROAD, PERTH</span>
-                                </div>
-            
-                                <div class="residential-card_type">
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-bed"></i>
-                                        <span>2</span>
-                                    </div>
-            
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-bath"></i>
-                                        <span>2</span>
-                                    </div>
-            
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-car"></i>
-                                        <span>1</span>
-                                    </div>
-        
-                                    <div class="residential-card_house_type">
-                                        <div class="residential-card_house_type_text">Unit</div>
-                                    </div>
-        
-                                </div>
-                            </div>
-                        </div>
-        
-                        </a>
-                    </article>
-                </div>
-
-                <div class="new-post">
-                    <article class="list_new_post">
-                        <a href="{% url 'index' %}" class="new-post_link">
-                        <!-- branding_landlords -->
-                        <div class="branding_landlords">
-                            <picture class="branding_image_landlord">
-                                <img src="{% static './assets/img/logo_LJ_Hocker.avif' %}" alt="" class="branding_image">
-                            </picture>
-                        </div>
-        
-        
-                        <!-- residential-card__image -->
-                        <div class="residential-card__image">
-                            <div class="residential-card__image-content">
-                                <div class="residential-slides">
-                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
-                                </div>
-                                <button class="arrow_right">
-                                    <i class="fa-solid fa-angle-left"></i>
-                                </button>
-                                
-                                <button class="arrow_left">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </button>
-                            </div>
-                        </div>
-        
-                        <!-- posting_time -->
-                        <div class="posting_time">
-                            <div class="posting_time_position">
-                                <span class="posting_time_icon">
-            
-                                </span>
-            
-                                <span class="posting_time_text">1 GIỜ TRƯỚC</span>
-                            </div>
-                        </div>
+                        </div> {% endcomment %}
         
         
                         <!-- residential-card__content -->

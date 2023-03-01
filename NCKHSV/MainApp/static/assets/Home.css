@@ -46,7 +46,8 @@ outline: none;
 
 
 .item-header{
-list-style: none;
+    display: flex;
+    list-style: none;
 }
 
 .item-header a{
@@ -101,46 +102,9 @@ transform: translateY(0px);
     margin: 10px 10px 0 10px;
     display: flex;
 }
-input[type="text"] {
-    width: 100%;
-    padding: 15px 10px;
-    border: none;
-    border-bottom: 1px solid #cabdbd;
-    outline: none;
-    border-radius: 5px 5px 0 0;
-    background-color: #ffffff;
-    font-size: 16px;
-  }
-  ul {
-    list-style: none;
-  }
-  .list {
-    width: 100%;
-    background-color: #918787;
-    border-radius: 0 0 5px 5px;
-}
-  .list-items {
-    padding: 10px 5px;
-  }
-  .list-items:hover {
-    background-color: #dddddd;
-  }
-.search-input-form {
-    width: 100%;
-    background: rgb(91, 20, 20);
-    display: flex;
-    border-radius: 12px;
-}
 
-.search-input {
-    background: transparent;
-    color: rgb(214, 197, 197);
-    flex: 1;
-    outline: none;
-    margin: 15px 15px;
-    border: 0;
-    font-size: 25px;
-}
+
+
 
 
 select {
@@ -231,32 +195,6 @@ select {
     display: block;
     margin: 0;
 }
-/* dark*/
-body.dark input[type="text"] {
-    width: 100%;
-    padding: 15px 10px;
-    border: none;
-    border-bottom: 1px solid #f3f3f3;
-    outline: none;
-    border-radius: 5px 5px 0 0;
-    background-color: #ffffff;
-    font-size: 16px;
-  }
- body.dark ul {
-    list-style: none;
-  }
-  body.dark .list {
-    width: 100%;
-    background-color: #050404;
-    border-radius: 0 0 5px 5px;
-  }
-  body.dark .list-items {
-    padding: 10px 5px;
-  }
-  body.dark .list-items:hover {
-    background-color: #dddddd;
-  }
-
 
 
 

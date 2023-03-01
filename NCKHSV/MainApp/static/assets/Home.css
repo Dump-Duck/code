@@ -1,8 +1,8 @@
 
 
 body {
-    background-color: #060f29;
-    color: white;
+    background-color: var(--primary-color);
+    color: black;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -103,7 +103,6 @@ transform: translateY(0px);
 }
 
 
-
 select {
     outline:0;
     box-shadow:none;
@@ -192,6 +191,10 @@ select {
     display: block;
     margin: 0;
 }
+
+
+
+
 
 .new-post{
     display: flex;

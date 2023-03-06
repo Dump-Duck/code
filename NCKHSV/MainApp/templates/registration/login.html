@@ -1,23 +1,228 @@
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {% comment %} {{ form.as_p }} {% endcomment %}
-  {% for field in form %}
-  {% if field.name != 'password' %}
-  <p>
-    <span>{{ field.name.title }}</span>
-    <input type="text" name="{{ field.name }}" autocomplete="off" placeholder="Enter {{ field.name }}" class="form">
-  </p>
-  {% else %}
-  <p>
-    <span>{{ field.name.title }}</span>
-    <input type="password" name="{{ field.name }}" autocomplete="off" placeholder="Enter {{ field.name }}" class="form">
-  </p>
-  {% endif %}
-  {% endfor %}
-  <button type="submit">Log In</button>
-  <p>Trang đăng nhập này chỉ dành cho admin, nếu bạn không phải admin vui lòng ấn <button><a href="{% url 'main' %}">vào đây</a></button> để trở về trang chủ!</p>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <title>Sign in</title>
+
+  <style>
+      body {
+        background-color: #060f29;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      
+      .main {
+          background-color: #e7f3ff;
+          width: 400px;
+          height: 600px;
+          margin: 7em auto;
+          border-radius: 1.5em;
+          box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+      }
+      
+      .sign {
+          text-align: center;
+          padding: 24px 0;
+          color: #5574aa;
+          font-family: 'Ubuntu', sans-serif;
+          font-weight: bold;
+          font-size: 23px;
+          border-bottom: 1px solid #5574aa;
+      }
+      
+      .un {
+      width: 76%;
+      height: 52px;
+      color: rgb(38, 50, 56);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 1px;
+      background: rgba(136, 126, 126, 0.04);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      outline: none;
+      box-sizing: border-box;
+      border: 2px solid rgba(0, 0, 0, 0.02);
+      margin-bottom: 50px;
+      margin-left: 46px;
+      text-align: center;
+      margin-bottom: 27px;
+      font-family: 'Ubuntu', sans-serif;
+      }
+      
+      form.form1 {
+          padding-top: 24px;
+      }
+      
+      .pass {
+      width: 76%;
+      height: 52px;
+      color: rgb(38, 50, 56);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 1px;
+      background: rgba(136, 126, 126, 0.04);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      outline: none;
+      box-sizing: border-box;
+      border: 2px solid rgba(0, 0, 0, 0.02);
+      margin-bottom: 50px;
+      margin-left: 46px;
+      text-align: center;
+      margin-bottom: 27px;
+      font-family: 'Ubuntu', sans-serif;
+      }
+      
+    
+      .un:focus, .pass:focus {
+          border: 1px solid rgba(0, 0, 0, 0.18) !important;
+          
+      }
+      
+      
+      .forgot {
+          text-align: center;
+          text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+          color: #5574aa;
+          padding: 15px 30px;
+          font-size: 18px;
+      }
+      
+      a {
+          text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+          color: #d8b9e7;
+          text-decoration: none;
+          font-size: 18px;
+
+      }
+      
+      @media (max-width: 600px) {
+          .main {
+              border-radius: 0px;
+          }
+      }
+
+
+
+    .btn{
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    .button {
+      min-width: 300px;
+      min-height: 60px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      font-weight: 700;
+      color: #313133;
+      background: #5574aa;
+      background: linear-gradient(90deg, rgb(127, 147, 218) 0%, rgb(65, 94, 223) 100%);
+      border: none;
+      border-radius: 1000px;
+      box-shadow: 12px 12px 24px rgb(79 ,101, 209 ,.64);
+      transition: all 0.3s ease-in-out 0s;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      padding: 10px;
+      }
+
+    button::before {
+      content: '';
+      border-radius: 1000px;
+      min-width: calc(300px + 12px);
+      min-height: calc(60px + 12px);
+      border: 6px solid #3b58cd;
+      box-shadow: 0 0 60px rgba(0, 64, 255, 0.64);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all .3s ease-in-out 0s;
+    }
+
+    .button:hover, .button:focus {
+      color: #313133;
+      transform: translateY(-6px);
+    }
+
+    button:hover::before, button:focus::before {
+      opacity: 1;
+    }
+
+    button::after {
+      content: '';
+      width: 30px; height: 30px;
+      border-radius: 100%;
+      border: 6px solid #3b58cd;
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: ring 0.8s infinite;
+    }
+
+    button:hover::after, button:focus::after {
+      animation: none;
+      display: none;
+    }
+
+    @keyframes ring {
+      0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+      }
+      100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+      }
+    }
+        
+  </style>
+
+</head>
+<body>
+  <div class="main">
+    <p class="sign" >Sign in</p>
+    <form class="form1" method="post">
+      {% csrf_token %}
+      {% comment %} {{ form.as_p }} {% endcomment %}
+      {% for field in form %}
+      {% if field.name != 'password' %}
+
+      
+      <input class="un" type="text"  name="{{ field.name }}" autocomplete="off" placeholder="Enter {{ field.name }}">
+
+      {% else %}
+
+      <input class="pass" type="password"  name="{{ field.name }}" autocomplete="off" placeholder="Enter {{ field.name }}">
+
+      {% endif %}
+      {% endfor %}
+      <div class="btn">
+        <button class="button" type="submit">Log In</button> 
+
+      </div>
+
+      <p class="forgot">Trang đăng nhập này chỉ dành cho admin, nếu bạn không phải admin vui lòng ấn <a href="{% url 'main' %}">vào đây</a> để trở về trang chủ!</p>
+
+      <p class="forgot" ><a href="#">Forgot Password?</p>
+           
+    </div>
+     
+</body>  
+</html>
 
 
 

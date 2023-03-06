@@ -93,7 +93,7 @@ nav a {
     background-color: transparent;
     border: none;
     color: var(--white-color);
-    font-size: 44px;
+    font-size: 48px;
 }
 
 .btn_arrow:hover{
@@ -102,15 +102,15 @@ nav a {
 
 .img_slides{
     margin: 0 8px;
-    width: 650px;
-    height: 500px;
+    width: 850px;
+    height: 480px;
 }
 
 .inn_img{
-    grid-column-gap: 70px;
+    grid-column-gap: 80px;
     display: grid;
     grid-template-columns: 15% 15% 15%;
-    margin: 0 8px;
+    margin: 0 0 -15px 48px;
 }
 
 .item_inn_imgae{
@@ -119,14 +119,19 @@ nav a {
 }
 
 .inn_image{
-    display: flex;
+   display: grid;
+   grid-template-columns: 60% 35%;
+   margin: 0 0 0 120px;
 }
 
 .inn_title_price{
     display: flex;
     color: var(--white-color);
-    justify-content: space-between;
-    margin: 70px 25px;
+    justify-content: space-around;
+    margin: 70px 48px;
+}
+.inn_title{
+
 }
 
 .inn_title h1{
@@ -138,7 +143,7 @@ nav a {
 }
 
 .inn_price{
-    margin-right: 150px;
+
 }
 .inn_information{
     margin: 0px 25px 70px;

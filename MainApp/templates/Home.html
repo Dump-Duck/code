@@ -1,0 +1,396 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/Home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/search.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'assets/Home.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/base.css' %}"> {% endcomment %}
+
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.css' %}">
+    <script type="text/javascript" src="{% static 'js/starter.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/search.js' %}"></script>
+
+
+
+    {% comment %} <script type="text/javascript">
+        var starterUrl = "{%static 'js/starter.js '%}";
+    </script>
+     {% endcomment %}
+
+    <title>Trang chủ</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header_logo">
+            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/logo_inn.jpg' %}" alt=""></a>
+        </div>
+
+        <section class="menu_header">
+            <nav class="item-header">
+               <a href="">Home</a>
+               <a href="">About</a>
+               <a href="">Services</a>
+               <a href="">Blog</a>
+               <a href="">Contact</a>
+               <li class="dark" id="banner"><i class="bi bi-cloud-sun"></i></li>
+                {% if user.is_authenticated %}
+               <a href="{% url 'manage' %}">Manage</a>
+               <a href="{% url 'upload' %}">Upload</a>
+               <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+               <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </nav>
+        </section>
+    </header>
+
+
+
+    <div class="search-box">
+        <form class="search-form" method="get" autocomplete="off" class="search-form">
+            <div class="select">
+                <select name="format" id="format">
+                   <option >Loại nhà đất</option>
+                </select>
+             </div>
+
+             <div class="select">
+                <select name="format" id="format">
+                   <option >Tỉnh thành</option>
+                </select>
+             </div>
+
+             <div class="select">
+                <select name="format" id="format">
+                   <option >Quận/Huyện</option>
+                </select>
+             </div>
+
+             <div class="select">
+                <select name="format" id="format">
+                   <option >Phường/Xã</option>
+                </select>
+             </div>
+
+             <div class="select">
+                <select name="format" id="format">
+                   <option >Mức giá</option>
+                </select>
+             </div>
+
+             <div class="select">
+                <select name="format" id="format">
+                   <option >Diện tích</option>
+                </select>
+             </div>
+
+             <div class="search-input-form">
+                <div class="search">
+                   <input type="text" id="input" onclick="searchFunction()" class="searchTerm" placeholder="What are you looking for?">
+               
+                    {% comment %} <div>
+                      <input type="text" id="input" placeholder="Type a name here..." />
+                    </div>
+                    <ul class="list"></ul> {% endcomment %}
+
+                 
+                   <button type="submit" class="searchButton">
+                     <i class="fa fa-search"></i>
+                  </button>
+                  
+                </div>
+                <ul class="list"><li></li></ul>
+            </div>
+          
+        </form>
+    </div>
+    <nav class="container">
+        <div class="page-content">
+                <div class="new-post">
+                    <article class="list_new_post">
+                        {% comment %} <a href="{% url 'index' %}" class="new-post_link"> {% endcomment %}
+                        <!-- branding_landlords -->
+                        <div class="branding_landlords">
+                            <picture class="branding_image_landlord">
+                                <img src="{% static './assets/img/logo_LJ_Hocker.avif' %}" alt="" class="branding_image">
+
+                            </picture>
+                        </div>        
+                        <!-- residential-card__image -->
+
+                        {% comment %} <div class="slider">
+                            <i class="fa fa-angle-left slider-prev"></i>
+                            <ul class="slider-dots">
+                              <li class="slider-dot-item active" data-index="0"></li>
+                              <li class="slider-dot-item" data-index="1"></li>
+                              <li class="slider-dot-item" data-index="2"></li>
+                              <li class="slider-dot-item" data-index="3"></li>
+                              <li class="slider-dot-item" data-index="4"></li>
+                            </ul>
+                            <div class="slider-wrapper">
+                              <div class="slider-main">
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-4baa_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-769f_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                              </div>
+                            </div>
+                            <i class="fa fa-angle-right slider-next"></i>
+                          </div>
+
+ {% endcomment %}
+
+
+
+
+
+
+
+                         <div class="residential-card__image">
+                            <div class="residential-card__image-content">
+                                <div class="residential-slides">
+                                    <a href="{% url 'index' %}" class="new-post_link"><img id="show1" class="residential-slides_img"  src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}"  alt=""></a>
+                                    
+                                </div>
+                               
+                                <button class="arrow_right">
+                                    <i class="fa-solid fa-angle-left" onclick="prev1()"></i>
+                                </button>
+                                
+                                <button class="arrow_left">
+                                    <i class="fa-solid fa-angle-right" onclick="next1()"></i>
+                                </button>
+                            </div>
+                        </div>
+        
+
+
+
+
+
+                        <!-- posting_time -->
+                        {% comment %} <div class="posting_time">
+                            <div class="posting_time_position">
+                                <span class="posting_time_icon">
+            
+                                </span>
+            
+                                <span class="posting_time_text">1 GIỜ TRƯỚC</span>
+                            </div>
+                        </div> {% endcomment %}
+        
+        
+                        <!-- residential-card__content -->
+                        <div class="residential-card__content">
+                            <div class="residential-card_item">
+                                <div class="residential-card_item_list">
+                                    <div class="residential-card_price">
+                                        <h2>$450.00</h2>
+                                    </div>
+                                    <div class="residential-card_item_extend">
+                                        <button class="residential-card_item_save_property">
+                                            <i class="fa-regular fa-star"></i>
+                                        </button>
+                                        <button class="residential-card_item_ellipsis">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </div>
+                                </div>
+            
+                                <div class="residential-card_address">
+                                    <span>6/126 TERRACE ROAD, PERTH</span>
+                                </div>
+            
+                                <div class="residential-card_type">
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bed"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bath"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-car"></i>
+                                        <span>1</span>
+                                    </div>
+        
+                                    <div class="residential-card_house_type">
+                                        <div class="residential-card_house_type_text">Unit</div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                        </a>
+                    </article>
+                </div>
+
+                <div class="new-post">
+                    <article class="list_new_post">
+                        {% comment %} <a href="{% url 'index' %}" class="new-post_link"> {% endcomment %}
+                        <!-- branding_landlords -->
+                        <div class="branding_landlords">
+                            <picture class="branding_image_landlord">
+                                <img src="{% static './assets/img/logo_LJ_Hocker.avif' %}" alt="" class="branding_image">
+                            </picture>
+                        </div>
+        
+        
+                        <!-- residential-card__image -->
+                        <div class="residential-card__image">
+  <div class="residential-card__image-content">
+    <div class="residential-slides">
+      <a href="{% url 'index' %}" class="new-post_link">
+        <img id="show2" class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+      </a>
+    </div>
+    <button class="arrow_right">
+      <i class="fa-solid fa-angle-left" onclick="prev2()"></i>
+    </button>
+    <button class="arrow_left">
+      <i class="fa-solid fa-angle-right" onclick="next2()"></i>
+    </button>
+  </div>
+</div>
+        
+                        <!-- posting_time -->
+                        {% comment %} <div class="posting_time">
+                            <div class="posting_time_position">
+                                <span class="posting_time_icon">
+            
+                                </span>
+            
+                                <span class="posting_time_text">1 GIỜ TRƯỚC</span>
+                            </div>
+                        </div> {% endcomment %}
+        
+        
+                        <!-- residential-card__content -->
+                        <div class="residential-card__content">
+                            <div class="residential-card_item">
+                                <div class="residential-card_item_list">
+                                    <div class="residential-card_price">
+                                        <h2>$450.00</h2>
+                                    </div>
+                                    <div class="residential-card_item_extend">
+                                        <button class="residential-card_item_save_property">
+                                            <i class="fa-regular fa-star"></i>
+                                        </button>
+                                        <button class="residential-card_item_ellipsis">
+                                            <i class="fa-solid fa-ellipsis"></i>
+                                        </button>
+                                    </div>
+                                </div>
+            
+                                <div class="residential-card_address">
+                                    <span>6/126 TERRACE ROAD, PERTH</span>
+                                </div>
+            
+                                <div class="residential-card_type">
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bed"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-bath"></i>
+                                        <span>2</span>
+                                    </div>
+            
+                                    <div class="residential-card_type_quanity">
+                                        <i class="fa-solid fa-car"></i>
+                                        <span>1</span>
+                                    </div>
+        
+                                    <div class="residential-card_house_type">
+                                        <div class="residential-card_house_type_text">Unit</div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                        </a>
+                    </article>
+                </div>
+
+        </div>
+    </nav>
+
+
+    <footer class="footer">
+        <div class="footer_list-item">
+            <div class="footer_text">
+                <div class="contact_footer">
+                    CÔNG TY CỔ PHẦN PROPERTYGURU VIỆT NAM
+                    <li><i class="fa-regular fa-location-dot"></i><p>Tầng 31, Keangnam Hanoi Landmark, Phạm Hùng, Nam Từ Liêm, Hà Nội</p></li>
+                    <li><i class="fa-regular fa-phone-volume"></i><p>(024) 3562 5939 - (024) 3562 5940</p></li>
+                </div>
+            </div>
+        </div>
+        <div class="footer_list-item">
+            <div class="footer_text">HƯỚNG DẪN
+                    <li><a href="">Báo giá & hỗ trợ</a></li>
+                    <li><a href="">Câu hỏi thường gặp</a></li>
+                    <li><a href="">Thông báo</a></li>
+                    <li><a href="">Liên hệ</a></li>
+                    <li><a href="">Sitemap</a></li>
+                
+            </div>
+        </div>
+        <div class="footer_list-item">
+            <div class="footer_text">QUY ĐỊNH
+                <ul>
+                    <li><a href="">Quy định đăng tin</a></li>
+                    <li><a href="">Quy chế hoạt động</a></li>
+                    <li><a href="">Điều khoản thỏa thuận</a></li>
+                    <li><a href="">Chính sách bảo mật</a></li>
+                    <li><a href="">Giải quyết khiếu nại</a></li>
+                    <li><a href="">Góp ý báo lỗi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer_list-item">
+            <div class="input_footer_text">
+                ĐĂNG KÝ NHẬN TIN
+            </div>
+            <input type="text" class="input_footer" placeholder="Nhập Email của bạn">
+
+            </input>
+            <button class="input_submit-btn"><input type="submit" class="input_submit"></button>
+            
+        </div>
+    </footer>
+
+
+
+  
+</body>
+   
+</html>
+
+   
+

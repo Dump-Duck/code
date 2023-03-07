@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/upload_update.css' %}">
+
+    <title>UPDATE</title>
+</head>
+<body>
+
+
+
+
+    <header class="header">
+        <div class="header_logo">
+            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/logo_inn.jpg' %}" alt=""></a>
+        </div>
+
+        <section class="menu_header">
+            <nav class="item-header">
+               <a href="">Home</a>
+               <a href="">About</a>
+               <a href="">Services</a>
+               <a href="">Blog</a>
+               <a href="">Contact</a>
+                {% if user.is_authenticated %}
+               <a href="{% url 'manage' %}">Manage</a>
+               <a href="{% url 'upload' %}">Upload</a>
+               <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+               <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </nav>
+        </section>
+    </header>
+
+<div class="content">
+    <h2 class="text_content">Sửa thông tin nhà trọ</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in updateForm %}
+        <div class="content_upload">
+
+            <p class="label">{{ field.label }}: </p>
+                {% if field.name == 'house_type' %}
+                <select class="select" name="{{ field.name }}">
+                    {% for i in house_types %}
+                    {% if i.house_type == field.initial %}
+                    <option class="option_item" value="{{ i.id }}" selected>{{ field.initial }}</option>
+                    {% else %}
+                    <option class="option_item" value="{{ i.id }}">{{ i.house_type }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                {% elif field.name == 'province' %}
+                <select class="select" name="{{ field.name }}">
+                    {% for i in provinces %}
+                    {% if i.province == field.initial %}
+                    <option class="option_item" value="{{ i.id }}" selected>{{ field.initial }}</option>
+                    {% else %}
+                    <option class="option_item" value="{{ i.id }}">{{ i.province }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                {% elif field.name == 'district' %}
+                <select class="select" name="{{ field.name }}">
+                    {% for i in districts %}
+                    {% if i.district == field.initial %}
+                    <option class="option_item" value="{{ i.id }}" selected>{{ field.initial }}</option>
+                    {% else %}
+                    <option class="option_item" value="{{ i.id }}">{{ i.district }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                {% elif field.name == 'ward' %}
+                <select class="select" name="{{ field.name }}">
+                    {% for i in wards %}
+                    {% if i.ward == field.initial %}
+                    <option class="option_item" value="{{ i.id }}" selected>{{ field.initial }}</option>
+                    {% else %}
+                    <option class="option_item" value="{{ i.id }}">{{ i.ward }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                {% elif field.name == 'images' %}
+                <input class="input_img" type='file' name="images" value="{{ field.initial }}" multiple>
+                {% else %}
+                <input class="input" type="text" name="{{ field.name }}" value="{{field.initial}}"> 
+                {% endif %}
+        </div>
+        {% endfor %}
+        <div class="box">
+            <input class="btn_submit" type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+
+
+
+</body>
+</html>
+

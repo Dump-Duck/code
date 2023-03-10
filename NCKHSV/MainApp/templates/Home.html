@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assets/Home.css' %}">
     <link rel="stylesheet" href="{% static 'assets/base.css' %}">
+
     <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.css' %}">
     <title>Trang chủ</title>
@@ -21,11 +22,13 @@
 
         <section class="menu_header">
             <nav class="item-header">
+
                <a href="">Home</a>
                <a href="">About</a>
                <a href="">Services</a>
                <a href="">Blog</a>
                <a href="">Contact</a>
+               <li class="dark" id="banner"><i class="bi bi-cloud-sun"></i></li>
                 {% if user.is_authenticated %}
                <a href="{% url 'manage' %}">Manage</a>
                <a href="{% url 'upload' %}">Upload</a>
@@ -40,7 +43,7 @@
 
 
     <div class="search-box">
-        <form class="search-form" method="get">
+        <form class="search-form" method="get" autocomplete="off" class="search-form>
 
             <div class="select">
                 <select name="format" id="format">
@@ -80,12 +83,13 @@
 
              <div class="search-input-form">
                 <div class="search">
-                   <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                   <input type="text"  id="input" class="searchTerm" placeholder="What are you looking for?">
                    <button type="submit" class="searchButton">
                      <i class="fa fa-search"></i>
                   </button>
                 </div>
             </div>
+            <ul class="list"></ul>
 
         </form>
     </div>
@@ -104,20 +108,40 @@
         
         
                         <!-- residential-card__image -->
-                        <div class="residential-card__image">
-                            <div class="residential-card__image-content">
-                                <div class="residential-slides">
+                        <div class="slider">
+                            <i class="fa fa-angle-left slider-prev"></i>
+                            <ul class="slider-dots">
+                              <li class="slider-dot-item active" data-index="0"></li>
+                              <li class="slider-dot-item" data-index="1"></li>
+                              <li class="slider-dot-item" data-index="2"></li>
+                              <li class="slider-dot-item" data-index="3"></li>
+                              <li class="slider-dot-item" data-index="4"></li>
+                            </ul>
+                            <div class="slider-wrapper">
+                              <div class="slider-main">
+                                <div class="slider-item">
                                     <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
                                 </div>
-                                <button class="arrow_right">
-                                    <i class="fa-solid fa-angle-left"></i>
-                                </button>
+                                <div class="slider-item">
+                                 
+                                  <img class="residential-slides_img" src="{% static './assets/img/20230129103403-4baa_wm.jpg' %}" alt="">
                                 
-                                <button class="arrow_left">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </button>
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-8071_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                              </div>
                             </div>
-                        </div>
+                            <i class="fa fa-angle-right slider-next"></i>
+                          </div>
+
+
         
                         <!-- posting_time -->
                         <div class="posting_time">
@@ -406,7 +430,14 @@
 
 
 
-
+    <script>
+        const toggle = document.querySelector('#banner');
+        const baner = document.querySelector('.dark');
+        toggle.onclick = function() {
+            toggle.classList.toggle('active');
+            baner.classList.toggle('dark')
+        }
+     </script>   
 </body>
-
+    <script src="../static/assets/starter.js"></script>
 </html>

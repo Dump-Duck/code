@@ -1,13 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="{% static './assets/main.css' %}">
-    <link rel="stylesheet" href="{% static './assets/base.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/base.css' %}">
     <link rel="stylesheet" href="{% static './assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css' %}">
+    <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+			integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+    <script type="text/javascript" src="{% static 'js/onclickImg.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/submit_footer.js' %}"></script>
     <title>Web tro</title>
 </head>
 <body>
@@ -18,7 +28,7 @@
 
         <section class="menu_header">
             <nav class="item-header">
-               <a href="">Home</a>
+                <a href="{% url 'index' %}">Home</a>
                <a href="">About</a>
                <a href="">Services</a>
                <a href="">Blog</a>
@@ -38,22 +48,24 @@
         <div class="inn_infor">
             <div class="inn_image">
                 <div class="inn_slides">
-                    <button class="btn_arrow"><i class="fa-solid fa-angle-left"></i></button>
-                    <img class="img_slides" src="{% static './assets/img/20230129103403-29ad_wm.jpg' %}" alt="">
-                    <button class="btn_arrow"><i class="fa-solid fa-angle-right"></i></i></button>
+                    <button class="btn_arrow"><i class="fa-solid fa-angle-left prev"></i></button>
+                    <div class="img_slides">
+                        <img class="img_slides" src="{% static './assets/img/20230129103403-29ad_wm.jpg' %}" alt="">
+                    </div>
+                    {% comment %} <img class="img_slides" src="{% static './assets/img/20230129103403-29ad_wm.jpg' %}" alt=""> {% endcomment %}
+                    <button class="btn_arrow"><i class="fa-solid fa-angle-right next"></i></button>
                 </div>
 
 
                 <div class="inn_img">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103403-29ad_wm.jpg' %}" alt="">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103403-4baa_wm.jpg' %}" alt="">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103403-5ab1_wm.jpg' %}" alt="">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103403-769f_wm.jpg' %}" alt="">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103403-8071_wm.jpg' %}" alt="">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103403-cbfa_wm.jpg' %}" alt="">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103403-edcc_wm.jpg' %}" alt="">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103403-eff2_wm.jpg' %}" alt="">
-                    <img class="item_inn_imgae" src="{% static './assets/img/20230129103406-fe4e_wm.jpg' %}" alt="">
+                    <div class="item_inn_imgae active" ><img  src="{% static './assets/img/20230129103403-29ad_wm.jpg' %}"  alt=""></div>
+                    <div class="item_inn_imgae"><img  src="{% static './assets/img/20230129103403-4baa_wm.jpg' %}"  alt=""></div>
+                    <div class="item_inn_imgae"><img  src="{% static './assets/img/20230129103403-8071_wm.jpg' %}"   alt=""></div>
+                    <div class="item_inn_imgae"><img  src="{% static './assets/img/20230129103403-5ab1_wm.jpg' %}" alt=""></div>
+                    <div class="item_inn_imgae" ><img src="{% static './assets/img/20230129103403-769f_wm.jpg' %}"   alt=""></div>
+                    <div class="item_inn_imgae"><img  src="{% static './assets/img/20230129103403-cbfa_wm.jpg' %}"  alt=""></div>
+                    <div  class="item_inn_imgae"><img src="{% static './assets/img/20230129103403-eff2_wm.jpg' %}" alt=""></div>
+                    <div class="item_inn_imgae"> <img  src="{% static './assets/img/20230129103403-edcc_wm.jpg' %}"   alt=""></div>
                 </div>
             </div>
             <div class="inn_title_price">
@@ -103,7 +115,9 @@
         </div>
 
         <div class="inn_slogan">
-            <img class="inn_slogan-img" src="./assets/img/alberto-castillo-q-mx4mskk9zeo-unsplash-5.jpg" alt="">
+           
+           
+            <img class="inn_slogan-img" src="{% static './assets/img/alberto-castillo-q-mx4mskk9zeo-unsplash-5ab1_wm.jpg' %}" alt="">
             <div class="in_slogan_text">
                 <h1>Luxurious & Environmentally Conscious Living.</h1>
     
@@ -113,7 +127,8 @@
 
         <div class="landlords_infor">
             <div class="image_landlord">
-                <img class="img_landlords" src="./assets/img/agent.jfif">
+                
+                <img class="img_landlords" src="{% static './assets/img/agent.jfif' %}">
                 </img>
             </div>
 
@@ -172,10 +187,31 @@
         <div class="footer_list-item">
             <div class="input_footer_text">
                 ĐĂNG KÝ NHẬN TIN
-            </div>
+            </div>    
+            {% comment %} </div>
             <input type="text" id="input_name" class="input_footer" placeholder="Nhập tên của bạn"></input>
             <input type="text" id="input_email" class="input_footer" placeholder="Nhập Email của bạn"></input>
             <button class="input_submit-btn"><input type="submit" class="input_submit"></button>
+             {% endcomment %}
+            <form id= "id">
+				<div >
+					<input class="input_footer" type="text" id="username" placeholder="Nhập tên của bạn" />
+					<span></span>
+					<small></small>
+				</div>
+				<div >
+					<input class="input_footer" type="email" id="email" placeholder="Nhập Email của bạn" />
+					<span></span>
+					<small></small>
+				</div>
+				
+				
+                <button class="input_submit-btn"><input type="submit" class="input_submit"></button>
+                <div id="success-message" style="display:none;">Đăng ký thành công!</div>
+                
+
+
+			</form>
             
         </div>
     </footer>

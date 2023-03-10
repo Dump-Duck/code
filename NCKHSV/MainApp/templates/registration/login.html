@@ -11,7 +11,7 @@
         background-color: #060f29;
         font-family: 'Ubuntu', sans-serif;
       }
-      
+
       .main {
           background-color: #e7f3ff;
           width: 400px;
@@ -20,7 +20,7 @@
           border-radius: 1.5em;
           box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
       }
-      
+
       .sign {
           text-align: center;
           padding: 24px 0;
@@ -30,7 +30,7 @@
           font-size: 23px;
           border-bottom: 1px solid #5574aa;
       }
-      
+
       .un {
       width: 76%;
       height: 52px;
@@ -51,11 +51,11 @@
       margin-bottom: 27px;
       font-family: 'Ubuntu', sans-serif;
       }
-      
+
       form.form1 {
           padding-top: 24px;
       }
-      
+
       .pass {
       width: 76%;
       height: 52px;
@@ -76,14 +76,14 @@
       margin-bottom: 27px;
       font-family: 'Ubuntu', sans-serif;
       }
-      
-    
+
+
       .un:focus, .pass:focus {
           border: 1px solid rgba(0, 0, 0, 0.18) !important;
-          
+
       }
-      
-      
+
+
       .forgot {
           text-align: center;
           text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
@@ -91,7 +91,7 @@
           padding: 15px 30px;
           font-size: 18px;
       }
-      
+
       a {
           text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
           color: #d8b9e7;
@@ -99,7 +99,7 @@
           font-size: 18px;
 
       }
-      
+
       @media (max-width: 600px) {
           .main {
               border-radius: 0px;
@@ -188,7 +188,7 @@
         opacity: 0;
       }
     }
-        
+
   </style>
 
 </head>
@@ -201,7 +201,7 @@
       {% for field in form %}
       {% if field.name != 'password' %}
 
-      
+
       <input class="un" type="text"  name="{{ field.name }}" autocomplete="off" placeholder="Enter {{ field.name }}">
 
       {% else %}
@@ -218,13 +218,8 @@
       <p class="forgot">Trang đăng nhập này chỉ dành cho admin, nếu bạn không phải admin vui lòng ấn <a href="{% url 'main' %}">vào đây</a> để trở về trang chủ!</p>
 
       <p class="forgot" ><a href="#">Forgot Password?</p>
-           
+
     </div>
-     
+    
 </body>  
 </html>
-
-
-
-
-

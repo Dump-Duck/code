@@ -1,16 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'assets/Home.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/Home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/search.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'assets/Home.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/base.css' %}"> {% endcomment %}
 
     <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.css' %}">
+    <script type="text/javascript" src="{% static 'js/starter.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/search.js' %}"></script>
+
+
+
+    {% comment %} <script type="text/javascript">
+        var starterUrl = "{%static 'js/starter.js '%}";
+    </script>
+     {% endcomment %}
+
     <title>Trang chủ</title>
 </head>
 
@@ -81,44 +94,99 @@
 
              <div class="search-input-form">
                 <div class="search">
-                   <input type="text"  id="input" class="searchTerm" placeholder="What are you looking for?">
+                   <input type="text" id="input" onclick="searchFunction()" class="searchTerm" placeholder="What are you looking for?">
+               
+                    {% comment %} <div>
+                      <input type="text" id="input" placeholder="Type a name here..." />
+                    </div>
+                    <ul class="list"></ul> {% endcomment %}
+
+                 
                    <button type="submit" class="searchButton">
                      <i class="fa fa-search"></i>
                   </button>
+                  
                 </div>
+                <ul class="list"><li></li></ul>
             </div>
-
+          
         </form>
     </div>
     <nav class="container">
         <div class="page-content">
                 <div class="new-post">
                     <article class="list_new_post">
-                        <a href="{% url 'index' %}" class="new-post_link">
+                        {% comment %} <a href="{% url 'index' %}" class="new-post_link"> {% endcomment %}
                         <!-- branding_landlords -->
                         <div class="branding_landlords">
                             <picture class="branding_image_landlord">
                                 <img src="{% static './assets/img/logo_LJ_Hocker.avif' %}" alt="" class="branding_image">
+
                             </picture>
-                        </div>
-        
-        
+                        </div>        
                         <!-- residential-card__image -->
-                        <div class="residential-card__image">
-                            <div class="residential-card__image-content">
-                                <div class="residential-slides">
+
+                        {% comment %} <div class="slider">
+                            <i class="fa fa-angle-left slider-prev"></i>
+                            <ul class="slider-dots">
+                              <li class="slider-dot-item active" data-index="0"></li>
+                              <li class="slider-dot-item" data-index="1"></li>
+                              <li class="slider-dot-item" data-index="2"></li>
+                              <li class="slider-dot-item" data-index="3"></li>
+                              <li class="slider-dot-item" data-index="4"></li>
+                            </ul>
+                            <div class="slider-wrapper">
+                              <div class="slider-main">
+                                <div class="slider-item">
                                     <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
                                 </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-4baa_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-769f_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                                <div class="slider-item">
+                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+                                </div>
+                              </div>
+                            </div>
+                            <i class="fa fa-angle-right slider-next"></i>
+                          </div>
+
+ {% endcomment %}
+
+
+
+
+
+
+
+                         <div class="residential-card__image">
+                            <div class="residential-card__image-content">
+                                <div class="residential-slides">
+                                    <a href="{% url 'index' %}" class="new-post_link"><img id="show1" class="residential-slides_img"  src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}"  alt=""></a>
+                                    
+                                </div>
+                               
                                 <button class="arrow_right">
-                                    <i class="fa-solid fa-angle-left"></i>
+                                    <i class="fa-solid fa-angle-left" onclick="prev1()"></i>
                                 </button>
                                 
                                 <button class="arrow_left">
-                                    <i class="fa-solid fa-angle-right"></i>
+                                    <i class="fa-solid fa-angle-right" onclick="next1()"></i>
                                 </button>
                             </div>
                         </div>
         
+
+
+
+
+
                         <!-- posting_time -->
                         {% comment %} <div class="posting_time">
                             <div class="posting_time_position">
@@ -182,7 +250,7 @@
 
                 <div class="new-post">
                     <article class="list_new_post">
-                        <a href="{% url 'index' %}" class="new-post_link">
+                        {% comment %} <a href="{% url 'index' %}" class="new-post_link"> {% endcomment %}
                         <!-- branding_landlords -->
                         <div class="branding_landlords">
                             <picture class="branding_image_landlord">
@@ -193,19 +261,20 @@
         
                         <!-- residential-card__image -->
                         <div class="residential-card__image">
-                            <div class="residential-card__image-content">
-                                <div class="residential-slides">
-                                    <img class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
-                                </div>
-                                <button class="arrow_right">
-                                    <i class="fa-solid fa-angle-left"></i>
-                                </button>
-                                
-                                <button class="arrow_left">
-                                    <i class="fa-solid fa-angle-right"></i>
-                                </button>
-                            </div>
-                        </div>
+  <div class="residential-card__image-content">
+    <div class="residential-slides">
+      <a href="{% url 'index' %}" class="new-post_link">
+        <img id="show2" class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
+      </a>
+    </div>
+    <button class="arrow_right">
+      <i class="fa-solid fa-angle-left" onclick="prev2()"></i>
+    </button>
+    <button class="arrow_left">
+      <i class="fa-solid fa-angle-right" onclick="next2()"></i>
+    </button>
+  </div>
+</div>
         
                         <!-- posting_time -->
                         {% comment %} <div class="posting_time">
@@ -318,14 +387,10 @@
 
 
 
-    <script>
-        const toggle = document.querySelector('#banner');
-        const baner = document.querySelector('.dark');
-        toggle.onclick = function() {
-            toggle.classList.toggle('active');
-            baner.classList.toggle('dark')
-        }
-     </script>   
+  hihi
 </body>
-    <script src="../static/assets/starter.js"></script>
+   
 </html>
+
+   
+

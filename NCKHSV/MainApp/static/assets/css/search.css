@@ -1,15 +1,4 @@
-input[type="text"] {
-    width: 100%;
-    padding: 15px 10px;
-    border: none;
-    border-bottom: 1px solid #cabdbd;
-    outline: none;
-    border-radius: 5px 5px 0 0;
-    background-color: #ffffff;
-    font-size: 16px;
-    display: block;
 
-  }
   ul {
     list-style: none;
     display: block;

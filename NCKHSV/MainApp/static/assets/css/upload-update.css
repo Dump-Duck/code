@@ -21,7 +21,7 @@ nav a {
   display: inline-block;
   margin: 15px 15px;
   outline: none;
-  color: #ccc;
+  color: #777;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -51,7 +51,7 @@ nav a:focus {
   left: 0;
   width: 100%;
   height: 4px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(249, 193, 193, 0.503);
   content: '';
   opacity: 0;
   -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -81,7 +81,7 @@ nav a:focus {
 
 .content{
     margin: 48px 24% 24px 24%;
-    background-color: #eee4bbe7;
+    background-color: #ffffff;
     border-radius: 24px;
 }
 
@@ -143,7 +143,7 @@ nav a:focus {
     font-weight: 700;
     color: #313133;
     background: #4FD1C5;
-  background: linear-gradient(90deg, rgba(220, 242, 153, 0.697) 0%, rgba(180, 188, 30, 0.719) 100%);
+  background: linear-gradient(90deg, rgba(235, 195, 243, 0.697) 0%, rgba(229, 93, 202, 0.719) 100%);
     border: none;
     border-radius: 1000px;
     transition: all 0.3s ease-in-out 0s;

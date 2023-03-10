@@ -29,7 +29,7 @@ position: relative;
 display: inline-block;
 margin: 15px 15px;
 outline: none;
-color: #ccc;
+color: #777;
 text-decoration: none;
 text-transform: uppercase;
 letter-spacing: 1px;
@@ -60,7 +60,7 @@ top: 100%;
 left: 0;
 width: 100%;
 height: 4px;
-background: rgba(255,255,255,0.3);
+background: rgba(249, 193, 193, 0.503);
 content: '';
 opacity: 0;
 -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -82,26 +82,73 @@ transform: translateY(0px);
 
 
 
+.search-box {
+    margin: 48px 0;
+    width: 100%;
+}
+
+
+.search-input-form{
+    float: right;
+    margin: 0 48px 0 0 ;
+}
+
+
+.search {
+    width: 562px;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #F6BDC0;
+    border-right: none;
+    padding: 5px;
+    height: 60px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  
+  .searchTerm:focus{
+    color: #F6BDC0;
+  }
+  
+  .searchButton {
+    width: 60px;
+    height: 76px;
+    border: 1px solid #F6BDC0;
+    background: #F6BDC0;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+
+
 
 
 /* container */
 
 .container {
-    width: 70%;
+    width: 95%;
     margin: auto ;
     position: relative;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
 
-
-.search-box {
-    margin: 3vh 0;
-    display: inline-block;
-    width: 100%;
-}
 
 .search-form{
-    margin: 10px 10px 0 10px;
-    display: flex;    
+    margin-top: 70px;
+}
+
+.search-select{
+    border-bottom: 1px solid #7e7e7e7b;
+    margin: 0 16px 0 36px;
 }
 
 
@@ -112,7 +159,7 @@ select {
     outline:0;
     box-shadow:none;
     border:0!important; 
-    background: #666;
+    background: #F6BDC0;
     background-image: none;
     flex: 1;
     padding: 0 .5em;
@@ -125,20 +172,20 @@ select {
  .select {
     position: relative;
     display: flex;
-    width: 12em;
-    height: 3em;
+    width: 18em;
+    height: 5em;
     line-height: 3;
     overflow: hidden;
     border-radius: .25em;
-    margin: 0 8px;
+    margin: 0 0 40px 8px;
  }
  .select::after {
     content: '\25BC';
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0 1em;
-    background: #2b2e2e;
+    padding: 1em 1.5em;
+    background: #f3979c;
     color:#c6c7c6;
     cursor:pointer;
     pointer-events:none;
@@ -150,42 +197,7 @@ select {
 
 
 
-.search-input-form{
-    margin: -15px 0 0 32px;
-}
 
-.search {
-    width: 562px;
-    position: relative;
-    display: flex;
-  }
-  
-  .searchTerm {
-    width: 100%;
-    border: 3px solid #666;
-    border-right: none;
-    padding: 5px;
-    height: 60px;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    color: #9DBFAF;
-  }
-  
-  .searchTerm:focus{
-    color: #00B4CC;
-  }
-  
-  .searchButton {
-    width: 60px;
-    height: 76px;
-    border: 1px solid #666;
-    background: #666;
-    text-align: center;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 20px;
-  }
 
 
 /* newpost */
@@ -222,7 +234,7 @@ select {
 .branding_landlords{
     display: flex;
     justify-content: space-between;
-    background-color: var(--black-color);
+    background-color: #F6BDC0;
     padding: 10px 0;
     height: 40px;
     border-top-left-radius: 10px ;

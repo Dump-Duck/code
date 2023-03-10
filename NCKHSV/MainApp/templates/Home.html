@@ -55,64 +55,67 @@
 
 
     <div class="search-box">
-        <form class="search-form" method="get" autocomplete="off" class="search-form">
-            <div class="select">
-                <select name="format" id="format">
-                   <option >Loại nhà đất</option>
-                </select>
-             </div>
+            <div class="search-input-form">
+               <div class="search">
+                  <input type="text" id="input" onclick="searchFunction()" class="searchTerm" placeholder="What are you looking for?">
+              
+                   {% comment %} <div>
+                     <input type="text" id="input" placeholder="Type a name here..." />
+                   </div>
+                   <ul class="list"></ul> {% endcomment %}
 
-             <div class="select">
-                <select name="format" id="format">
-                   <option >Tỉnh thành</option>
-                </select>
-             </div>
-
-             <div class="select">
-                <select name="format" id="format">
-                   <option >Quận/Huyện</option>
-                </select>
-             </div>
-
-             <div class="select">
-                <select name="format" id="format">
-                   <option >Phường/Xã</option>
-                </select>
-             </div>
-
-             <div class="select">
-                <select name="format" id="format">
-                   <option >Mức giá</option>
-                </select>
-             </div>
-
-             <div class="select">
-                <select name="format" id="format">
-                   <option >Diện tích</option>
-                </select>
-             </div>
-
-             <div class="search-input-form">
-                <div class="search">
-                   <input type="text" id="input" onclick="searchFunction()" class="searchTerm" placeholder="What are you looking for?">
-               
-                    {% comment %} <div>
-                      <input type="text" id="input" placeholder="Type a name here..." />
-                    </div>
-                    <ul class="list"></ul> {% endcomment %}
-
+                
+                  <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                 </button>
                  
-                   <button type="submit" class="searchButton">
-                     <i class="fa fa-search"></i>
-                  </button>
-                  
-                </div>
-                <ul class="list"><li></li></ul>
-            </div>
-          
-        </form>
+               </div>
+               <ul class="list"><li></li></ul>
+           </div>
     </div>
     <nav class="container">
+        <form class="search-form" method="get" autocomplete="off" class="search-form">
+            <div class="search-select">
+                <div class="select">
+                    <select name="format" id="format">
+                       <option >Loại nhà đất</option>
+                    </select>
+                 </div>
+    
+                 <div class="select">
+                    <select name="format" id="format">
+                       <option >Tỉnh thành</option>
+                    </select>
+                 </div>
+    
+                 <div class="select">
+                    <select name="format" id="format">
+                       <option >Quận/Huyện</option>
+                    </select>
+                 </div>
+    
+                 <div class="select">
+                    <select name="format" id="format">
+                       <option >Phường/Xã</option>
+                    </select>
+                 </div>
+    
+                 <div class="select">
+                    <select name="format" id="format">
+                       <option >Mức giá</option>
+                    </select>
+                 </div>
+    
+                 <div class="select">
+                    <select name="format" id="format">
+                       <option >Diện tích</option>
+                    </select>
+                 </div>
+
+            </div>
+
+             
+        </form>
         <div class="page-content">
                 <div class="new-post">
                     <article class="list_new_post">

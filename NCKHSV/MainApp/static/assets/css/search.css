@@ -1,0 +1,18 @@
+
+  ul {
+    list-style: none;
+    display: block;
+
+  }
+  .list {
+    width: 30%;
+    background-color: #c8bdbd;
+    border-radius: 0 0 5px 5px;
+    display: block;
+    z-index: 9999;
+    position: absolute;
+ 
+}
+.list li:hover {
+  background-color: white;
+}

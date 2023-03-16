@@ -119,6 +119,11 @@ def manage(request):
     return render(request, 'manage.html', {'allPosts': all_posts})
 
 
+def load_img(request):
+    house_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()
+    image = Image.objects.all()
+    return render(request, 'load_img.html', {'housePosts': house_posts, 'images': image})
+
 
 
 

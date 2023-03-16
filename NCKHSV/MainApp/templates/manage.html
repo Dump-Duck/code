@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'assets/manage.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/base.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/manage.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/base.css' %}">
     
 </head>
 <body>
@@ -39,36 +39,25 @@
 
 
     <div class="container">
-        <table  >
-            <tr>
-                <th>ID</th>
-                <th>Kiểu nhà</th>
-                <th>Địa chỉ</th>
-                <th>Tỉnh/Thành phố</th>
-                <th>Quận/Huyện</th>
-                <th>Phố/Phường/Xã</th>
-                <th>Giá tiền 1 tháng</th>
-                <th>Diện tích (m2)</th>
-                <th>Mô tả</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
+
             {% for field in allPosts %}
-            <tr>
-                <td>{{ field.id }}</td>
-                <td>{{ field.house_type.house_type }}</td>
-                <td>{{ field.address }}</td>
-                <td>{{ field.province.province }}</td>
-                <td>{{ field.district.district }}</td>
-                <td>{{ field.ward.ward }}</td>
-                <td>{{ field.price_per_month }}</td>
-                <td>{{ field.area }}</td>
-                <td>{{ field.description }}</td>
-                <td><a class="update_btn" href="{% url 'update' field.id %}"> <p> Cập nhật</p></a></td>
-                <td><a class="cancel_btn" href="{% url 'delete' field.id %}"><p>Xóa</p> </a></td>
-            </tr>
+            <div class="content">
+                <div class="id"><h1>ID {{ field.id }}</h1></div>
+                <div class="house_type"><h1>{{ field.house_type.house_type }}</h1></div> 
+                <div class="price">{{ field.price_per_month }} VND</div>
+                <div class="area">{{ field.area }}</div>
+               
+               <div class="address">{{ field.address }}, {{ field.province.province }}, {{ field.district.district }}, {{ field.ward.ward }}</div>
+               
+                <div class="description">{{ field.description }}</div>
+                <div class="btn">
+                    <a class="update_btn" href="{% url 'update' field.id %}"> <p> Cập nhật</p></a></td>
+                    <a class="cancel_btn" href="{% url 'delete' field.id %}"><p>Xóa</p> </a></td>
+
+                </div>
+            </div>
             {% endfor %}
-        </table>
+        
     </div>
 </body>
 </html>

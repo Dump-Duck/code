@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
+    const form = document.querySelector('.form_home');
     const username = document.getElementById('username');
-    const email = document.getElementById('email');
-    let successMessage = document.querySelector('#success-message');
+    const email = document.getElementById('email_home');
+    let successMessage = document.querySelector('#success-message-home');
     let inputs = document.querySelectorAll('.input_footer');
-    
-   // Hiển thị thông báo lỗi đầu vào
+
+    // Hiển thị thông báo lỗi đầu vào
     function showError(input, message) {
         const formControl = input.parentElement;
-        formControl.className = 'form-control error';
+        formControl.className = 'form-control_home error_home';
         const small = formControl.querySelector('small');
         small.innerText = message;
     }
 
-    /// Hiển thị  thành công
+    // Hiển thị  thành công
     function showSuccess(input) {
         const formControl = input.parentElement;
-        formControl.className = 'form-control success';
+        formControl.className = 'form-control_home success_home';
         const small = formControl.querySelector('small');
         small.innerText = '';
     }
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return input.id.charAt(0).toUpperCase() + input.id.slice(1);
     }
 
-    /// Kiểm tra các trường bắt buộc
+    // Kiểm tra các trường bắt buộc
     function checkRequired(inputArr) {
         let isRequired = false;
         inputArr.forEach(function (input) {
@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return !isRequired;
     }
 
-    /// Kiểm tra độ dài đầu vào
+    // Kiểm tra độ dài đầu vào
     function checkLength(input, min, max) {
-        if (typeof input.value !== 'string') { // kiểm tra xem giá trị đầu vào có phải là chuỗi hay không
+        if (typeof input.value !== 'string') {
             return false;
         }
         if (input.value.trim().length < min) {

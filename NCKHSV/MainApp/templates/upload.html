@@ -69,6 +69,9 @@
                     </select>
                     {% elif field.name == 'images' %}
                     <input class="input_img" type='file' name="images" multiple>
+                    {% elif field.name != 'address' and field.name != 'price_per_month' and field.name != 'area' and field.name != 'description' and field.name != 'price_per_water_num' and field.name != 'price_per_electric_num' and field.name != 'junk_money' %}
+                    <input type="radio" name="{{ field.name }}" value="0">Không <p>   </p>
+                    <input type="radio" name="{{ field.name }}" value="1">Có
                     {% else %}
                     <input class="input" type="text" name="{{ field.name }}" placeholder="Nhập {{ field.label.title }}"> 
                     {% endif %}

@@ -14,12 +14,12 @@
     
     <header class="header">
         <div class="header_logo">
-            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/logo_inn.jpg' %}" alt=""></a>
+            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/Home_logo.png' %}" alt=""></a>
         </div>
 
         <section class="menu_header">
             <nav class="item-header">
-               <a href="">Home</a>
+               <a href="{% url 'main' %}">Home</a>
                <a href="">About</a>
                <a href="">Services</a>
                <a href="">Blog</a>
@@ -70,8 +70,18 @@
                     {% elif field.name == 'images' %}
                     <input class="input_img" type='file' name="images" multiple>
                     {% elif field.name != 'address' and field.name != 'price_per_month' and field.name != 'area' and field.name != 'description' and field.name != 'price_per_water_num' and field.name != 'price_per_electric_num' and field.name != 'junk_money' %}
-                    <input type="radio" name="{{ field.name }}" value="0">Không <p>   </p>
-                    <input type="radio" name="{{ field.name }}" value="1">Có
+                    
+                    <div class="radio">
+                        <div class="radio_item">
+                            <span>Không</span>
+                            <input type="radio" name="{{ field.name }}" value="0">
+                        </div>
+                        <div class="radio_item">
+                            <span>Có</span>
+                            <input type="radio" name="{{ field.name }}" value="1">
+                        </div>
+                    </div>
+
                     {% else %}
                     <input class="input" type="text" name="{{ field.name }}" placeholder="Nhập {{ field.label.title }}"> 
                     {% endif %}

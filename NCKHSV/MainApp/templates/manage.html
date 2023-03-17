@@ -14,12 +14,12 @@
 
     <header class="header">
         <div class="header_logo">
-            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/logo_inn.jpg' %}" alt=""></a>
+            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/Home_logo.png' %}" alt=""></a>
         </div>
 
         <section class="menu_header">
             <nav class="item-header">
-               <a href="">Home</a>
+               <a href="{% url 'main' %}">Home</a>
                <a href="">About</a>
                <a href="">Services</a>
                <a href="">Blog</a>
@@ -42,7 +42,6 @@
 
             {% for field in allPosts %}
             <div class="content">
-                <div class="id"><h1>ID {{ field.id }}</h1></div>
                 <div class="house_type"><h1>{{ field.house_type.house_type }}</h1></div> 
                 <div class="price">{{ field.price_per_month }} VND</div>
                 <div class="area">{{ field.area }}</div>

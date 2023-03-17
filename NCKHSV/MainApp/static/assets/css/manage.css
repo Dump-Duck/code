@@ -16,7 +16,7 @@ margin: 15px 25px;
 }
 
 .header_logo_img{
-width: 80px;
+width: 130px;
 }
 
 
@@ -107,12 +107,6 @@ transform: translateY(0px);
     transform: scale(1.1);
 }
 
-
-.id{
-    font-size: 24px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 24px ;
-}
 
 .house_type{
     font-size: 18px;

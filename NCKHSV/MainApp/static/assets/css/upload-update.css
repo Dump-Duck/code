@@ -10,7 +10,7 @@ body{
 }
 
 .header_logo_img{
-  width: 80px;
+  width: 130px;
 }
 
 
@@ -122,6 +122,24 @@ nav a:focus {
     background-color: #e5e4e0a6;
 
 }
+
+
+
+.radio{
+  display: flex;
+  justify-content:space-evenly;
+  align-items:center;
+}
+
+.radio_item{
+  display: flex;
+  align-items: center;
+}
+
+.radio_item span{
+  margin-right: 8px;
+}
+
 
 .option_item{
     height: 34px;

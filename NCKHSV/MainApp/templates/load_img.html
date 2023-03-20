@@ -4,77 +4,79 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manage</title> {% endcomment %}
-    {% comment %} {% load static %} {% endcomment %}
-    {% comment %} <link rel="stylesheet" href="{% static 'assets/manage.css' %}" /> {% endcomment %}
-    {% comment %} <link rel="stylesheet" href="{% static 'assets/base.css' %}" /> {% endcomment %}
-  {% comment %} </head>
-  <body> {% endcomment %}
-    {% comment %} <header class="header">
-      <div class="header_logo">
-        <a href="{% url 'main' %}"
-          ><img
-            class="header_logo_img"
-            src="{% static 'assets/img/logo_inn.jpg' %}"
-            alt=""
-        /></a>
-      </div>
-
-      <section class="menu_header">
-        <nav class="item-header">
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Services</a>
-          <a href="">Blog</a>
-          <a href="">Contact</a>
-          {% if user.is_authenticated %}
-          <a href="{% url 'manage' %}">Manage</a>
-          <a href="{% url 'upload' %}">Upload</a>
-          <a href="{% url 'logout' %}">Logout</a>
-          {% else %}
-          <a href="{% url 'login' %}">Login</a>
-          {% endif %}
-        </nav>
-      </section>
-    </header> {% endcomment %}
-    {% comment %} <hr>
+    <title>Manage</title>
+    {% load static %}
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
     <div class="container">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Kiểu nhà</th>
-                <th>Địa chỉ</th>
-                <th>Tỉnh/Thành phố</th>
-                <th>Quận/Huyện</th>
-                <th>Phố/Phường/Xã</th>
-                <th>Giá tiền 1 tháng</th>
-                <th>Diện tích (m2)</th>
-                <th>Mô tả</th>
-                <th>Image</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-            {% for field in housePosts %}
-            <tr>
-                <td>{{ field.id }}</td>
-                <td>{{ field.house_type.house_type }}</td>
-                <td>{{ field.address }}</td>
-                <td>{{ field.province.province }}</td>
-                <td>{{ field.district.district }}</td>
-                <td>{{ field.ward.ward }}</td>
-                <td>{{ field.price_per_month }}</td>
-                <td>{{ field.area }}</td>
-                <td>{{ field.description }}</td>
-                <td>
-                    {% for img in images %}
-                    <img src="{% static './assets/img/house_photo/{{img.images}}' %}">
-                    {% endfor %}
-                </td>
-                <td><a class="update_btn" href="{% url 'update' field.id %}"> <p> Cập nhật</p></a></td>
-                <td><a class="cancel_btn" href="{% url 'delete' field.id %}"><p>Xóa</p> </a></td>
-            </tr>
-            {% endfor %}
-        </table>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Kiểu nhà</th>
+          <th>Địa chỉ</th>
+          <th>Tỉnh/Thành phố</th>
+          <th>Quận/Huyện</th>
+          <th>Phố/Phường/Xã</th>
+          <th>Giá tiền 1 tháng</th>
+          <th>Diện tích (m2)</th>
+          <th>Rác</th>
+          <th>Điều hòa</th>
+          <th>Tủ</th>
+          <th>Quạt</th>
+          <th>Nhà vệ sinh</th>
+          <th>Khu nấu nướng</th>
+          <th>Khu để xe</th>
+          <th>Khu để ô tô</th>
+          <th>Cho phép nuôi thú</th>
+          <th>Mô tả</th>
+          <th>images</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        {% for field in housePosts %}
+        <tr>
+          <td>{{ field.id }}</td>
+          <td>{{ field.house_type.house_type }}</td>
+          <td>{{ field.address }}</td>
+          <td>{{ field.province.province }}</td>
+          <td>{{ field.district.district }}</td>
+          <td>{{ field.ward.ward }}</td>
+          <td>{{ field.price_per_month }}</td>
+          <td>{{ field.area }}</td>
+          <td>{{ field.junk_money }}</td>
+          <td>{{ field.air_conditioner }}</td>
+          <td>{{ field.wardrobe }}</td>
+          <td>{{ field.fan }}</td>
+          <td>{{ field.wc }}</td>
+          <td>{{ field.cooking_area }}</td>
+          <td>{{ field.parking_area }}</td>
+          <td>{{ field.car_parking_area }}</td>
+          <td>{{ field.pet_allow }}</td>
+          <td>{{ field.description }}</td>
+          <td>{%for img in images%}
+            {%if img.houses_id == field.id%}
+            <img src="{{ img.images}}">
+            {%endif%}
+            {%endfor%}</td>
+          </td>
+          <td>
+            <a class="update_btn" href="{% url 'update' field.id %}">
+              <p>Cập nhật</p></a
+            >
+          </td>
+          <td>
+            <a class="cancel_btn" href="{% url 'delete' field.id %}"
+              ><p>Xóa</p>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
     </div>
   </body>
 </html> {% endcomment %}

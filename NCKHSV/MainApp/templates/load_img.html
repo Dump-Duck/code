@@ -1,4 +1,4 @@
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -60,7 +60,7 @@
           <td>{{ field.description }}</td>
           <td>{%for img in images%}
             {%if img.houses_id == field.id%}
-            <img src="{{ img.images}}">
+            <img src="/{{ img.images}}" width="50px" height="50px">
             {%endif%}
             {%endfor%}</td>
           </td>
@@ -79,4 +79,4 @@
       </table>
     </div>
   </body>
-</html> {% endcomment %}
+</html>

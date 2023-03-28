@@ -32,9 +32,8 @@ class houses_for_rent(models.Model):
     province = models.ForeignKey(provinces, null=False, on_delete=models.CASCADE, related_name='provinces')
     district = models.ForeignKey(districts, null=False, on_delete=models.CASCADE, related_name='districts')
     ward = models.ForeignKey(wards, null=False, on_delete=models.CASCADE, related_name='wards')
-    price_per_month = models.IntegerField(null=False)
+    price_per_month = models.FloatField(null=False)
     area = models.IntegerField(null=False)
-    description = models.TextField(null=False)
     price_per_water_num = models.IntegerField(null=False)
     price_per_electric_num = models.IntegerField(null=False)
     junk_money = models.IntegerField(null=False)
@@ -42,10 +41,12 @@ class houses_for_rent(models.Model):
     wardrobe = models.IntegerField(null=False)
     fan = models.IntegerField(null=False)
     wc = models.IntegerField(null=False)
+    electric_water_heater = models.FloatField(null=True)
     cooking_area = models.IntegerField(null=False)
     parking_area = models.IntegerField(null=False)
     car_parking_area = models.IntegerField(null=False)
     pet_allow = models.IntegerField(null=False)
+    description = models.TextField(null=False)
     coordinates = models.CharField(max_length=255, null=True)
     
     

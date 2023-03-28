@@ -8,8 +8,9 @@ from .models import *
 # Create your views here.
 
 def main(request):
-    
-    return render(request, 'Home.html')
+    house_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()
+    image = Image.objects.all()
+    return render(request, 'Home.html', {'housePosts': house_posts, 'images': image})
 
 def index(request):
     return render(request, 'index.html')
@@ -39,6 +40,7 @@ def upload(request):
             wardrobe = request.POST.get('wardrobe')
             fan = request.POST.get('fan')
             wc = request.POST.get('wc')
+            electric_water_heater = request.POST.get('electric_water_heater')
             cooking_area = request.POST.get('cooking_area')
             parking_area = request.POST.get('parking_area')
             car_parking_area = request.POST.get('car_parking_area')
@@ -47,7 +49,7 @@ def upload(request):
             save_house = houses_for_rent.objects.create(house_type=house_type, address=address, province=province, district=district, ward=ward,
                                                         price_per_month=price_per_month, area=area, description=description, 
                                                         price_per_water_num=price_per_water_num, price_per_electric_num=price_per_electric_num,
-                                                        junk_money=junk_money, air_conditioner=air_conditioner, wardrobe=wardrobe, fan=fan, wc=wc,
+                                                        junk_money=junk_money, air_conditioner=air_conditioner, wardrobe=wardrobe, fan=fan, wc=wc, electric_water_heater=electric_water_heater,
                                                         cooking_area=cooking_area, parking_area=parking_area, car_parking_area=car_parking_area,
                                                         pet_allow=pet_allow, coordinates=None)
             save_house.save()
@@ -88,6 +90,7 @@ def update(request, id):
             house_for_rent.wardrobe = request.POST.get('wardrobe')
             house_for_rent.fan = request.POST.get('fan')
             house_for_rent.wc = request.POST.get('wc')
+            house_for_rent.electric_water_heater = request.POST.get('electric_water_heater')
             house_for_rent.cooking_area = request.POST.get('cooking_area')
             house_for_rent.parking_area = request.POST.get('parking_area')
             house_for_rent.car_parking_area = request.POST.get('car_parking_area')
@@ -116,7 +119,8 @@ def delete(request, id):
 # Manage all posts of Inn
 def manage(request):
     all_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()
-    return render(request, 'manage.html', {'allPosts': all_posts})
+    image = Image.objects.all()
+    return render(request, 'manage.html', {'allPosts': all_posts, 'images': image})
 
 
 def load_img(request):

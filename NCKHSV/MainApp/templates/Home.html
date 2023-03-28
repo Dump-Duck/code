@@ -115,6 +115,7 @@
              
         </form>
         <div class="page-content">
+            {%for post in housePosts%}
                 <div class="new-post">
                     <article class="list_new_post">
 
@@ -131,8 +132,11 @@
                          <div class="residential-card__image">
                             <div class="residential-card__image-content">
                                 <div class="residential-slides">
-                                    <a href="{% url 'index' %}" class="new-post_link"><img id="show1" class="residential-slides_img"  src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}"  alt=""></a>
-                                    
+                                    {%for img in images%}
+                                    {%if img.houses_id == post.id%}
+                                    <a href="{% url 'index' %}" class="new-post_link"><img id="show1" class="residential-slides_img"  src="/{{img.images}}"  alt=""></a>
+                                    {%endif%}
+                                    {%endfor%}
                                 </div>
                                
                                 <button class="arrow_right">
@@ -153,7 +157,7 @@
                             <div class="residential-card_item">
                                 <div class="residential-card_item_list">
                                     <div class="residential-card_price">
-                                        <h2>$450.00</h2>
+                                        <h2>{{post.price_per_month}} triệu/tháng</h2>
                                     </div>
                                     <div class="residential-card_item_extend">
                                         <button class="residential-card_item_save_property">
@@ -166,27 +170,30 @@
                                 </div>
             
                                 <div class="residential-card_address">
-                                    <span>6/126 TERRACE ROAD, PERTH</span>
+                                    <span>{{ post.address }}, {{ post.ward.ward }}, {{ post.district.district }}, {{ post.province.province }}</span>
                                 </div>
             
                                 <div class="residential-card_type">
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-bed"></i>
-                                        <span>2</span>
-                                    </div>
-            
+                                    {%if post.wc == 1 %}
                                     <div class="residential-card_type_quanity">
                                         <i class="fa-solid fa-bath"></i>
-                                        <span>2</span>
                                     </div>
-            
+                                    {%endif%}
+                                    
+                                    {%if post.car_parking_area == 1 %}
                                     <div class="residential-card_type_quanity">
                                         <i class="fa-solid fa-car"></i>
-                                        <span>1</span>
                                     </div>
-        
+                                    {%endif%}
+
+                                    {%if post.cooking_area == 1 %}
+                                    <div class="residential-card_type_quanity">
+                                    <i class="fa-sharp fa-solid fa-fire-burner"></i>
+                                    </div>
+                                    {%endif%}
+                                    
                                     <div class="residential-card_house_type">
-                                        <div class="residential-card_house_type_text">Unit</div>
+                                        <div class="residential-card_house_type_text">{{post.house_type.house_type}}</div>
                                     </div>
         
                                 </div>
@@ -196,84 +203,7 @@
                         </a>
                     </article>
                 </div>
-
-                <div class="new-post">
-                    <article class="list_new_post">
-                        <!-- branding_landlords -->
-                        <div class="branding_landlords">
-                            <picture class="branding_image_landlord">
-
-                            </picture>
-                        </div>
-        
-        
-                        <!-- residential-card__image -->
-                        <div class="residential-card__image">
-                            <div class="residential-card__image-content">
-                                <div class="residential-slides">
-                                <a href="{% url 'index' %}" class="new-post_link">
-                                    <img id="show2" class="residential-slides_img" src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}" alt="">
-                                </a>
-                                </div>
-                                <button class="arrow_right">
-                                <i class="fa-solid fa-angle-left" onclick="prev2()"></i>
-                                </button>
-                                <button class="arrow_left">
-                                <i class="fa-solid fa-angle-right" onclick="next2()"></i>
-                                </button>
-                            </div>
-                            </div>
-        
-        
-        
-                        <!-- residential-card__content -->
-                        <div class="residential-card__content">
-                            <div class="residential-card_item">
-                                <div class="residential-card_item_list">
-                                    <div class="residential-card_price">
-                                        <h2>$450.00</h2>
-                                    </div>
-                                    <div class="residential-card_item_extend">
-                                        <button class="residential-card_item_save_property">
-                                            <i class="fa-regular fa-star"></i>
-                                        </button>
-                                        <button class="residential-card_item_ellipsis">
-                                            <i class="fa-solid fa-ellipsis"></i>
-                                        </button>
-                                    </div>
-                                </div>
-            
-                                <div class="residential-card_address">
-                                    <span>6/126 TERRACE ROAD, PERTH</span>
-                                </div>
-            
-                                <div class="residential-card_type">
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-bed"></i>
-                                        <span>2</span>
-                                    </div>
-            
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-bath"></i>
-                                        <span>2</span>
-                                    </div>
-            
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-car"></i>
-                                        <span>1</span>
-                                    </div>
-        
-                                    <div class="residential-card_house_type">
-                                        <div class="residential-card_house_type_text">Unit</div>
-                                    </div>
-        
-                                </div>
-                            </div>
-                        </div>
-        
-                        </a>
-                    </article>
-                </div>
+            {% endfor %}
 
         </div>
     </nav>

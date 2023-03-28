@@ -8,7 +8,7 @@ class UploadForm(forms.Form):
     province = forms.CharField(label='Tỉnh/Thành phố')
     district = forms.CharField(label='Quân/Huyện')
     ward = forms.CharField(label='Xã/Phường')
-    price_per_month = forms.IntegerField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
+    price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
     area = forms.IntegerField(label='Diện tích', help_text='m2')
     images = forms.FileField(label='Hình ảnh')
     description = forms.CharField(label='Mô tả')
@@ -19,6 +19,7 @@ class UploadForm(forms.Form):
     wardrobe = forms.IntegerField(label='Tủ quần áo')
     fan = forms.IntegerField(label='Quạt')
     wc = forms.IntegerField(label='WC')
+    electric_water_heater = forms.IntegerField(label='Nóng lạnh')
     cooking_area = forms.IntegerField(label='Khu vực nấu ăn')
     parking_area = forms.IntegerField(label='Bãi để xe (xe máy, xe đạp)')
     car_parking_area = forms.IntegerField(label='Bãi đỗ ô tô')
@@ -30,9 +31,9 @@ class UpdateForm(forms.Form):
     province = forms.CharField(label='Tỉnh/Thành phố')
     district = forms.CharField(label='Quân/Huyện')
     ward = forms.CharField(label='Xã/Phường')
-    price_per_month = forms.IntegerField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
+    price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
     area = forms.IntegerField(label='Diện tích', help_text='m2')
-    images = forms.FileField(label='Hình ảnh') # nếu lỗi backup về , widget=forms.FileInput(attrs={'multiple': True})
+    images = forms.FileField(label='Hình ảnh')
     description = forms.CharField(label='Mô tả')
     price_per_water_num = forms.IntegerField(label='Giá 1 số nước', help_text='VND/Số')
     price_per_electric_num = forms.IntegerField(label='Giá 1 số điện', help_text='VND/Số')
@@ -41,6 +42,7 @@ class UpdateForm(forms.Form):
     wardrobe = forms.IntegerField(label='Tủ quần áo')
     fan = forms.IntegerField(label='Quạt')
     wc = forms.IntegerField(label='WC')
+    electric_water_heater = forms.IntegerField(label='Nóng lạnh')
     cooking_area = forms.IntegerField(label='Khu vực nấu ăn')
     parking_area = forms.IntegerField(label='Bãi để xe (xe máy, xe đạp)')
     car_parking_area = forms.IntegerField(label='Bãi đỗ ô tô')
@@ -63,7 +65,6 @@ class UpdateForm(forms.Form):
             list_imgs.append(image.images.__str__())
             
         self.fields['images'].initial = list_imgs
-        
         self.fields['description'].initial = data.description
         self.fields['price_per_water_num'].initial = data.price_per_water_num
         self.fields['price_per_electric_num'].initial = data.price_per_electric_num
@@ -72,6 +73,7 @@ class UpdateForm(forms.Form):
         self.fields['wardrobe'].initial = data.wardrobe
         self.fields['fan'].initial = data.fan
         self.fields['wc'].initial = data.wc
+        self.fields['electric_water_heater'].initial = data.electric_water_heater
         self.fields['cooking_area'].initial = data.cooking_area
         self.fields['parking_area'].initial = data.parking_area
         self.fields['car_parking_area'].initial = data.car_parking_area

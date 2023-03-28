@@ -21,9 +21,7 @@
         <section class="menu_header">
             <nav class="item-header">
                <a href="{% url 'main' %}">Home</a>
-               <a href="">About</a>
                <a href="">Services</a>
-               <a href="">Blog</a>
                <a href="">Contact</a>
                 {% if user.is_authenticated %}
                <a href="{% url 'manage' %}">Manage</a>

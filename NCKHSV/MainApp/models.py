@@ -41,13 +41,14 @@ class houses_for_rent(models.Model):
     wardrobe = models.IntegerField(null=False)
     fan = models.IntegerField(null=False)
     wc = models.IntegerField(null=False)
-    electric_water_heater = models.FloatField(null=True)
+    electric_water_heater = models.IntegerField(null=True)
     cooking_area = models.IntegerField(null=False)
     parking_area = models.IntegerField(null=False)
     car_parking_area = models.IntegerField(null=False)
     pet_allow = models.IntegerField(null=False)
     description = models.TextField(null=False)
     coordinates = models.CharField(max_length=255, null=True)
+    thumbnail = models.FileField(upload_to='MainApp/static/assets/img/house_photo/thumbnail', null=True)
     
     
 class Image(models.Model):

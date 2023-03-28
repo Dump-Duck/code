@@ -53,157 +53,204 @@
             </div>
         </div>
     </div>
-    <div class="search-box">
-            <div class="search-input-form">
-               <div class="search">
-                  <input type="text" id="input" onclick="searchFunction()" class="searchTerm" placeholder="What are you looking for?">
+    <form class="search-area" method="get">
+        <div class="search-box">
+                <div class="search-input-form">
+                   <div class="search">
+                      <input type="text" id="input" onclick="searchFunction()" class="searchTerm" placeholder="What are you looking for?">
 
                 
-                  <button type="submit" class="searchButton">
-                    <i class="fa fa-search"></i>
-                 </button>
+                      <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                     </button>
                  
+                   </div>
+                   <ul class="list"><li></li></ul>
                </div>
-               <ul class="list"><li></li></ul>
-           </div>
-    </div>
+        </div>
+    </form>
    
     <nav class="container">
         <form class="search-form" method="get" autocomplete="off" class="search-form">
             <div class="search-select">
                 <div class="select">
                     <select name="format" id="format">
-                       <option >Loại nhà đất</option>
+                        <option>Loại nhà đất</option>
+                        {% for type in types %}
+                        <option>{{ type.house_type }}</option>
+                        {% endfor %}
                     </select>
-                 </div>
-    
-                 <div class="select">
+                </div>
+
+                <div class="select">
                     <select name="format" id="format">
-                       <option >Tỉnh thành</option>
+                        <option>Tỉnh thành</option>
+                        {% for province in provinces %}
+                        <option>{{ province.province }}</option>
+                        {% endfor %}
                     </select>
-                 </div>
-    
-                 <div class="select">
+                </div>
+
+                <div class="select">
                     <select name="format" id="format">
-                       <option >Quận/Huyện</option>
+                        <option>Quận/Huyện</option>
+                        {% for district in districts %}
+                        <option>{{ district.district }}</option>
+                        {% endfor %}
                     </select>
-                 </div>
-    
-                 <div class="select">
+                </div>
+
+                <div class="select">
                     <select name="format" id="format">
-                       <option >Phường/Xã</option>
+                        <option>Phường/Xã</option>
+                        {% for ward in wards %}
+                        <option>{{ ward.ward }}</option>
+                        {% endfor %}
                     </select>
-                 </div>
-    
-                 <div class="select">
-                    
+                </div>
+
+                <div class="select">
+
                     <select name="format" id="format">
-                       <option >
-                       Mức giá
-                       </option>
+                        <option>
+                            Mức giá
+                        </option>
+                        <option>Dưới 3 triệu</option>
+                        <option>3 - 5 triệu</option>
+                        <option>5 - 7 triệu</option>
+                        <option>Trên 7 triệu</option>
                     </select>
-                 </div>
-    
-                 <div class="select">
+                </div>
+
+                <div class="select">
                     <select name="format" id="format">
-                       <option >Diện tích</option>
+                        <option>Diện tích</option>
+                        <option>Dưới 30m2</option>
+                        <option>30m2 - 50m2</option>
+                        <option>Trên 50m2</option>
                     </select>
-                 </div>
+                </div>
+                <button type="submit" class="filterButton">
+                    Áp dụng
+                </button>
+
 
             </div>
 
              
         </form>
         <div class="page-content">
-            {%for post in housePosts%}
-                <div class="new-post">
-                    <article class="list_new_post">
+            {%for post in page_obj%}
+            <div class="new-post">
+                <article class="list_new_post">
 
-                        <!-- branding_landlords -->
-                        <div class="branding_landlords">
-                            <div class="branding_image_landlord">
-                                <h1 class="branding_image_landlord-title">{% comment %} house_type  {% endcomment %}Chung cư mini - Hà nội - Bắc Từ Liêm</h1>
-                            </div>
-                        </div>        
-                        <!-- residential-card__image -->
-
-                       
-
-                         <div class="residential-card__image">
-                            <div class="residential-card__image-content">
-                                <div class="residential-slides">
-                                    {%for img in images%}
-                                    {%if img.houses_id == post.id%}
-                                    <a href="{% url 'index' %}" class="new-post_link"><img id="show1" class="residential-slides_img"  src="/{{img.images}}"  alt=""></a>
-                                    {%endif%}
-                                    {%endfor%}
-                                </div>
-                               
-                                <button class="arrow_right">
-                                    <i class="fa-solid fa-angle-left" onclick="prev1()"></i>
-                                </button>
-                                
-                                <button class="arrow_left">
-                                    <i class="fa-solid fa-angle-right" onclick="next1()"></i>
-                                </button>
-                            </div>
+                    <!-- branding_landlords -->
+                    <div class="branding_landlords">
+                        <div class="branding_image_landlord">
+                            <h1 class="branding_image_landlord-title">{% comment %} house_type  {% endcomment %}Chung cư mini - Hà nội - Bắc Từ Liêm</h1>
                         </div>
-        
+                    </div>
+                    <!-- residential-card__image -->
 
 
-        
-                        <!-- residential-card__content -->
-                        <div class="residential-card__content">
-                            <div class="residential-card_item">
-                                <div class="residential-card_item_list">
-                                    <div class="residential-card_price">
-                                        <h2>{{post.price_per_month}} triệu/tháng</h2>
-                                    </div>
-                                    <div class="residential-card_item_extend">
-                                        <button class="residential-card_item_save_property">
-                                            <i class="fa-regular fa-star"></i>
-                                        </button>
-                                        <button class="residential-card_item_ellipsis">
-                                            <i class="fa-solid fa-ellipsis"></i>
-                                        </button>
-                                    </div>
+
+                    <div class="residential-card__image">
+                        <div class="residential-card__image-content">
+                            <div class="residential-slides">
+                                <a href="{% url 'index' post.id %}" class="new-post_link"><img id="show1" class="residential-slides_img" src="/{{post.thumbnail}}" alt="" /></a>
+                                {%comment%}{%for img in images%}
+                                {%if img.houses_id == post.id%}
+                                <a href="{% url 'index' %}" class="new-post_link"><img id="show1" class="residential-slides_img" src="/{{ img.images }}" alt=""></a>
+                                {%endif%}
+                                {%endfor%}{%endcomment%}
+                            </div>
+
+                            <button class="arrow_right">
+                                <i class="fa-solid fa-angle-left" onclick="prev1()"></i>
+                            </button>
+
+                            <button class="arrow_left">
+                                <i class="fa-solid fa-angle-right" onclick="next1()"></i>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- residential-card__content -->
+                    <div class="residential-card__content">
+                        <div class="residential-card_item">
+                            <div class="residential-card_item_list">
+                                <div class="residential-card_price">
+                                    <h2>{{post.price_per_month}} triệu/tháng</h2>
                                 </div>
-            
-                                <div class="residential-card_address">
-                                    <span>{{ post.address }}, {{ post.ward.ward }}, {{ post.district.district }}, {{ post.province.province }}</span>
+                                <div class="residential-card_item_extend">
+                                    <button class="residential-card_item_save_property">
+                                        <i class="fa-regular fa-star"></i>
+                                    </button>
+                                    <button class="residential-card_item_ellipsis">
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                    </button>
                                 </div>
-            
-                                <div class="residential-card_type">
-                                    {%if post.wc == 1 %}
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-bath"></i>
-                                    </div>
-                                    {%endif%}
-                                    
-                                    {%if post.car_parking_area == 1 %}
-                                    <div class="residential-card_type_quanity">
-                                        <i class="fa-solid fa-car"></i>
-                                    </div>
-                                    {%endif%}
+                            </div>
 
-                                    {%if post.cooking_area == 1 %}
-                                    <div class="residential-card_type_quanity">
+                            <div class="residential-card_address">
+                                <span>{{ post.address }}, {{ post.ward.ward }}, {{ post.district.district }}, {{ post.province.province }}</span>
+                            </div>
+
+                            <div class="residential-card_type">
+                                {%if post.wc == 1 %}
+                                <div class="residential-card_type_quanity">
+                                    <i class="fa-solid fa-bath"></i>
+                                </div>
+                                {%endif%}
+
+                                {%if post.car_parking_area == 1 %}
+                                <div class="residential-card_type_quanity">
+                                    <i class="fa-solid fa-car"></i>
+                                </div>
+                                {%endif%}
+
+                                {%if post.cooking_area == 1 %}
+                                <div class="residential-card_type_quanity">
                                     <i class="fa-sharp fa-solid fa-fire-burner"></i>
-                                    </div>
-                                    {%endif%}
-                                    
-                                    <div class="residential-card_house_type">
-                                        <div class="residential-card_house_type_text">{{post.house_type.house_type}}</div>
-                                    </div>
-        
                                 </div>
+                                {%endif%}
+
+                                <div class="residential-card_house_type">
+                                    <div class="residential-card_house_type_text">{{post.house_type.house_type}}</div>
+                                </div>
+
                             </div>
                         </div>
-        
-                        </a>
-                    </article>
-                </div>
+                    </div>
+
+                    </a>
+                </article>
+            </div>
             {% endfor %}
+
+            <!-- Phân trang ở đây -->
+            {% if page_obj.has_other_pages %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current-page">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+            {% endif %}
 
         </div>
     </nav>

@@ -47,11 +47,7 @@
                <div class="address">{{ field.address }}, {{ field.ward.ward }}, {{ field.district.district }}, {{ field.province.province }}</div>
                
                 <div class="image">
-                    {%for img in images%}
-                    {%if img.houses_id == field.id%}
-                        <img src="/{{img.images}}">
-                    {%endif%}
-                    {%endfor%}
+                    <img src="/{{ field.thumbnail }}">
                 </div>
                 <div class="btn">
                     <a class="update_btn" href="{% url 'update' field.id %}"> <p> Cập nhật</p></a></td>

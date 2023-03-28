@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\NCKHSV",
+    "\\NCKHSV\\MainApp",
+    "\\NCKHSV\\MainApp\\static",
+    "\\NCKHSV\\MainApp\\static\\assets",
+    "\\NCKHSV\\MainApp\\static\\assets\\img",
+    "\\NCKHSV\\MainApp\\static\\assets\\img\\house_photo",
+    "\\NCKHSV\\MainApp\\static\\assets\\img\\house_photo\\thumbnail",
+    "\\NCKHSV\\MainApp\\templates",
+    "\\NCKHSV\\NCKHSV"
+  ],
+  "SelectedNode": "\\NCKHSV\\MainApp\\templates\\manage.html",
+  "PreviewInSolutionExplorer": false
+}

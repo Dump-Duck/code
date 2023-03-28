@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
 from django.urls import resolve
 from django.http import HttpResponse
 from django.template import loader
@@ -8,12 +9,23 @@ from .models import *
 # Create your views here.
 
 def main(request):
+    house_type = house_types.objects.all()
+    province = provinces.objects.all()
+    district = districts.objects.all()
+    ward = wards.objects.all()
     house_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()
-    image = Image.objects.all()
-    return render(request, 'Home.html', {'housePosts': house_posts, 'images': image})
+    
+    paginator = Paginator(house_posts, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-def index(request):
-    return render(request, 'index.html')
+    image = Image.objects.all()
+    return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'images': image, 'page_obj': page_obj})
+
+def index(request, id):
+    house_infomation = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').get(id=id)
+    images = Image.objects.filter(houses=id)
+    return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images})
 
 # Upload new post of Inn information
 def upload(request):
@@ -51,7 +63,7 @@ def upload(request):
                                                         price_per_water_num=price_per_water_num, price_per_electric_num=price_per_electric_num,
                                                         junk_money=junk_money, air_conditioner=air_conditioner, wardrobe=wardrobe, fan=fan, wc=wc, electric_water_heater=electric_water_heater,
                                                         cooking_area=cooking_area, parking_area=parking_area, car_parking_area=car_parking_area,
-                                                        pet_allow=pet_allow, coordinates=None)
+                                                        pet_allow=pet_allow, coordinates=None, thumbnail=images[0])
             save_house.save()
             
             for image in images:

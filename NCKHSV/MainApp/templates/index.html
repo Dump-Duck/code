@@ -51,7 +51,7 @@
                 <div class="inn_slides">
                     <button class="btn_arrow_left"><i class="fa-solid fa-angle-left prev"></i></button>
                     <div class="img_slides">
-                        <img class="img_slides" src="{% static './assets/img/20230129103403-29ad_wm.jpg' %}" alt="">
+                        <img class="img_slides" src="/{{ house_infomation.thumbnail }}" alt="">
                     </div>
                     {% comment %} <img class="img_slides" src="{% static './assets/img/20230129103403-29ad_wm.jpg' %}" alt=""> {% endcomment %}
                     <button class="btn_arrow_right"><i class="fa-solid fa-angle-right next"></i></button>
@@ -59,42 +59,56 @@
 
 
                 <div class="inn_img">
-                    <div class="item_inn_imgae active" ><img  src="{% static './assets/img/20230129103403-29ad_wm.jpg' %}"  alt=""></div>
-                    <div class="item_inn_imgae"><img  src="{% static './assets/img/20230129103403-4baa_wm.jpg' %}"  alt=""></div>
-                    <div class="item_inn_imgae"><img  src="{% static './assets/img/20230129103403-8071_wm.jpg' %}"   alt=""></div>
-                    <div class="item_inn_imgae"><img  src="{% static './assets/img/20230129103403-5ab1_wm.jpg' %}" alt=""></div>
-                    <div class="item_inn_imgae" ><img src="{% static './assets/img/20230129103403-769f_wm.jpg' %}"   alt=""></div>
-                    <div class="item_inn_imgae"><img  src="{% static './assets/img/20230129103403-cbfa_wm.jpg' %}"  alt=""></div>
-                    <div  class="item_inn_imgae"><img src="{% static './assets/img/20230129103403-eff2_wm.jpg' %}" alt=""></div>
-                    <div class="item_inn_imgae"> <img  src="{% static './assets/img/20230129103403-edcc_wm.jpg' %}"   alt=""></div>
+                    {% for img in images %}
+                        <div class="item_inn_imgae active"><img src="/{{ img.images }}" alt=""></div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="inn_title_price">
                 <div class="inn_title">
-                    <h1>Award-Winning Modern Mediterranean Style House</h1> 
-                    <p>123 Any Street, HJ 12345</p>          
+                    <h1>{{ house_infomation.house_type.house_type }}</h1> 
+                    <p>{{ house_infomation.address }}, {{ house_infomation.ward.ward }}, {{ house_infomation.district.district }}, {{ house_infomation.province.province }}</p>          
                 </div>
                 
                 <div class="inn_price">
-                    <h1>7 triệu/tháng</h1>
+                    <h1>{{ house_infomation.price_per_month }} triệu/tháng</h1>
                 </div>
             </div>
             
             <div class="inn_information">
                 <div class="inn_information_item">Diện tích
-                    <h1>30m2</h1>
+                    <h1>{{ house_infomation.area }}m2</h1>
                 </div>
-                <div class="inn_information_item">Nội thất
-                    <h1>Full</h1>
+                <div class="inn_information_item">
+                    Nội thất
+                    {% if house_infomation.air_conditioner == 1 and house_infomation.wardrobe == 1 and house_infomation.fan == 1 and house_infomation.electric_water_heater == 1 %}
+                    <h1>Đầy đủ</h1>
+                    {% else %}
+                    <h1>
+                        {% if house_infomation.air_conditioner == 1 %}Điều hòa{% endif %}{% if house_infomation.wardrobe == 1 %} Tủ{% endif %}{% if house_infomation.fan == 1 %} Quạt{% endif %}{% if house_infomation.electric_water_heater == 1 %} Nóng lạnh{% endif %}
+                    </h1>
+                    {% endif %}
                 </div>
                 <div class="inn_information_item">Nhà vệ sinh
-                    <h1>Chung</h1>
+                {% if house_infomation.wc == 0 %}
+                    <h1>Vệ sinh chung</h1>
+                {% else %}
+                    <h1>Vệ sinh riêng</h1>
+                {% endif %}
                 </div>
                 <div class="inn_information_item">Bãi đỗ ô tô
-                    <h1>1</h1>
+                {% if house_infomation.car_parking_area == 0 %}
+                    <h1>Không có</h1>
+                {% else %}
+                    <h1>Có</h1>
+                {% endif %}
                 </div>
                 <div class="inn_information_item">Khu để xe
-                    <h1>1</h1>
+                {% if house_infomation.parking_area == 0 %}
+                    <h1>Không có</h1>
+                {% else %}
+                    <h1>Có</h1>
+                {% endif %}
                 </div>
             </div>
         </div>
@@ -104,35 +118,34 @@
                 <h1>Mô tả</h1>
             </div>
             <div class="inn_detailed_description">
-                <p> This 5 bedroom, 3 bathroom home has an estimated
-                     4,000 total square feet with nearly 3 
-                    acres & its own access to the Haywards River.
-                    This 5 bedroom, 3 bathroom home has an estimated
-                    4,000 total square feet with nearly 3 
-                   acres & its own access to the Haywards River.
-                   This 5 bedroom, 3 bathroom home has an estimated
-                   4,000 total square feet with nearly 3 
-                  acres & its own access to the Haywards River.
-                  This 5 bedroom, 3 bathroom home has an estimated
-                  4,000 total square feet with nearly 3 
-                 acres & its own access to the Haywards River.</p>
-                <p>
-                    Extensive upgrades and thorough maintenance 
-                    have kept this home in prime condition. Hardwood floors 
-                    and new carpets create a very comfortable living space.
-                    This 5 bedroom, 3 bathroom home has an estimated
-                     4,000 total square feet with nearly 3 
-                    acres & its own access to the Haywards River.
-                    This 5 bedroom, 3 bathroom home has an estimated
-                     4,000 total square feet with nearly 3 
-                    acres & its own access to the Haywards River.
-                    This 5 bedroom, 3 bathroom home has an estimated
-                     4,000 total square feet with nearly 3 
-                    acres & its own access to the Haywards River.
-                </p>
+                <p>{{ house_infomation.description }}</p>
+            </div>
+        </div>
+        
+        <div class="inn_describe">
+            <div class="inn_describe_title">
+                <h1>Phụ phí</h1>
+            </div>
+            <div class="inn_detailed_description">
+                <p>Tiền nước: {{ house_infomation.price_per_water_num }} đồng/số</p>
+                <p>Tiền điện: {{ house_infomation.price_per_electric_num }} đồng/số</p>
+                <p>Phí môi trường: {{ house_infomation.junk_money }} đồng/người</p>
             </div>
         </div>
 
+        <div class="inn_describe">
+            <div class="inn_describe_title">
+                <h1>Ghi chú:</h1>
+            </div>
+            <div class="inn_detailed_description">
+                {% if house_infomation.pet_allow == 0 %}
+                <p>Không cho phép nuôi thú</p>
+                {% else %}
+                <p>Cho phép nuôi thú</p>
+                {% endif %}
+            </div>
+        </div>
+ 
         <div class="map_API">
             <h1 class="map_title">Bản đồ</h1>
             <div id="map"></div>

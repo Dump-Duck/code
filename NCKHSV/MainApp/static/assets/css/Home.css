@@ -241,6 +241,11 @@ select {
     border-top-right-radius: 10px ;
 }
 
+.branding_image_landlord-title{
+    color: #fff;
+    font-size: 28px;
+}
+
 .branding_image_landlord{
     margin: 6px;
 }

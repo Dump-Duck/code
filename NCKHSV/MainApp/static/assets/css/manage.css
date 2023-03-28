@@ -128,12 +128,14 @@ transform: translateY(0px);
 }
 
 .image{
-    margin-top: 14px;
+    margin-top: 40px;
     font-size: 16px;
+    width: 100%;
+    height: 320px;
 }
 .image img{
-    height: auto;
     width: 100%;
+    height: 310px;
 }
 
 

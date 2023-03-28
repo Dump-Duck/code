@@ -18,6 +18,9 @@
 		/>
     <script type="text/javascript" src="{% static 'js/onclickImg.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/submit_footer.js' %}"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script type="module" src="{% static 'js/map.js' %}"></script>
+
     <title>Web tro</title>
 </head>
 <body>
@@ -73,82 +76,78 @@
                 </div>
                 
                 <div class="inn_price">
-                    <h1>$700,000</h1>
+                    <h1>7 triệu/tháng</h1>
                 </div>
             </div>
             
             <div class="inn_information">
-                <div class="inn_information_item">Built Year
-                    <h1>2017</h1>
+                <div class="inn_information_item">Diện tích
+                    <h1>30m2</h1>
                 </div>
-                <div class="inn_information_item">Bedrooms
-                    <h1>5</h1>
+                <div class="inn_information_item">Nội thất
+                    <h1>Full</h1>
                 </div>
-                <div class="inn_information_item">Bathrooms
-                    <h1>4</h1>
+                <div class="inn_information_item">Nhà vệ sinh
+                    <h1>Chung</h1>
                 </div>
-                <div class="inn_information_item">Stories
-                    <h1>2</h1>
+                <div class="inn_information_item">Bãi đỗ ô tô
+                    <h1>1</h1>
                 </div>
-                <div class="inn_information_item">Sq. ft.
-                    <h1>3060</h1>
+                <div class="inn_information_item">Khu để xe
+                    <h1>1</h1>
                 </div>
             </div>
         </div>
 
         <div class="inn_describe">
             <div class="inn_describe_title">
-                <h1>Built for the future.</h1>
+                <h1>Mô tả</h1>
             </div>
             <div class="inn_detailed_description">
                 <p> This 5 bedroom, 3 bathroom home has an estimated
                      4,000 total square feet with nearly 3 
-                    acres & its own access to the Haywards River.</p>
+                    acres & its own access to the Haywards River.
+                    This 5 bedroom, 3 bathroom home has an estimated
+                    4,000 total square feet with nearly 3 
+                   acres & its own access to the Haywards River.
+                   This 5 bedroom, 3 bathroom home has an estimated
+                   4,000 total square feet with nearly 3 
+                  acres & its own access to the Haywards River.
+                  This 5 bedroom, 3 bathroom home has an estimated
+                  4,000 total square feet with nearly 3 
+                 acres & its own access to the Haywards River.</p>
                 <p>
                     Extensive upgrades and thorough maintenance 
                     have kept this home in prime condition. Hardwood floors 
                     and new carpets create a very comfortable living space.
+                    This 5 bedroom, 3 bathroom home has an estimated
+                     4,000 total square feet with nearly 3 
+                    acres & its own access to the Haywards River.
+                    This 5 bedroom, 3 bathroom home has an estimated
+                     4,000 total square feet with nearly 3 
+                    acres & its own access to the Haywards River.
+                    This 5 bedroom, 3 bathroom home has an estimated
+                     4,000 total square feet with nearly 3 
+                    acres & its own access to the Haywards River.
                 </p>
             </div>
         </div>
 
-        <div class="inn_slogan">
-           
-           
-            <img class="inn_slogan-img" src="{% static './assets/img/alberto-castillo-q-mx4mskk9zeo-unsplash-5ab1_wm.jpg' %}" alt="">
-            <div class="in_slogan_text">
-                <h1>Luxurious & Environmentally Conscious Living.</h1>
-    
-                <p>Extensive upgrades and thorough maintenance have kept this home in prime condition. Hardwood floors and new carpets create a very comfortable living space.</p>
-            </div>
+        <div class="map_API">
+            <h1 class="map_title">Bản đồ</h1>
+            <div id="map"></div>
+
+            <!-- 
+              The `defer` attribute causes the callback to execute after the full HTML
+              document has been parsed. For non-blocking uses, avoiding race conditions,
+              and consistent behavior across browsers, consider loading using Promises
+              with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+              -->
+            <script
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+              defer
+            ></script>
         </div>
-
-        <div class="landlords_infor">
-            <div class="image_landlord">
-                
-                <img class="img_landlords" src="{% static './assets/img/agent.jfif' %}">
-                </img>
-            </div>
-
-            <div class="landlord_information">
-                <h1>About Agent.</h1>
-
-                <p>Juan Pérez is a Certified Residential Specialist with over 12 years of experience of helping local clients sell homes. He achieved success due to 
-                    his commitment to providing beautiful homes in Sussex.</p>
-            </div>
-
-            <div class="landlord_contact">
-                <h1>Schedule a Private Showing.</h1>
-
-                <p>Rivington Real Estate Team:
-                    myemail@example.com
-                    (123)-456-789
-                    1 Example Street,
-                    Anytown, 10100
-                    USA</p>
-            </div>
-        </div>
-    </div>
 
     <footer class="footer">
         <div class="footer_list-item">

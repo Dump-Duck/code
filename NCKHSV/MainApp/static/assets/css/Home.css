@@ -587,5 +587,11 @@ select {
 }
 
 
-
+.not_result{
+    text-align: center;
+    margin: 290px;
+    color: #777;
+    font-weight: 100;
+    font-size: 1.55em;
+}
 

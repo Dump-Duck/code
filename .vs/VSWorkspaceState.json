@@ -5,12 +5,9 @@
     "\\NCKHSV\\MainApp",
     "\\NCKHSV\\MainApp\\static",
     "\\NCKHSV\\MainApp\\static\\assets",
-    "\\NCKHSV\\MainApp\\static\\assets\\img",
-    "\\NCKHSV\\MainApp\\static\\assets\\img\\house_photo",
-    "\\NCKHSV\\MainApp\\static\\assets\\img\\house_photo\\thumbnail",
-    "\\NCKHSV\\MainApp\\templates",
-    "\\NCKHSV\\NCKHSV"
+    "\\NCKHSV\\MainApp\\static\\assets\\css",
+    "\\NCKHSV\\MainApp\\templates"
   ],
-  "SelectedNode": "\\NCKHSV\\MainApp\\templates\\manage.html",
+  "SelectedNode": "\\NCKHSV\\MainApp\\models.py",
   "PreviewInSolutionExplorer": false
 }

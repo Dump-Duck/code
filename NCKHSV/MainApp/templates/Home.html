@@ -53,20 +53,21 @@
             </div>
         </div>
     </div>
-    <form class="search-area" method="get">
+    <form class="search-area" method="post" action="{% url 'search_result' %}">
+        {% csrf_token %}
         <div class="search-box">
-                <div class="search-input-form">
-                   <div class="search">
-                      <input type="text" id="input" onclick="searchFunction()" class="searchTerm" placeholder="What are you looking for?">
+            <div class="search-input-form">
+                <div class="search">
+                    <input type="text" id="input" onclick="searchFunction()" class="searchTerm" name="search_text" placeholder="What are you looking for?">
 
-                
-                      <button type="submit" class="searchButton">
+
+                    <button type="submit" class="searchButton">
                         <i class="fa fa-search"></i>
-                     </button>
-                 
-                   </div>
-                   <ul class="list"><li></li></ul>
-               </div>
+                    </button>
+
+                </div>
+                <ul class="list"><li></li></ul>
+            </div>
         </div>
     </form>
    
@@ -159,11 +160,6 @@
                         <div class="residential-card__image-content">
                             <div class="residential-slides">
                                 <a href="{% url 'index' post.id %}" class="new-post_link"><img id="show1" class="residential-slides_img" src="/{{post.thumbnail}}" alt="" /></a>
-                                {%comment%}{%for img in images%}
-                                {%if img.houses_id == post.id%}
-                                <a href="{% url 'index' %}" class="new-post_link"><img id="show1" class="residential-slides_img" src="/{{ img.images }}" alt=""></a>
-                                {%endif%}
-                                {%endfor%}{%endcomment%}
                             </div>
 
                             <button class="arrow_right">
@@ -231,6 +227,12 @@
                 </article>
             </div>
             {% endfor %}
+
+            {% if request.path == '/search' %}
+            {% if page_obj == None %}
+            <h1 class="not_result">Không có kết quả phù hợp!</h1>
+            {% endif %}
+            {% endif %}
 
             <!-- Phân trang ở đây -->
             {% if page_obj.has_other_pages %}

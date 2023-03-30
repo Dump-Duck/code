@@ -88,11 +88,11 @@
 
 .about-list-content h1 {
     font-size: 45px;
-    padding: 10px 27px;
+    padding: 10px 0;
 }
 .about-list-content p {
     font-size: 16px;
-    padding-left: 27px;
+    padding-left: 0;
 }
   .about-list-main {
     column-count: 3;
@@ -261,7 +261,7 @@
 article.testimonial-section {
   width: 100%;
   margin: 0 auto;
-  background:#c1c2c2;
+  background: #6b536f36
  
 
 }

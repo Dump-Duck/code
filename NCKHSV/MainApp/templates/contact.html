@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/Home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/services.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/services-list-home.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-free-6.1.1-web/css/all.css' %}">
+    <script type="text/javascript" src="{% static 'js/services.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/submit_footer.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/services-list-home.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/services-slide-about.js' %}"></script>
+
+   
+    <title>Services</title>
+</head>
+<body>
+    
+<body>
+    <header class="header">
+        <div class="header_logo">
+            <a href="{% url 'main' %}"><img class="header_logo_img" src="{% static 'assets/img/Home_logo.png' %}" alt=""></a>
+        </div>
+
+        <section class="menu_header">
+            <nav class="item-header">
+               <a href="{% url 'main' %}">Home</a>
+               <a href="{% url 'services' %}">Services</a>
+               <a href="{% url 'contact' %}">Contact</a>
+               <li class="dark" id="banner"><i class="bi bi-cloud-sun"></i></li>
+                {% if user.is_authenticated %}
+               <a href="{% url 'manage' %}">Manage</a>
+               <a href="{% url 'upload' %}">Upload</a>
+               <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+               <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </nav>
+        </section>
+    </header>
+
+<!-- About city estate start -->
+<article class="container-about">
+    
+
+    <div class="about-list">
+        <div class="about-list-content">
+            <h1>Các nhà phát triển chính</h1>
+            <p>Được sự chỉ bảo của thầy Nguyễn Hoàng Long nhóm nghiên cứu đã ứng dụng xây dựng thành công WebGis hỗ trợ việc tìm trọ</p>
+            
+        </div>
+        <div class="about-list-main">
+            <div class="container-about-list">
+               <div class="container-about-list-small">
+                    <img  src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}"  alt="team-2" class="img-responsive">
+                    <!-- Detail -->
+                    <div class="caption detail">
+                        <div class="caption-show">
+                        <h6>GV.TS.Nguyễn Hoàng Long</h6>
+                        <h3><a href="">Giảng viên</a></h3>
+                    </div>
+                        <!-- contact -->
+                        <div class="contact">
+                            <p>
+                                <i class="fa fa-envelope-o"></i>
+                                <a href="#">nguyenhoanglong@humg.edu.vn</a>
+                            </p>
+                            <p>
+                                <i class="fa fa-mobile"></i><a href="">+55 417-634-7071</a>
+                            </p>
+                        </div>
+                        <!-- social List -->
+                        <div class="wrapper-about">
+                            <div class="icon facebook">
+                              <i class="fab fa-facebook-f"></i>
+                              <span class="tooltip">Facebook</span>
+                            </div>
+                            <div class="icon github">
+                              <i class="fab fa-github"></i>
+                              <span class="tooltip">Github</span>
+                            </div>
+                            <div class="icon twitter">
+                              <i class="fab fa-twitter"></i>
+                              <span class="tooltip">Twitter</span>
+                            </div>
+                            <div class="icon instagram">
+                              <i class="fab fa-instagram"></i>
+                              <span class="tooltip">Instagram</span>
+                            </div>
+                            <div class="icon youtube">
+                              <i class="fab fa-youtube"></i>
+                              <span class="tooltip">Youtube</span>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+                <!-- About box end -->
+                <div class="container-about-list">
+                    <div class="container-about-list-small">
+                         <img  src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}"  alt="team-2" class="img-responsive">
+                         <!-- Detail -->
+                         <div class="caption detail">
+                            <div class="caption-show">
+                             <h6>Manager</h6>
+                             <h3><a href="">Peter Harold</a></h3>
+                             <!-- contact -->
+                            </div>
+                             <div class="contact">
+                                 <p>
+                                     <i class="fa fa-envelope-o"></i>
+                                     <a href="#">buicuong288@gmail.com</a>
+                                 </p>
+                                 <p>
+                                     <i class="fa fa-mobile"></i><a href="tel:+55417-634-7071">+55 417-634-7071</a>
+                                 </p>
+                             </div>
+                             <!-- social List -->
+                             <div class="wrapper-about">
+                                <div class="icon facebook">
+                                  <i class="fab fa-facebook-f"></i>
+                                  <span class="tooltip">Facebook</span>
+                                </div>
+                                <div class="icon github">
+                                  <i class="fab fa-github"></i>
+                                  <span class="tooltip">Github</span>
+                                </div>
+                                <div class="icon twitter">
+                                  <i class="fab fa-twitter"></i>
+                                  <span class="tooltip">Twitter</span>
+                                </div>
+                                <div class="icon instagram">
+                                  <i class="fab fa-instagram"></i>
+                                  <span class="tooltip">Instagram</span>
+                                </div>
+                                <div class="icon youtube">
+                                  <i class="fab fa-youtube"></i>
+                                  <span class="tooltip">Youtube</span>
+                                </div>
+                              </div>
+                         </div>
+                     </div>
+                 </div>
+            
+                 <!-- About box end -->
+                 <div class="container-about-list">
+                    <div class="container-about-list-small">
+                         <img  src="{% static './assets/img/20230129103403-1a75_wm.jpg' %}"  alt="team-2" class="img-responsive">
+                         <!-- Detail -->
+                         <div class="caption detail">
+                            <div class="caption-show">
+                             <h6>Manager</h6>
+                             <h3><a href="">Peter Harold</a></h3>
+                             <!-- contact -->
+                            </div>
+                             <div class="contact">
+                                 <p>
+                                     <i class="fa fa-envelope-o"></i>
+                                     <a href="#">buicuong288@gmail.com</a>
+                                 </p>
+                                 <p>
+                                     <i class="fa fa-mobile"></i><a href="">+55 417-634-7071</a>
+                                 </p>
+                             </div>
+                             <!-- social List -->
+                             <div class="wrapper-about">
+                                <div class="icon facebook">
+                                  <i class="fab fa-facebook-f"></i>
+                                  <span class="tooltip">Facebook</span>
+                                </div>
+                                <div class="icon github">
+                                  <i class="fab fa-github"></i>
+                                  <span class="tooltip">Github</span>
+                                </div>
+                                <div class="icon twitter">
+                                  <i class="fab fa-twitter"></i>
+                                  <span class="tooltip">Twitter</span>
+                                </div>
+                                <div class="icon instagram">
+                                  <i class="fab fa-instagram"></i>
+                                  <span class="tooltip">Instagram</span>
+                                </div>
+                                <div class="icon youtube">
+                                  <i class="fab fa-youtube"></i>
+                                  <span class="tooltip">Youtube</span>
+                                </div>
+                              </div>
+                         </div>
+                     </div>
+                 </div>
+                <!-- About box end -->
+
+                
+        </div>
+    </div>
+</article>
+
+
+<!-- Partners block end -->
+
+<footer class="footer">
+    <div class="footer_list-item">
+        <div class="footer_text">
+            <div class="contact_footer">
+                CÔNG TY CỔ PHẦN PROPERTYGURU VIỆT NAM
+                <li><i class="fa-regular fa-location-dot"></i><p>Tầng 31, Keangnam Hanoi Landmark, Phạm Hùng, Nam Từ Liêm, Hà Nội</p></li>
+                <li><i class="fa-regular fa-phone-volume"></i><p>(024) 3562 5939 - (024) 3562 5940</p></li>
+            </div>
+        </div>
+    </div>
+    <div class="footer_list-item">
+        <div class="footer_text">HƯỚNG DẪN
+                <li><a href="">Báo giá & hỗ trợ</a></li>
+                <li><a href="">Câu hỏi thường gặp</a></li>
+                <li><a href="">Thông báo</a></li>
+                <li><a href="">Liên hệ</a></li>
+                <li><a href="">Sitemap</a></li>
+            
+        </div>
+    </div>
+    <div class="footer_list-item">
+        <div class="footer_text">QUY ĐỊNH
+            <ul>
+                <li><a href="">Quy định đăng tin</a></li>
+                <li><a href="">Quy chế hoạt động</a></li>
+                <li><a href="">Điều khoản thỏa thuận</a></li>
+                <li><a href="">Chính sách bảo mật</a></li>
+                <li><a href="">Giải quyết khiếu nại</a></li>
+                <li><a href="">Góp ý báo lỗi</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer_list-item">
+        <div class="input_footer_text">
+            ĐĂNG KÝ NHẬN TIN
+        </div>
+        <form class='form_home'>
+            <div >
+                <input class="input_footer" type="text" id="username" placeholder="Nhập tên của bạn" />
+                <span></span>
+                <small class = "color_home"></small>
+            </div>
+            <div >
+                <input class="input_footer" type="email" id="email" placeholder="Nhập Email của bạn" />
+                <span></span>
+                <small class = "color_home"></small>
+            </div>
+            
+            
+            <button class="input_submit-btn"><input type="submit" class="input_submit"></button>
+            <div id="success-message-home" style="display:none;">Đăng ký thành công!</div>
+        </form>
+    </div>
+</article>
+
+</footer>
+
+</body>
+</html>

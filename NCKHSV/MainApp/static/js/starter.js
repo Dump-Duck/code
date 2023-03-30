@@ -78,14 +78,14 @@
             index =0;
         var show = document.getElementById("show1");
         show.src=arr_hinh[index];
-        // document.getElementById("dem").innerHTML = index+"/" + arr_hinh.length;
+        
     }
     function prev1(){
         index--;
         if(index<0)
             index= arr_hinh.length -1;
         document.getElementById("show1").src = arr_hinh[index];
-        // document.getElementById("dem").innerHTML = index+"/" + arr_hinh.length;
+       
     }
 
 ///// starter file 2

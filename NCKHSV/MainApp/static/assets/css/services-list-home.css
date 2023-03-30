@@ -1,5 +1,5 @@
 :root {
-	--home-big-color: #0f9d58;
+	--home-big-color: #90579e;
 }
 /* img {
 	width: 100%;
@@ -9,7 +9,7 @@
     transition: 0.5s;
 } */
 .about-container-text h1 {
-	color: #307747;
+	
     font-size: 35px;
     margin: 20px;
 }
@@ -17,7 +17,7 @@
 .about-list-home-big{
 	border-radius: 20px;
 	padding: 20px;
-	background-color: #e2f3e2;
+	background-color: #dcd6de;
 	margin: 100px auto;
 	text-align: center;
 	margin-bottom: 30px;

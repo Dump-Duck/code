@@ -38,7 +38,11 @@ def search(request):
         return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'search_results': search_result})
 
 # def filter(request):
-#     if request.method == 'GET':
+#     if request.method == 'POST':
+#         house_type_filter = request.POST.get(id=request.POST.get('house_type'))
+#         province_filter = request.POST.get(id=request.POST.get('province'))
+#         district_filter = request.POST.get(id=request.POST.get('district'))
+#         ward_filter = request.POST.get(id=request.POST.get('ward'))
 
 
 # Infomation of Inn what has show by id

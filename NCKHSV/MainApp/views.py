@@ -22,6 +22,8 @@ def main(request):
     page_obj = paginator.get_page(page_number)
     return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'images': image, 'page_obj': page_obj})
 
+
+# Search by text:
 def search(request):
     if request.method == "POST":
         search_text = request.POST.get('search_text')
@@ -35,14 +37,59 @@ def search(request):
         paginator = Paginator(search_result, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
-        return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'search_results': search_result})
+        return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'searches': search_result})
 
-# def filter(request):
-#     if request.method == 'POST':
-#         house_type_filter = request.POST.get(id=request.POST.get('house_type'))
-#         province_filter = request.POST.get(id=request.POST.get('province'))
-#         district_filter = request.POST.get(id=request.POST.get('district'))
-#         ward_filter = request.POST.get(id=request.POST.get('ward'))
+def filter(request):
+    if request.method == 'POST':
+        house_type_filter = request.POST.get('house_type')
+        province_filter = request.POST.get('province')
+        district_filter = request.POST.get('district')
+        ward_filter = request.POST.get('ward')
+        price = request.POST.get('price')
+        area = request.POST.get('area')
+         
+        if house_type_filter:
+            search_result = houses_for_rent.objects.filter(house_type=house_type_filter)
+            
+        if province_filter:
+            search_result = houses_for_rent.objects.filter(province=province_filter)
+            
+        if district_filter:
+            search_result = houses_for_rent.objects.filter(district=district_filter)
+            
+        if ward_filter:
+            search_result = houses_for_rent.objects.filter(ward=ward_filter)
+            
+        if price:
+            if price == '1':
+                search_result = houses_for_rent.objects.filter(price_per_month__lt=3)
+            elif price == '2':
+                search_result = houses_for_rent.objects.filter(price_per_month__gte=3, price_per_month__lt=5)
+            elif price == '3':
+                search_result = houses_for_rent.objects.filter(price_per_month__gte=5, price_per_month__lt=7)
+            elif price == '4':
+                search_result = houses_for_rent.objects.filter(price_per_month__gt=7)
+            
+        if area:
+            if area == '1':
+                search_result = houses_for_rent.objects.filter(area__lt=30)
+            elif area == '2':
+                search_result = houses_for_rent.objects.filter(area__gte=30, area__lt=50)
+            elif area == '3':
+                search_result = houses_for_rent.objects.filter(area__gt=50)
+        
+        house_type = house_types.objects.all()
+        province = provinces.objects.all()
+        district = districts.objects.all()
+        ward = wards.objects.all()
+        
+        # Phân trang:
+        paginator = Paginator(search_result, 3)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'searches': search_result})
+    else:
+        return redirect('/')
 
 
 # Infomation of Inn what has show by id

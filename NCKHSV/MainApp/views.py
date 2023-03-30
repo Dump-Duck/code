@@ -158,6 +158,8 @@ def load_img(request):
     return render(request, 'load_img.html', {'housePosts': house_posts, 'images': image})
 
 
+def services(request):
+    return render(request, 'services.html')
 
 
 

@@ -6,6 +6,7 @@ urlpatterns = [
     path('search/', views.search, name='search_result'),
     path('index/<int:id>', views.index, name='index'),
     path('upload/', views.upload, name='upload'),
+    path('services/', views.services, name='services'),
     path('manage/', views.manage, name='manage'),
     path('load_img/', views.load_img, name='load_img'),
     path('update/<int:id>/', views.update, name='update'),

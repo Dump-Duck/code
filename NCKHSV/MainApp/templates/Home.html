@@ -30,7 +30,7 @@
         <section class="menu_header">
             <nav class="item-header">
                <a href="{% url 'main' %}">Home</a>
-               <a href="">Services</a>
+               <a href="{% url 'services' %}">Services</a>
                <a href="">Contact</a>
                <li class="dark" id="banner"><i class="bi bi-cloud-sun"></i></li>
                 {% if user.is_authenticated %}

@@ -100,7 +100,6 @@ def update(request, id):
     filter_province = provinces.objects.all()
     filter_district = districts.objects.all()
     filter_ward = wards.objects.all()
-    image_data = Image.objects.filter(houses=id)
     house_for_rent = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').get(id=id)
     if request.method == "POST":
         updateForm = UpdateForm(id, request.POST, request.FILES)
@@ -112,7 +111,6 @@ def update(request, id):
             house_for_rent.ward = wards.objects.get(id=request.POST.get('ward'))
             house_for_rent.price_per_month = request.POST.get('price_per_month')
             house_for_rent.area = request.POST.get('area')
-            images_upload = request.FILES.getlist('images')
             house_for_rent.description = request.POST.get('description')
             house_for_rent.price_per_water_num = request.POST.get('price_per_water_num')
             house_for_rent.price_per_electric_num = request.POST.get('price_per_electric_num')
@@ -127,11 +125,6 @@ def update(request, id):
             house_for_rent.car_parking_area = request.POST.get('car_parking_area')
             house_for_rent.pet_allow = request.POST.get('pet_allow')
             house_for_rent.save()
-            
-            for i in image_data:
-                for j in images_upload:
-                    i.images = j
-                    i.save()
             return redirect('/')
         else:
             print(updateForm.errors)

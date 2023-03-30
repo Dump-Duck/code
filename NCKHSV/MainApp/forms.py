@@ -33,7 +33,6 @@ class UpdateForm(forms.Form):
     ward = forms.CharField(label='Xã/Phường')
     price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
     area = forms.IntegerField(label='Diện tích', help_text='m2')
-    images = forms.FileField(label='Hình ảnh')
     description = forms.CharField(label='Mô tả')
     price_per_water_num = forms.IntegerField(label='Giá 1 số nước', help_text='VND/Số')
     price_per_electric_num = forms.IntegerField(label='Giá 1 số điện', help_text='VND/Số')
@@ -51,7 +50,6 @@ class UpdateForm(forms.Form):
     def __init__(self, id,*args, **kwargs):
         super().__init__(*args, **kwargs)
         data = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').get(id=id)
-        img_data = Image.objects.filter(houses=id)
         self.fields['house_type'].initial = data.house_type.house_type
         self.fields['address'].initial = data.address
         self.fields['province'].initial = data.province.province
@@ -59,12 +57,6 @@ class UpdateForm(forms.Form):
         self.fields['ward'].initial = data.ward.ward
         self.fields['price_per_month'].initial = data.price_per_month
         self.fields['area'].initial = data.area
-        # self.fields['images'].widget['value'] = img_data.images
-        list_imgs = []
-        for image in img_data:
-            list_imgs.append(image.images.__str__())
-            
-        self.fields['images'].initial = list_imgs
         self.fields['description'].initial = data.description
         self.fields['price_per_water_num'].initial = data.price_per_water_num
         self.fields['price_per_electric_num'].initial = data.price_per_electric_num

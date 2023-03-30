@@ -84,8 +84,7 @@
                     {% endif %}
                     {% endfor %}
                 </select>
-                {% elif field.name == 'images' %}
-                <input class="input_img" type='file' name="images" value="{{ field.initial }}" multiple>
+                
                 {% elif field.name != 'address' and field.name != 'price_per_month' and field.name != 'area' and field.name != 'description' and field.name != 'price_per_water_num' and field.name != 'price_per_electric_num' and field.name != 'junk_money' and field.name != 'wc'%}
                     
                 <div class="radio">

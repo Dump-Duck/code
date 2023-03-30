@@ -127,9 +127,9 @@
                 <h1>Phụ phí</h1>
             </div>
             <div class="inn_detailed_description">
-                <p>Tiền nước: {{ house_infomation.price_per_water_num }} đồng/số</p>
+                <p>Tiền nước: {{ house_infomation.price_per_water_num }} đồng</p>
                 <p>Tiền điện: {{ house_infomation.price_per_electric_num }} đồng/số</p>
-                <p>Phí môi trường: {{ house_infomation.junk_money }} đồng/người</p>
+                <p>Phí môi trường: {{ house_infomation.junk_money }} đồng</p>
             </div>
         </div>
 
@@ -142,6 +142,11 @@
                 <p>Không cho phép nuôi thú</p>
                 {% else %}
                 <p>Cho phép nuôi thú</p>
+                {% endif %}
+                {% if house_infomation.cooking_area == 0 %}
+                <p>Không có khu vực nấu ăn</p>
+                {% else %}
+                <p>Có khu vực nấu ăn</p>
                 {% endif %}
             </div>
         </div>

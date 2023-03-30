@@ -58,7 +58,7 @@
         <div class="search-box">
             <div class="search-input-form">
                 <div class="search">
-                    <input type="text" id="input" onclick="searchFunction()" class="searchTerm" name="search_text" placeholder="What are you looking for?">
+                    <input type="text" id="input" onclick="searchFunction()" class="searchTerm" autocomplete="off" name="search_text" placeholder="What are you looking for?">
 
 
                     <button type="submit" class="searchButton">
@@ -149,7 +149,7 @@
                     <!-- branding_landlords -->
                     <div class="branding_landlords">
                         <div class="branding_image_landlord">
-                            <h1 class="branding_image_landlord-title">{% comment %} house_type  {% endcomment %}Chung cư mini - Hà nội - Bắc Từ Liêm</h1>
+                            <h1 class="branding_image_landlord-title">{{post.house_type.house_type}} - {{ post.province.province }} - {{ post.district.district }}</h1>
                         </div>
                     </div>
                     <!-- residential-card__image -->

@@ -26,7 +26,6 @@ def search(request):
     if request.method == "POST":
         search_text = request.POST.get('search_text')
         search_result = houses_for_rent.objects.filter(Q(house_type__house_type__icontains=search_text) | Q(province__province__icontains=search_text) | Q(district__district__icontains=search_text) | Q(ward__ward__icontains=search_text) | Q(address__icontains=search_text) | Q(area__icontains=search_text) | Q(price_per_month__icontains=search_text))
-
         house_type = house_types.objects.all()
         province = provinces.objects.all()
         district = districts.objects.all()
@@ -38,6 +37,8 @@ def search(request):
         page_obj = paginator.get_page(page_number)
         return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'search_results': search_result})
 
+# def filter(request):
+#     if request.method == 'GET':
 
 
 # Infomation of Inn what has show by id

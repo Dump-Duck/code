@@ -72,63 +72,63 @@
     </form>
    
     <nav class="container">
-        <form class="search-form" method="get" autocomplete="off" class="search-form">
+        <form class="search-form" method="get" class="search-form">
             <div class="search-select">
                 <div class="select">
-                    <select name="format" id="format">
+                    <select name="house_type" id="house_type">
                         <option>Loại nhà đất</option>
                         {% for type in types %}
-                        <option>{{ type.house_type }}</option>
+                        <option value="{{type.id}}">{{ type.house_type }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class="select">
-                    <select name="format" id="format">
+                    <select name="province" id="province">
                         <option>Tỉnh thành</option>
                         {% for province in provinces %}
-                        <option>{{ province.province }}</option>
+                        <option value="{{province.id}}">{{ province.province }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class="select">
-                    <select name="format" id="format">
+                    <select name="district" id="district">
                         <option>Quận/Huyện</option>
                         {% for district in districts %}
-                        <option>{{ district.district }}</option>
+                        <option value="{{district.id}}">{{ district.district }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class="select">
-                    <select name="format" id="format">
+                    <select name="ward" id="ward">
                         <option>Phường/Xã</option>
                         {% for ward in wards %}
-                        <option>{{ ward.ward }}</option>
+                        <option value="{{ward.id}}">{{ ward.ward }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class="select">
 
-                    <select name="format" id="format">
+                    <select name="price" id="price">
                         <option>
                             Mức giá
                         </option>
-                        <option>Dưới 3 triệu</option>
-                        <option>3 - 5 triệu</option>
-                        <option>5 - 7 triệu</option>
-                        <option>Trên 7 triệu</option>
+                        <option value="1">Dưới 3 triệu</option>
+                        <option value="2">3 - 5 triệu</option>
+                        <option value="3">5 - 7 triệu</option>
+                        <option value="4">Trên 7 triệu</option>
                     </select>
                 </div>
 
                 <div class="select">
-                    <select name="format" id="format">
-                        <option>Diện tích</option>
-                        <option>Dưới 30m2</option>
-                        <option>30m2 - 50m2</option>
-                        <option>Trên 50m2</option>
+                    <select name="area" id="area">
+                        <option value="1">Diện tích</option>
+                        <option value="2">Dưới 30m2</option>
+                        <option value="3">30m2 - 50m2</option>
+                        <option value="4">Trên 50m2</option>
                     </select>
                 </div>
 

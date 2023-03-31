@@ -55,8 +55,3 @@ class Image(models.Model):
     images = models.FileField(upload_to='MainApp/static/assets/img/house_photo', null=False)
     houses = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
     
-    
-# class HouseImage(models.Model):
-#     house = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
-#     image = models.ForeignKey(Image, on_delete=models.CASCADE)
-    

@@ -39,6 +39,7 @@ def search(request):
         page_obj = paginator.get_page(page_number)
         return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'searches': search_result})
 
+# Filter
 def filter(request):
     if request.method == 'POST':
         house_type_filter = request.POST.get('house_type')
@@ -151,6 +152,7 @@ def upload(request):
         uploadForm = UploadForm()
     return render(request, 'upload.html', {'uploadForm': uploadForm, 'house_types': filter_house, 'provinces': filter_province, 'districts': filter_district, 'wards': filter_ward})
 
+# Update
 def update(request, id):
     filter_house = house_types.objects.all()
     filter_province = provinces.objects.all()
@@ -202,17 +204,11 @@ def manage(request):
     image = Image.objects.all()
     return render(request, 'manage.html', {'allPosts': all_posts, 'images': image})
 
-
-def load_img(request):
-    house_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()
-    image = Image.objects.all()
-    return render(request, 'load_img.html', {'housePosts': house_posts, 'images': image})
-
-
+# Service
 def services(request):
     return render(request, 'services.html')
 
-
+# Contact
 def contact(request):
     return render(request, 'contact.html')
 

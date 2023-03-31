@@ -30,16 +30,15 @@
 
         <section class="menu_header">
             <nav class="item-header">
-               <a href="{% url 'main' %}">Home</a>
-               <a href="{% url 'services' %}">Services</a>
-               <a href="{% url 'contact' %}">Contact</a>
-               <li class="dark" id="banner"><i class="bi bi-cloud-sun"></i></li>
+               <a href="{% url 'main' %}">Trang chủ</a>
+               <a href="{% url 'services' %}">Dịch Vụ</a>
+               <a href="{% url 'contact' %}">Liên Lạc</a>
                 {% if user.is_authenticated %}
-               <a href="{% url 'manage' %}">Manage</a>
-               <a href="{% url 'upload' %}">Upload</a>
-               <a href="{% url 'logout' %}">Logout</a>
+               <a href="{% url 'manage' %}">Quản Lý</a>
+               <a href="{% url 'upload' %}">Đăng Tải</a>
+               <a href="{% url 'logout' %}">Đăng Xuất</a>
                 {% else %}
-               <a href="{% url 'login' %}">Login</a>
+               <a href="{% url 'login' %}">Đăng Nhập</a>
                 {% endif %}
             </nav>
         </section>
@@ -60,7 +59,6 @@
             <div class="search-input-form">
                 <div class="search">
                     <input type="text" id="input" onclick="searchFunction()" class="searchTerm" autocomplete="off" name="search_text" placeholder="What are you looking for?">
-
 
                     <button type="submit" class="searchButton">
                         <i class="fa fa-search"></i>
@@ -137,8 +135,6 @@
                     <button type="submit" class="filterButton" style="display:none;">
                         <span>Áp dụng</span> 
                     </button>
-
-
             </div>
 
              
@@ -157,7 +153,6 @@
                     <!-- residential-card__image -->
 
 
-
                     <div class="residential-card__image">
                         <div class="residential-card__image-content">
                             <div class="residential-slides">
@@ -173,8 +168,6 @@
                             </button>
                         </div>
                     </div>
-
-
 
 
                     <!-- residential-card__content -->
@@ -256,10 +249,8 @@
                 </span>
             </div>
             {% endif %}
-
         </div>
     </nav>
-
 
     <footer class="footer">
         <div class="footer_list-item">

@@ -229,9 +229,9 @@
                 </article>
             </div>
             {% endfor %}
-
-            {% if request.path == '/search' %}
-            {% if page_obj == None %}
+           
+            {% if "/search" and "/filter" in request.path %}
+            {% if searches|length == 0 %}
             <h1 class="not_result">Không có kết quả phù hợp!</h1>
             {% endif %}
             {% endif %}

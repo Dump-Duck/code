@@ -73,11 +73,12 @@
     </form>
    
     <nav class="container">
-        <form class="search-form" method="post" class="search-form">
+        <form class="search-form" method="post" class="search-form" action="{% url 'filter_result' %}">
+            {% csrf_token %}
             <div class="search-select">
                 <div class="select">
                     <select name="house_type" id="house_type">
-                        <option value="">Loại nhà đất</option>
+                        <option value="" disabled selected>Loại nhà đất</option>
                         {% for type in types %}
                         <option value="{{type.id}}">{{ type.house_type }}</option>
                         {% endfor %}
@@ -86,7 +87,7 @@
 
                 <div class="select">
                     <select name="province" id="province">
-                        <option value="">Tỉnh thành</option>
+                        <option value="" disabled selected>Tỉnh thành</option>
                         {% for province in provinces %}
                         <option value="{{province.id}}">{{ province.province }}</option>
                         {% endfor %}
@@ -95,7 +96,7 @@
 
                 <div class="select">
                     <select name="district" id="district">
-                        <option value="">Quận/Huyện</option>
+                        <option value="" disabled selected>Quận/Huyện</option>
                         {% for district in districts %}
                         <option value="{{district.id}}">{{ district.district }}</option>
                         {% endfor %}
@@ -104,7 +105,7 @@
 
                 <div class="select">
                     <select name="ward" id="ward">
-                        <option value="">Phường/Xã</option>
+                        <option value="" disabled selected>Phường/Xã</option>
                         {% for ward in wards %}
                         <option value="{{ward.id}}">{{ ward.ward }}</option>
                         {% endfor %}
@@ -114,7 +115,7 @@
                 <div class="select">
 
                     <select name="price" id="price">
-                        <option value="">
+                        <option value="" disabled selected>
                             Mức giá
                         </option>
                         <option value="1">Dưới 3 triệu</option>
@@ -126,7 +127,7 @@
 
                 <div class="select">
                     <select name="area" id="area">
-                        <option value="">Diện tích</option>
+                        <option value="" disabled selected>Diện tích</option>
                         <option value="1">Dưới 30m2</option>
                         <option value="2">30m2 - 50m2</option>
                         <option value="3">Trên 50m2</option>

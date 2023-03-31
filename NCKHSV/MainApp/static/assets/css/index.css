@@ -220,7 +220,7 @@ nav a {
 }
 
 .inn_describe_title{
-    margin: 100px;
+    margin: 20px;
 }
 
 .inn_describe_title h1{
@@ -228,7 +228,7 @@ nav a {
     text-align: center;
 }
 .inn_detailed_description{
-    margin: 100px 100px 76px 0px;
+    margin: 20px 20px 10px 0px;
     line-height: 30px;
 }
 
@@ -347,4 +347,130 @@ nav a {
 #map {
     height: 400px; /* The height is 400 pixels */
     width: 100%; /* The width is the width of the web page */
+  }
+
+
+
+
+
+
+
+  /* responsive */
+    /* PC */
+    @media (min-width: 64em) {
+        .menu_btn{
+            display: none;
+        }
+    }
+
+    /* mobile */
+  @media (max-width: 46.1875em) {
+    .header{
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+    .item-header{
+        display: block;
+        background-color: #F6BDC0;
+    }
+    .menu_btn{
+        float: right;
+        margin: 18px;
+        color: var(--white-color);
+    }
+    .header_logo{
+        margin: 0 24px 0 0;
+    }
+    .header_logo_img{
+        width: 90px;
+    }
+
+    .item-header a{
+        padding: 21px 0;
+        margin: 0 40px 0 16px;
+    }
+
+
+
+    .container{
+        margin: 100px 0
+    }
+
+    .inn_infor{
+        margin: 0;
+    }
+    .inn_image{
+        display: block;
+    }
+
+    .img_slides{
+        width: 100%;
+        height: 250px;
+        margin: 0 4px;
+    }
+
+    .btn_arrow_left{
+        top: 40%;
+        left: 4%;
+    }
+
+    .btn_arrow_right{
+        top: 40%;
+        right: 7%;
+
+    }
+
+    .inn_img{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 8px;
+    }
+
+    .inn_title_price{
+        display: block;
+    }
+    .inn_title p{
+        line-height: 40px;
+    }
+    .inn_price{
+        margin: 0;
+    }
+    .inn_title h1{
+        width: 100%;
+        margin: 0 0 24px 0;
+    }
+    .inn_price{
+        margin:  24px 0 0 0 ;
+
+    }
+    .inn_information{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 8px;
+    }
+
+    .inn_information_item{
+        margin: 12px 0;
+    }
+
+    .inn_describe{
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+
+    .inn_describe_title h1{
+        width: 100%;
+    }
+
+    
+    .footer{
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 0;
+    }
+
+    .footer_list-item{
+        padding: 20px;
+    }
   }

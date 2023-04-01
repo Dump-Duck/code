@@ -8,12 +8,84 @@
 
 /* Tablet */
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
+    /* header  */
+    .item-header{
+        display: flex;
+    }
+    .item-header a {
+        padding: 8px;
+        text-align: center;
+    }
 
+    .menu_btn{
+        display: none;
+    }
+
+
+
+    /* container  */
+
+    .container{
+        display: block;
+    }
+
+    .search_select{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 60px 0 0 0;
+        margin: 0;
+        border-bottom: 0px solid #000;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .filterButton{
+        width: 140px;
+        margin: 12px 110px 0 ;
+    }
+
+
+    .select{
+        width: 13em;
+        height: 4em;
+        margin: 8px 12px;
+        line-height: 4;
+    }
+
+    .select::after{
+        padding: 0em 0.75em;
+    }
+
+    .list_new_post{
+        width: 100%;
+    }
+
+    .branding_image_landlord-title{
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .residential-slides_img{
+        height: 300px;
+    }
+
+    
+
+    .footer{
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 0;
+    }
+
+    .footer_list-item{
+        padding: 20px;
+    }
 }
 
 
 /* Mobile */
 @media (max-width: 46.1875em) {
+    /* header  */
     .header{
         overflow: hidden;
         position: fixed;
@@ -50,6 +122,7 @@
     }
 
 
+    /* container  */
     .container{
         display: block;
     }

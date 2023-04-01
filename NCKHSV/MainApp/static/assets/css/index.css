@@ -363,8 +363,121 @@ nav a {
         }
     }
 
+    /* Tablet */
+    @media (min-width: 46.25em) and (max-width: 63.9375em) {
+        /* header  */
+
+        .item-header{
+            display: flex;
+        }
+        .item-header a {
+            padding: 8px;
+            text-align: center;
+        }
+
+        .menu_btn{
+            display: none;
+        }
+
+
+        /* container  */
+        .container{
+            margin: 100px 0
+        }
+
+        .inn_infor{
+            margin: 0;
+        }
+        .inn_image{
+            display: block;
+        }
+
+        .img_slides{
+            width: 100%;
+            height: 400px;
+            margin: 0 4px;
+        }
+
+        .btn_arrow_left{
+            top: 40%;
+            left: 4%;
+        }
+
+        .btn_arrow_right{
+            top: 40%;
+            right: 7%;
+
+        }
+
+        .inn_img{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 0 0 0 ;
+        }
+        .item_inn_imgae{
+            padding: 12px 0 ;
+            width: 200px;
+        }
+
+        .inn_title_price{
+            display: block;
+            text-align: center;
+        }
+        .inn_title p{
+            line-height: 40px;
+        }
+        .inn_price{
+            margin: 0;
+        }
+        .inn_title h1{
+            width: 100%;
+            margin: 0 0 24px 0;
+        }
+        .inn_price{
+            margin:  24px 0 0 0 ;
+
+        }
+        .inn_information{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inn_information_item{
+            margin: 24px 12px;
+            width: 350px;
+        }
+
+        .inn_describe{
+            display: grid;
+            grid-template-columns: 30% 70%;
+        }
+
+        .inn_describe_title h1{
+            width: 100%;
+        }
+
+        
+        .footer{
+            grid-template-columns: 50% 50%;
+            grid-column-gap: 0;
+        }
+
+        .footer_list-item{
+            padding: 20px;
+        }
+
+
+        }
+
+
+
     /* mobile */
   @media (max-width: 46.1875em) {
+    /* header */
     .header{
         overflow: hidden;
         position: fixed;
@@ -393,7 +506,7 @@ nav a {
     }
 
 
-
+    /* container  */
     .container{
         margin: 100px 0
     }

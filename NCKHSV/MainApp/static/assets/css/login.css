@@ -91,13 +91,6 @@ body {
         font-weight: 600;
   }
 
-  @media (max-width: 600px) {
-      .main {
-          border-radius: 0px;
-      }
-  }
-
-
 
 .btn{
   text-align: center;
@@ -178,5 +171,23 @@ button:hover::after, button:focus::after {
     width: 300px;
     height: 300px;
     opacity: 0;
+  }
+}
+
+
+/* PC */
+@media (min-width: 64em) {
+
+}
+
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+
+}
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+  .main{
+    width: 90%;
   }
 }

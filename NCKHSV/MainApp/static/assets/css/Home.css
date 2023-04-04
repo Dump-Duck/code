@@ -14,10 +14,10 @@ body {
 
 
 .header{
-display: flex;
-height: 60px;
-justify-content: space-between;
-margin: 15px 25px;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    margin: 15px 25px;
 }
 
 .header_logo_img{
@@ -28,17 +28,17 @@ width: 130px;
 
 
 nav a {
-position: relative;
-display: inline-block;
-margin: 15px 15px;
-outline: none;
-color: #777;
-text-decoration: none;
-text-transform: uppercase;
-letter-spacing: 1px;
-font-weight: 100;
-text-shadow: 0 0 1px rgba(255,255,255,0.3);
-font-size: 1em;
+    position: relative;
+    display: inline-block;
+    margin: 15px 15px;
+    outline: none;
+    color: #777;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 100;
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+    font-size: 1em;
 }
 
 nav a:hover,
@@ -58,28 +58,28 @@ padding: 8px 0;
 }
 
 .item-header a::after {
-position: absolute;
-top: 100%;
-left: 0;
-width: 100%;
-height: 4px;
-background: rgba(249, 193, 193, 0.503);
-content: '';
-opacity: 0;
--webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
--moz-transition: opacity 0.3s, -moz-transform 0.3s;
-transition: opacity 0.3s, transform 0.3s;
--webkit-transform: translateY(10px);
--moz-transform: translateY(10px);
-transform: translateY(10px);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(249, 193, 193, 0.503);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
 }
 
 .item-header a:hover::after,
 .item-header a:focus::after {
-opacity: 1;
--webkit-transform: translateY(0px);
--moz-transform: translateY(0px);
-transform: translateY(0px);
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
 }
 
 
@@ -213,7 +213,6 @@ select {
     position: relative;
     border: solid #bbb 2px;
     color: #bbb;
-    z-index: 1;
     transition: all 0.5s ease-in-out;
     border-radius: 5px;
     margin:5px 5px 24px 52px;

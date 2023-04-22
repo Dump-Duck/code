@@ -50,6 +50,10 @@ class houses_for_rent(models.Model):
     coordinates = models.CharField(max_length=255, null=True)
     thumbnail = models.FileField(upload_to='MainApp/static/assets/img/house_photo/thumbnail', null=True)
     
+    # Update: add 2 fields "lat" & "lng" replace coordinates for storing coordinates of Inn:
+    lat = models.CharField(max_length=255, null=True)
+    lng = models.CharField(max_length=255, null=True)
+    
     
 class Image(models.Model):
     images = models.FileField(upload_to='MainApp/static/assets/img/house_photo', null=False)

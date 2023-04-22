@@ -24,6 +24,8 @@ class UploadForm(forms.Form):
     parking_area = forms.IntegerField(label='Bãi để xe (xe máy, xe đạp)')
     car_parking_area = forms.IntegerField(label='Bãi đỗ ô tô')
     pet_allow = forms.IntegerField(label='Cho phép nuôi thú')
+    lat = forms.CharField(max_length=100, label='Vĩ độ')
+    lng = forms.CharField(max_length=100, label='Kinh độ')
 
 class UpdateForm(forms.Form):
     house_type = forms.CharField(label='Kiểu nhà')
@@ -46,6 +48,8 @@ class UpdateForm(forms.Form):
     parking_area = forms.IntegerField(label='Bãi để xe (xe máy, xe đạp)')
     car_parking_area = forms.IntegerField(label='Bãi đỗ ô tô')
     pet_allow = forms.IntegerField(label='Cho phép nuôi thú')
+    lat = forms.CharField(max_length=100, label='Vĩ độ')
+    lng = forms.CharField(max_length=100, label='Kinh độ')
     
     def __init__(self, id,*args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -70,3 +74,5 @@ class UpdateForm(forms.Form):
         self.fields['parking_area'].initial = data.parking_area
         self.fields['car_parking_area'].initial = data.car_parking_area
         self.fields['pet_allow'].initial = data.pet_allow
+        self.fields['lat'].initial = data.lat
+        self.fields['lng'].initial = data.lng

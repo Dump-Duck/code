@@ -154,6 +154,9 @@
         <div class="map_API">
             <h1 class="map_title">Bản đồ</h1>
             <div id="map"></div>
+            <div id="lat" data-lat="{{ house_infomation.lat}}"></div>
+            <div id="lng" data-lng="{{ house_infomation.lng}}"></div>
+            <div id="title" data-title="{{ house_infomation.address }}, {{ house_infomation.ward.ward }}, {{ house_infomation.district.district }}, {{ house_infomation.province.province }}">
 
             <!-- 
               The `defer` attribute causes the callback to execute after the full HTML
@@ -245,6 +248,6 @@
             }
         }
 
-    </script>
+    </scrip>
 </body>
 </html>

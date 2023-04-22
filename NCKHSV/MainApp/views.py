@@ -6,6 +6,7 @@ from django.template import loader
 from django.db.models import Q
 from .forms import *
 from .models import *
+from .utils import *
 
 # Create your views here.
 def main(request):
@@ -133,13 +134,24 @@ def upload(request):
             parking_area = request.POST.get('parking_area')
             car_parking_area = request.POST.get('car_parking_area')
             pet_allow = request.POST.get('pet_allow')
+            lat = request.POST.get('lat')
+            lng = request.POST.get('lng')
+            
+            # Lấy tọa độ sau đó lưu trữ vào trường coordinates:
+            # generalAddress = address + ' ' + ward.ward + ' ' + district.district + ' ' + province.province
+            # coordinates = get_coordinates(generalAddress)
+            # if coordinates is not None:
+            #     lat, lng = coordinates
+            # else:
+            #     lat, lng = coordinates, coordinates
+            
             
             save_house = houses_for_rent.objects.create(house_type=house_type, address=address, province=province, district=district, ward=ward,
                                                         price_per_month=price_per_month, area=area, description=description, 
                                                         price_per_water_num=price_per_water_num, price_per_electric_num=price_per_electric_num,
                                                         junk_money=junk_money, air_conditioner=air_conditioner, wardrobe=wardrobe, fan=fan, wc=wc, electric_water_heater=electric_water_heater,
                                                         cooking_area=cooking_area, parking_area=parking_area, car_parking_area=car_parking_area,
-                                                        pet_allow=pet_allow, coordinates=None, thumbnail=images[0])
+                                                        pet_allow=pet_allow, coordinates=None, thumbnail=images[0], lat=lat, lng=lng)
             save_house.save()
             
             for image in images:
@@ -182,6 +194,8 @@ def update(request, id):
             house_for_rent.parking_area = request.POST.get('parking_area')
             house_for_rent.car_parking_area = request.POST.get('car_parking_area')
             house_for_rent.pet_allow = request.POST.get('pet_allow')
+            house_for_rent.lat = request.POST.get('lat')
+            house_for_rent.lng = request.POST.get('lng')
             house_for_rent.save()
             return redirect('/')
         else:

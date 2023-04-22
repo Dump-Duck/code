@@ -132,3 +132,6 @@ IMG_ROOT = os.path.join(BASE_DIR, 'MainApp/static/assets/img/house_photo/')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Google Maps API key
+GOOGLE_MAPS_API_KEY = 'AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8'

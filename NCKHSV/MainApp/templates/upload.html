@@ -74,38 +74,22 @@
                     <div class="radio">
                         <div class="radio_item">
                             <span>Không</span>
-                            {%if field.initial == 0%}
-                            <input type="radio" name="{{ field.name }}" value="0" checked>
-                            {% else %}
                             <input type="radio" name="{{ field.name }}" value="0">
-                            {%endif%}
                         </div>
                         <div class="radio_item">
                             <span>Có</span>
-                            {%if field.initial == 1%}
                             <input type="radio" name="{{ field.name }}" value="1" checked>
-                            {% else %}
-                            <input type="radio" name="{{ field.name }}" value="1">
-                            {%endif%}
                         </div>
                     </div>
                     {%elif field.name == 'wc'%}
                     <div class="radio">
                         <div class="radio_item">
                             <span>Chung</span>
-                            {%if field.initial == 0%}
-                            <input type="radio" name="{{ field.name }}" value="0" checked>
-                            {% else %}
                             <input type="radio" name="{{ field.name }}" value="0">
-                            {%endif%}
                         </div>
                         <div class="radio_item">
                             <span>Riêng</span>
-                            {%if field.initial == 1%}
                             <input type="radio" name="{{ field.name }}" value="1" checked>
-                            {% else %}
-                            <input type="radio" name="{{ field.name }}" value="1">
-                            {%endif%}
                         </div>
                     </div>
                     {%elif field.name == 'description'%}

@@ -47,7 +47,6 @@ class houses_for_rent(models.Model):
     car_parking_area = models.IntegerField(null=False)
     pet_allow = models.IntegerField(null=False)
     description = models.TextField(null=False)
-    coordinates = models.CharField(max_length=255, null=True)
     thumbnail = models.FileField(upload_to='MainApp/static/assets/img/house_photo/thumbnail', null=True)
     
     # Update: add 2 fields "lat" & "lng" replace coordinates for storing coordinates of Inn:

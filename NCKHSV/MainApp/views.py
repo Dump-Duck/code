@@ -226,6 +226,10 @@ def services(request):
 def contact(request):
     return render(request, 'contact.html')
 
+# Map
+def map(request):
+    all_houses = houses_for_rent.objects.all()
+    return render(request, 'map.html', {'houses': all_houses})
 
 
 

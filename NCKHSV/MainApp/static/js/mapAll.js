@@ -1,12 +1,36 @@
 var map;
 
-var divLat = document.querySelectorAll('.lat');
-var divLng = document.querySelectorAll('.lng');
-var divAddress = document.querySelectorAll('.address');
+var infoWindow = document.getElementById('custom-info-window');
+var infoContent = document.getElementById('info-content');
 
+var divID = document.querySelectorAll('.id');
+var divArea = document.querySelectorAll('.area');
+var divPrice = document.querySelectorAll('.price');
+var divLat = document.querySelectorAll('.lat'); 
+var divLng = document.querySelectorAll('.lng'); 
+var divAddress = document.querySelectorAll('.address'); 
+
+var dataID = [];
+var dataArea = [];
+var dataPrice = [];
 var dataLat = [];
 var dataLng = [];
 var dataAddress = [];
+
+for(let i = 0; i < divID.length; i++) {
+    let id = divID[i].getAttribute('data-id');
+    dataID.push(id);
+}
+
+for(let i = 0; i < divArea.length; i++) {
+    let area = parseFloat(divArea[i].getAttribute('data-area'));
+    dataArea.push(area);
+}
+
+for(let i = 0; i < divPrice.length; i++) {
+    let price = parseFloat(divPrice[i].getAttribute('data-price'));
+    dataPrice.push(price);
+}
 
 for(let i = 0; i < divLat.length; i++) {
     let lat = parseFloat(divLat[i].getAttribute('data-lat'));
@@ -47,7 +71,34 @@ async function initMap() {
             position: coordinates[i],
             title: dataAddress[i],
         });
+
+        marker.addListener('click', function(){
+            window.location.href = '/index/' + dataID[i];
+        })
+
+        marker.addListener('rightclick', function() {
+            const url = '/info/' + dataID[i];
+
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        infoContent.innerHTML = xhr.responseText;
+                        infoWindow.style.display = 'block';
+                        infoWindow.style.zIndex = 999;
+                    }
+                }
+            };
+            xhr.open('GET', url);
+            xhr.send();
+        })
+
+        map.addListener('click', function() {
+            infoWindow.style.display = 'none';
+            infoWindow.style.zIndex = -1;
+        })
     }
+
 }
 
 initMap();

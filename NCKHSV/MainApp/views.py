@@ -231,7 +231,11 @@ def map(request):
     all_houses = houses_for_rent.objects.all()
     return render(request, 'map.html', {'houses': all_houses})
 
-
+# Show info about Inn when user right click into marker in map
+def info_content(request, id):
+    information = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').get(id=id)
+    info_images = Image.objects.filter(houses=id)
+    return render(request, 'info.html', {'information': information, 'images': info_images})
 
 
 

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <img src="/{{ information.thumbnail }}" height="200px" width="400"></img>
+        <p>{{ information.house_type.house_type }}</p>
+        <p>{{ information.address }}, {{ information.ward.ward }}, {{ information.district.district }}, {{ information.province.province }}</p>
+        <p>{{ information.price_per_month }} triệu/tháng</p>
+        <p>
+            Nội thất:
+            {% if information.air_conditioner == 1 and information.wardrobe == 1 and information.fan == 1 and information.electric_water_heater == 1 %}
+            Đầy đủ
+            {% else %}
+                {% if information.air_conditioner == 1 %}Điều hòa,{% endif %}{% if information.wardrobe == 1 %} Tủ,{% endif %}{% if information.fan == 1 %} Quạt,{% endif %}{% if information.electric_water_heater == 1 %} Nóng lạnh{% endif %}
+            {% endif %}
+        </p>

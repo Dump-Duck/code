@@ -70,7 +70,33 @@ async function initMap() {
             map: map,
             position: coordinates[i],
             title: dataAddress[i],
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: getScaleIcon(dataArea[i]),
+                fillColor: getColor(dataPrice[i]),
+                fillOpacity: 1,
+                strokeWeight: 2,
+                labelOrigin: new google.maps.Point(10, -10),
+            }
         });
+
+        function getScaleIcon(number) {
+            if(number < 30) {
+                return 5;
+            } else if(number >= 30 && number <= 50) {
+                return 7;
+            } else { return 10; }
+        }
+
+        function getColor(value) {
+            if(value < 3) {
+                return '#3ad64c';
+            } else if(value >= 3 && value < 5) {
+                return '#e3e336';
+            } else if(value >= 5 && value < 7) {
+                return '#e09b24';
+            } else { return '#e02424'; }
+        }
 
         marker.addListener('click', function(){
             window.location.href = '/index/' + dataID[i];

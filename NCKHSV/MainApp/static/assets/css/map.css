@@ -1,0 +1,61 @@
+.map{
+    position: relative;
+}
+
+.note{
+    background-color: #e5e4e4;
+    width: 180px;
+    position: absolute;
+    bottom: 28px;
+    border: 1px solid #444;
+}
+
+.note_title{
+    text-align: center;
+    margin: 0 0 12px 0 ;
+    padding: 8px 0 0 0 ;
+}
+
+.list_note{
+    display: flex;
+    align-items: center;
+    margin: 0 0 4px 12px ;
+}
+
+.note_icon-more_than_7{
+    background-color: #e02424;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.note_icon-max_7{
+    background-color: #e09b24;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.note_icon-max_5{
+    background-color: #e3e336;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.note_icon-max_3{
+    background-color: #3ad64c;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+
+.note_describe{
+    margin: 0 0 0 12px;
+}
+

@@ -114,7 +114,7 @@ def upload(request):
             area = request.POST.get('area')
             images = request.FILES.getlist('images')
             description = request.POST.get('description')
-            price_per_water_num = request.POST.get('price_per_water_num')
+            water_price = request.POST.get('water_price')
             price_per_electric_num = request.POST.get('price_per_electric_num')
             junk_money = request.POST.get('junk_money')
             air_conditioner = request.POST.get('air_conditioner')
@@ -132,7 +132,7 @@ def upload(request):
             
             save_house = houses_for_rent.objects.create(house_type=house_type, address=address, district=district, ward=ward,
                                                         price_per_month=price_per_month, area=area, description=description, 
-                                                        price_per_water_num=price_per_water_num, price_per_electric_num=price_per_electric_num,
+                                                        water_price=water_price, price_per_electric_num=price_per_electric_num,
                                                         junk_money=junk_money, air_conditioner=air_conditioner, wardrobe=wardrobe, fan=fan, wc=wc, electric_water_heater=electric_water_heater,
                                                         cooking_area=cooking_area, parking_area=parking_area, car_parking_area=car_parking_area,
                                                         pet_allow=pet_allow, coordinates=None, thumbnail=images[0], lat=lat, lng=lng)
@@ -164,7 +164,7 @@ def update(request, id):
             house_for_rent.price_per_month = request.POST.get('price_per_month')
             house_for_rent.area = request.POST.get('area')
             house_for_rent.description = request.POST.get('description')
-            house_for_rent.price_per_water_num = request.POST.get('price_per_water_num')
+            house_for_rent.water_price = request.POST.get('water_price')
             house_for_rent.price_per_electric_num = request.POST.get('price_per_electric_num')
             house_for_rent.junk_money = request.POST.get('junk_money')
             house_for_rent.air_conditioner = request.POST.get('air_conditioner')

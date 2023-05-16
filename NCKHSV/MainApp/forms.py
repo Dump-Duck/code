@@ -7,11 +7,11 @@ class UploadForm(forms.Form):
     address = forms.CharField(max_length=255, label='Địa chỉ')
     district = forms.CharField(label='Quân/Huyện')
     ward = forms.CharField(label='Xã/Phường')
-    price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
+    price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='Triệu VND/Tháng')
     area = forms.IntegerField(label='Diện tích', help_text='m2')
     images = forms.FileField(label='Hình ảnh')
     description = forms.CharField(label='Mô tả')
-    price_per_water_num = forms.IntegerField(label='Giá 1 số nước', help_text='VND/Số')
+    water_price = forms.IntegerField(label='Giá nước', help_text='VND')
     price_per_electric_num = forms.IntegerField(label='Giá 1 số điện', help_text='VND/Số')
     junk_money = forms.IntegerField(label='Phí môi trường', help_text='VND/Người')
     air_conditioner = forms.IntegerField(label='Điều hòa')
@@ -31,10 +31,10 @@ class UpdateForm(forms.Form):
     address = forms.CharField(max_length=255, label='Địa chỉ')
     district = forms.CharField(label='Quân/Huyện')
     ward = forms.CharField(label='Xã/Phường')
-    price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
+    price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='Triệu VND/Tháng')
     area = forms.IntegerField(label='Diện tích', help_text='m2')
     description = forms.CharField(label='Mô tả')
-    price_per_water_num = forms.IntegerField(label='Giá 1 số nước', help_text='VND/Số')
+    water_price = forms.IntegerField(label='Giá nước', help_text='VND')
     price_per_electric_num = forms.IntegerField(label='Giá 1 số điện', help_text='VND/Số')
     junk_money = forms.IntegerField(label='Phí môi trường', help_text='VND/Người')
     air_conditioner = forms.IntegerField(label='Điều hòa')
@@ -59,7 +59,7 @@ class UpdateForm(forms.Form):
         self.fields['price_per_month'].initial = data.price_per_month
         self.fields['area'].initial = data.area
         self.fields['description'].initial = data.description
-        self.fields['price_per_water_num'].initial = data.price_per_water_num
+        self.fields['water_price'].initial = data.water_price
         self.fields['price_per_electric_num'].initial = data.price_per_electric_num
         self.fields['junk_money'].initial = data.junk_money
         self.fields['air_conditioner'].initial = data.air_conditioner

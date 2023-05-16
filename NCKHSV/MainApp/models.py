@@ -28,7 +28,7 @@ class houses_for_rent(models.Model):
     ward = models.ForeignKey(wards, null=False, on_delete=models.CASCADE, related_name='wards')
     price_per_month = models.FloatField(null=False)
     area = models.IntegerField(null=False)
-    price_per_water_num = models.IntegerField(null=False)
+    water_price = models.IntegerField(null=False)
     price_per_electric_num = models.IntegerField(null=False)
     junk_money = models.IntegerField(null=False)
     air_conditioner = models.IntegerField(null=False)

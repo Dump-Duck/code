@@ -12,13 +12,8 @@ class house_types(models.Model):
     house_type = models.CharField(max_length=255, null=False)
 
 
-class provinces(models.Model):
-    province = models.CharField(max_length=255, null=False)  
-
-
 class districts(models.Model):
     district = models.CharField(max_length=255, null=False)
-    province = models.ForeignKey(provinces, null=True, on_delete=models.CASCADE)
     
     
 class wards(models.Model):
@@ -29,7 +24,6 @@ class wards(models.Model):
 class houses_for_rent(models.Model):
     house_type = models.ForeignKey(house_types, null=False, on_delete=models.CASCADE, related_name='types')
     address = models.CharField(max_length=255, null=False)
-    province = models.ForeignKey(provinces, null=False, on_delete=models.CASCADE, related_name='provinces')
     district = models.ForeignKey(districts, null=False, on_delete=models.CASCADE, related_name='districts')
     ward = models.ForeignKey(wards, null=False, on_delete=models.CASCADE, related_name='wards')
     price_per_month = models.FloatField(null=False)

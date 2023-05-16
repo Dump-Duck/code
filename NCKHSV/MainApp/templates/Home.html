@@ -32,7 +32,6 @@
         <section class="menu_header">
             <nav class="item-header">
                <a href="{% url 'main' %}">Trang chủ</a> <div id="mobile-menu" class="menu_btn"><i class=" fa-solid fa-bars"></i></div> 
-               <a href="{% url 'services' %}">Dịch Vụ</a>
                <a href="{% url 'contact' %}">Liên Lạc</a>
                <a href="{% url 'map' %}">Bản Đồ</a>
                 {% if user.is_authenticated %}
@@ -81,15 +80,6 @@
                         <option value="" disabled selected>Loại nhà đất</option>
                         {% for type in types %}
                         <option value="{{type.id}}">{{ type.house_type }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <div class="select">
-                    <select name="province" id="province">
-                        <option value="" disabled selected>Tỉnh thành</option>
-                        {% for province in provinces %}
-                        <option value="{{province.id}}">{{ province.province }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -149,7 +139,7 @@
                     <!-- branding_landlords -->
                     <div class="branding_landlords">
                         <div class="branding_image_landlord">
-                            <h1 class="branding_image_landlord-title">{{post.house_type.house_type}} - {{ post.province.province }} - {{ post.district.district }}</h1>
+                            <h1 class="branding_image_landlord-title">{{post.house_type.house_type}} - Hà Nội - {{ post.district.district }}</h1>
                         </div>
                     </div>
                     <!-- residential-card__image -->
@@ -190,7 +180,7 @@
                             </div>
 
                             <div class="residential-card_address">
-                                <span>{{ post.address }}, {{ post.ward.ward }}, {{ post.district.district }}, {{ post.province.province }}</span>
+                                <span>{{ post.address }}, {{ post.ward.ward }}, {{ post.district.district }}, Hà Nội</span>
                             </div>
 
                             <div class="residential-card_type">

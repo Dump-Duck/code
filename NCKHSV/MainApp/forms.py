@@ -5,7 +5,6 @@ from django.forms import ModelForm
 class UploadForm(forms.Form):
     house_type = forms.CharField(label='Kiểu nhà')
     address = forms.CharField(max_length=255, label='Địa chỉ')
-    province = forms.CharField(label='Tỉnh/Thành phố')
     district = forms.CharField(label='Quân/Huyện')
     ward = forms.CharField(label='Xã/Phường')
     price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
@@ -30,7 +29,6 @@ class UploadForm(forms.Form):
 class UpdateForm(forms.Form):
     house_type = forms.CharField(label='Kiểu nhà')
     address = forms.CharField(max_length=255, label='Địa chỉ')
-    province = forms.CharField(label='Tỉnh/Thành phố')
     district = forms.CharField(label='Quân/Huyện')
     ward = forms.CharField(label='Xã/Phường')
     price_per_month = forms.FloatField(label='Giá tiền 1 tháng', help_text='VND/Tháng')
@@ -53,10 +51,9 @@ class UpdateForm(forms.Form):
     
     def __init__(self, id,*args, **kwargs):
         super().__init__(*args, **kwargs)
-        data = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').get(id=id)
+        data = houses_for_rent.objects.prefetch_related('house_type', 'district', 'ward').get(id=id)
         self.fields['house_type'].initial = data.house_type.house_type
         self.fields['address'].initial = data.address
-        self.fields['province'].initial = data.province.province
         self.fields['district'].initial = data.district.district
         self.fields['ward'].initial = data.ward.ward
         self.fields['price_per_month'].initial = data.price_per_month

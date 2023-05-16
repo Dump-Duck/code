@@ -7,7 +7,6 @@ urlpatterns = [
     path('filter/', views.filter, name='filter_result'),
     path('index/<int:id>', views.index, name='index'),
     path('upload/', views.upload, name='upload'),
-    path('services/', views.services, name='services'),
     path('contact/', views.contact, name='contact'),
     path('manage/', views.manage, name='manage'),
     path('update/<int:id>/', views.update, name='update'),

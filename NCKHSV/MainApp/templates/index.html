@@ -35,17 +35,16 @@
 
         <section class="menu_header">
             <nav class="item-header">
-                <a href="{% url 'main' %}">Trang chủ</a><div id="mobile-menu" class="menu_btn"><i class=" fa-solid fa-bars"></i></div> 
-                <a href="{% url 'services' %}">Dịch Vụ</a>
-                <a href="{% url 'contact' %}">Liên Lạc</a>
-                <a href="{% url 'map' %}">Bản Đồ</a>
-                 {% if user.is_authenticated %}
-                <a href="{% url 'manage' %}">Quản Lý</a>
-                <a href="{% url 'upload' %}">Đăng Tải</a>
-                <a href="{% url 'logout' %}">Đăng Xuất</a>
-                 {% else %}
-                <a href="{% url 'login' %}">Đăng Nhập</a>
-                 {% endif %}
+               <a href="{% url 'main' %}">Trang chủ</a> <div id="mobile-menu" class="menu_btn"><i class=" fa-solid fa-bars"></i></div> 
+               <a href="{% url 'contact' %}">Liên Lạc</a>
+               <a href="{% url 'map' %}">Bản Đồ</a>
+                {% if user.is_authenticated %}
+               <a href="{% url 'manage' %}">Quản Lý</a>
+               <a href="{% url 'upload' %}">Đăng Tải</a>
+               <a href="{% url 'logout' %}">Đăng Xuất</a>
+                {% else %}
+               <a href="{% url 'login' %}">Đăng Nhập</a>
+                {% endif %}
             </nav>
         </section>
     </header>
@@ -72,7 +71,7 @@
             <div class="inn_title_price">
                 <div class="inn_title">
                     <h1>{{ house_infomation.house_type.house_type }}</h1> 
-                    <p>{{ house_infomation.address }}, {{ house_infomation.ward.ward }}, {{ house_infomation.district.district }}, {{ house_infomation.province.province }}</p>          
+                    <p>{{ house_infomation.address }}, {{ house_infomation.ward.ward }}, {{ house_infomation.district.district }}, Hà Nội</p>          
                 </div>
                 
                 <div class="inn_price">
@@ -171,7 +170,7 @@
             <div id="map"></div>
             <div id="lat" data-lat="{{ house_infomation.lat}}"></div>
             <div id="lng" data-lng="{{ house_infomation.lng}}"></div>
-            <div id="title" data-title="{{ house_infomation.address }}, {{ house_infomation.ward.ward }}, {{ house_infomation.district.district }}, {{ house_infomation.province.province }}">
+            <div id="title" data-title="{{ house_infomation.address }}, {{ house_infomation.ward.ward }}, {{ house_infomation.district.district }}, Hà Nội">
 
             <!-- 
               The `defer` attribute causes the callback to execute after the full HTML

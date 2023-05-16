@@ -11,26 +11,24 @@ from .utils import *
 # Create your views here.
 def main(request):
     house_type = house_types.objects.all()
-    province = provinces.objects.all()
     district = districts.objects.all()
     ward = wards.objects.all()
-    house_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()
+    house_posts = houses_for_rent.objects.prefetch_related('house_type', 'district', 'ward').all()
     image = Image.objects.all()
 
     # Phân trang:
     paginator = Paginator(house_posts, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'images': image, 'page_obj': page_obj})
+    return render(request, 'Home.html', {'types': house_type, 'districts': district, 'wards': ward, 'images': image, 'page_obj': page_obj})
 
 
 # Search by text:
 def search(request):
     if request.method == "POST":
         search_text = request.POST.get('search_text')
-        search_result = houses_for_rent.objects.filter(Q(house_type__house_type__icontains=search_text) | Q(province__province__icontains=search_text) | Q(district__district__icontains=search_text) | Q(ward__ward__icontains=search_text) | Q(address__icontains=search_text) | Q(area__icontains=search_text) | Q(price_per_month__icontains=search_text))
+        search_result = houses_for_rent.objects.filter(Q(house_type__house_type__icontains=search_text) | Q(district__district__icontains=search_text) | Q(ward__ward__icontains=search_text) | Q(address__icontains=search_text) | Q(area__icontains=search_text) | Q(price_per_month__icontains=search_text))
         house_type = house_types.objects.all()
-        province = provinces.objects.all()
         district = districts.objects.all()
         ward = wards.objects.all()
 
@@ -38,13 +36,12 @@ def search(request):
         paginator = Paginator(search_result, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
-        return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'searches': search_result})
+        return render(request, 'Home.html', {'types': house_type, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'searches': search_result})
 
 # Filter
 def filter(request):
     if request.method == 'POST':
         house_type_filter = request.POST.get('house_type')
-        province_filter = request.POST.get('province')
         district_filter = request.POST.get('district')
         ward_filter = request.POST.get('ward')
         price = request.POST.get('price')
@@ -53,8 +50,6 @@ def filter(request):
         filters = {}
         if house_type_filter:
             filters['house_type'] = house_type_filter
-        if province_filter:
-            filters['province'] = province_filter
         if district_filter:
             filters['district'] = district_filter
         if ward_filter:
@@ -87,7 +82,6 @@ def filter(request):
             search_result = houses_for_rent.objects.filter(q_objects)
         
         house_type = house_types.objects.all()
-        province = provinces.objects.all()
         district = districts.objects.all()
         ward = wards.objects.all()
         
@@ -95,19 +89,18 @@ def filter(request):
         paginator = Paginator(search_result, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
-        return render(request, 'Home.html', {'types': house_type, 'provinces': province, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'searches': search_result})
+        return render(request, 'Home.html', {'types': house_type, 'districts': district, 'wards': ward, 'page_obj': page_obj, 'searches': search_result})
 
 
 # Infomation of Inn what has show by id
 def index(request, id):
-    house_infomation = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').get(id=id)
+    house_infomation = houses_for_rent.objects.prefetch_related('house_type', 'district', 'ward').get(id=id)
     images = Image.objects.filter(houses=id)
     return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images})
 
 # Upload new post of Inn information
 def upload(request):
     filter_house = house_types.objects.all()
-    filter_province = provinces.objects.all()
     filter_district = districts.objects.all()
     filter_ward = wards.objects.all()
     if request.method == "POST":
@@ -115,7 +108,6 @@ def upload(request):
         if uploadForm.is_valid():
             house_type = house_types.objects.get(id=request.POST.get('house_type'))
             address = request.POST.get('address')
-            province = provinces.objects.get(id=request.POST.get('province'))
             district = districts.objects.get(id=request.POST.get('district'))
             ward = wards.objects.get(id=request.POST.get('ward'))
             price_per_month = request.POST.get('price_per_month')
@@ -137,16 +129,8 @@ def upload(request):
             lat = request.POST.get('lat')
             lng = request.POST.get('lng')
             
-            # Lấy tọa độ sau đó lưu trữ vào trường coordinates:
-            # generalAddress = address + ' ' + ward.ward + ' ' + district.district + ' ' + province.province
-            # coordinates = get_coordinates(generalAddress)
-            # if coordinates is not None:
-            #     lat, lng = coordinates
-            # else:
-            #     lat, lng = coordinates, coordinates
             
-            
-            save_house = houses_for_rent.objects.create(house_type=house_type, address=address, province=province, district=district, ward=ward,
+            save_house = houses_for_rent.objects.create(house_type=house_type, address=address, district=district, ward=ward,
                                                         price_per_month=price_per_month, area=area, description=description, 
                                                         price_per_water_num=price_per_water_num, price_per_electric_num=price_per_electric_num,
                                                         junk_money=junk_money, air_conditioner=air_conditioner, wardrobe=wardrobe, fan=fan, wc=wc, electric_water_heater=electric_water_heater,
@@ -162,21 +146,19 @@ def upload(request):
             print(uploadForm.errors)
     else:
         uploadForm = UploadForm()
-    return render(request, 'upload.html', {'uploadForm': uploadForm, 'house_types': filter_house, 'provinces': filter_province, 'districts': filter_district, 'wards': filter_ward})
+    return render(request, 'upload.html', {'uploadForm': uploadForm, 'house_types': filter_house, 'districts': filter_district, 'wards': filter_ward})
 
 # Update
 def update(request, id):
     filter_house = house_types.objects.all()
-    filter_province = provinces.objects.all()
     filter_district = districts.objects.all()
     filter_ward = wards.objects.all()
-    house_for_rent = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').get(id=id)
+    house_for_rent = houses_for_rent.objects.prefetch_related('house_type', 'district', 'ward').get(id=id)
     if request.method == "POST":
         updateForm = UpdateForm(id, request.POST, request.FILES)
         if updateForm.is_valid():
             house_for_rent.house_type = house_types.objects.get(id=request.POST.get('house_type'))
             house_for_rent.address = request.POST.get('address')
-            house_for_rent.province = provinces.objects.get(id=request.POST.get('province'))
             house_for_rent.district = districts.objects.get(id=request.POST.get('district'))
             house_for_rent.ward = wards.objects.get(id=request.POST.get('ward'))
             house_for_rent.price_per_month = request.POST.get('price_per_month')
@@ -202,7 +184,7 @@ def update(request, id):
             print(updateForm.errors)
     else:
         updateForm = UpdateForm(id)
-    return render(request, 'update.html', {'updateForm': updateForm, 'house_types': filter_house, 'provinces': filter_province, 'districts': filter_district, 'wards': filter_ward, 'oldData': house_for_rent})
+    return render(request, 'update.html', {'updateForm': updateForm, 'house_types': filter_house,'districts': filter_district, 'wards': filter_ward, 'oldData': house_for_rent})
 
 # Delete
 def delete(request, id):
@@ -214,13 +196,9 @@ def delete(request, id):
 
 # Manage all posts of Inn
 def manage(request):
-    all_posts = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').all()
+    all_posts = houses_for_rent.objects.prefetch_related('house_type', 'district', 'ward').all()
     image = Image.objects.all()
     return render(request, 'manage.html', {'allPosts': all_posts, 'images': image})
-
-# Service
-def services(request):
-    return render(request, 'services.html')
 
 # Contact
 def contact(request):
@@ -233,7 +211,7 @@ def map(request):
 
 # Show info about Inn when user right click into marker in map
 def info_content(request, id):
-    information = houses_for_rent.objects.prefetch_related('house_type', 'province', 'district', 'ward').get(id=id)
+    information = houses_for_rent.objects.prefetch_related('house_type', 'district', 'ward').get(id=id)
     info_images = Image.objects.filter(houses=id)
     return render(request, 'info.html', {'information': information, 'images': info_images})
 

@@ -13,7 +13,6 @@ from .models import *
 
 #  new admin signature
 admin.site.register(house_types)
-admin.site.register(provinces)
 admin.site.register(districts)
 admin.site.register(wards)
 admin.site.register(houses_for_rent)

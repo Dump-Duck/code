@@ -151,13 +151,13 @@
                                 <a href="{% url 'index' post.id %}" class="new-post_link"><img id="show1" class="residential-slides_img" src="/{{post.thumbnail}}" alt="" /></a>
                             </div>
 
-                            <button class="arrow_right">
+                            {% comment %} <button class="arrow_right">
                                 <i class="fa-solid fa-angle-left" onclick="prev1()"></i>
                             </button>
 
                             <button class="arrow_left">
                                 <i class="fa-solid fa-angle-right" onclick="next1()"></i>
-                            </button>
+                            </button> {% endcomment %}
                         </div>
                     </div>
 

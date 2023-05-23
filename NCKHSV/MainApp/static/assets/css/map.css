@@ -54,6 +54,29 @@
     border: 2px solid #000;
 }
 
+.note_icon-upper_50{
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    border: 0.1px solid black;
+    border-radius: 50%;
+}
+
+.note_icon-from_30_to_50{
+    background-color: white;
+    width: 16px;
+    height: 16px;
+    border: 0.1px solid black;
+    border-radius: 50%;
+}
+
+.note_icon-under_30{
+    background-color: white;
+    width: 12px;
+    height: 12px;
+    border: 0.1px solid black;
+    border-radius: 50%;
+}
 
 .note_describe{
     margin: 0 0 0 12px;

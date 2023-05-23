@@ -7,9 +7,19 @@ from django.db.models import Q
 from .forms import *
 from .models import *
 from .utils import *
+import random 
 
 # Create your views here.
 def main(request):
+    # add random Inn: (enable while want to create more Inn for website)
+    # x = 0
+    # images = ["MainApp/static/assets/img/house_photo/img3.jpg", "MainApp/static/assets/img/house_photo/thumbnail/img1.jpg", "MainApp/static/assets/img/house_photo/thumbnail/img2.jpg"]
+    # while x < 100:
+    #     house_for_rent = houses_for_rent.objects.create(house_type=house_types.objects.get(id=random.randrange(1, 3)), address=random.randrange(1, 1000), district=districts.objects.get(id=random.randrange(1, 3)), ward=wards.objects.get(id=random.randrange(1, 5)), price_per_month=random.uniform(1.0, 20.0), area=random.randrange(15, 100), water_price=random.randrange(15, 100, 5), price_per_electric_num=random.randrange(2500, 6000, 500), junk_money=random.randrange(0, 24000, 6000), air_conditioner=random.choice([0, 1]), wardrobe=random.choice([0, 1]), fan=random.choice([0, 1]), wc=random.choice([0, 1]), electric_water_heater=random.choice([0, 1]), cooking_area=random.choice([0, 1]), parking_area=random.choice([0, 1]), car_parking_area=random.choice([0, 1]), pet_allow=random.choice([0, 1]), description="Cho thuê nhà trọ", thumbnail="MainApp/static/assets/img/house_photo/thumbnail/img3.jpg", lat=random.uniform(20.53, 21.23), lng=random.uniform(105.44, 106.02))
+    #     for image in images:
+    #         save_img = Image.objects.create(images=image, houses=house_for_rent)
+    #         save_img.save()
+    #     x += 1
     house_type = house_types.objects.all()
     district = districts.objects.all()
     ward = wards.objects.all()

@@ -172,6 +172,7 @@
    
   .wrapper-about {
     display: flex;
+    justify-content: space-between;
   }
   
   .icon {

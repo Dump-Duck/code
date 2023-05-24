@@ -32,16 +32,16 @@
 
         <section class="menu_header">
             <nav class="item-header">
-                <a href="{% url 'main' %}">Trang chủ</a><div id="mobile-menu" class="menu_btn"><i class=" fa-solid fa-bars"></i></div> 
-                
-                <a href="{% url 'contact' %}">Liên Lạc</a>
-                 {% if user.is_authenticated %}
-                <a href="{% url 'manage' %}">Quản Lý</a>
-                <a href="{% url 'upload' %}">Đăng Tải</a>
-                <a href="{% url 'logout' %}">Đăng Xuất</a>
-                 {% else %}
-                <a href="{% url 'login' %}">Đăng Nhập</a>
-                 {% endif %}
+               <a href="{% url 'main' %}">Trang chủ</a> <div id="mobile-menu" class="menu_btn"><i class=" fa-solid fa-bars"></i></div> 
+               <a href="{% url 'map' %}">Bản Đồ</a>
+               <a href="{% url 'contact' %}">Liên Lạc</a>
+                {% if user.is_authenticated %}
+               <a href="{% url 'manage' %}">Quản Lý</a>
+               <a href="{% url 'upload' %}">Đăng Tải</a>
+               <a href="{% url 'logout' %}">Đăng Xuất</a>
+                {% else %}
+               <a href="{% url 'login' %}">Đăng Nhập</a>
+                {% endif %}
             </nav>
         </section>
     </header>
@@ -59,7 +59,7 @@
         <div class="about-list-main">
             <div class="container-about-list">
                <div class="container-about-list-small">
-                    <img  src="{% static './assets/img/buiquycuong.jpg' %}"  alt="team-2" class="img-responsive">
+                    <img  src="{% static './assets/img/admin1.jpg' %}"  alt="team-2" class="img-responsive">
                     <!-- Detail -->
                     <div class="caption detail">
                         <div class="caption-show">
@@ -70,10 +70,10 @@
                         <div class="contact">
                             <p>
                                 <i class="fa fa-envelope-o"></i>
-                                <a href="#">buiquycuong@gmail.com</a>
+                                <a href="#">buicuong2003@gmail.com</a>
                             </p>
                             <p>
-                                <i class="fa fa-mobile"></i><a href="">+55 417-634-7071</a>
+                                <i class="fa fa-mobile"></i><a href="">096 730 00 03</a>
                             </p>
                         </div>
                         <!-- social List -->
@@ -94,10 +94,6 @@
                               <i class="fab fa-instagram"></i>
                               <span class="tooltip">Instagram</span>
                             </div>
-                            <div class="icon youtube">
-                              <i class="fab fa-youtube"></i>
-                              <span class="tooltip">Youtube</span>
-                            </div>
                           </div>
                     </div>
                 </div>
@@ -105,21 +101,21 @@
             <!-- About box end -->
             <div class="container-about-list">
                 <div class="container-about-list-small">
-                        <img  src="{% static './assets/img/buicuong3.jpg' %}"  alt="team-2" class="img-responsive">
+                        <img  src="{% static './assets/img/admin2.jpg' %}"  alt="team-2" class="img-responsive">
                         <!-- Detail -->
                         <div class="caption detail">
                             <div class="caption-show">
-                            <h6>Bùi Quý Cường</h6>
+                            <h6>Kièu Duy Phong</h6>
                             <h3><a href="">Admin</a></h3>
                         </div>
                             <!-- contact -->
                             <div class="contact">
                                 <p>
                                     <i class="fa fa-envelope-o"></i>
-                                    <a href="#">buiquycuong@gmail.com</a>
+                                    <a href="#">kieuphong03@gmail.com</a>
                                 </p>
                                 <p>
-                                    <i class="fa fa-mobile"></i><a href="">+55 417-634-7071</a>
+                                    <i class="fa fa-mobile"></i><a href="">096 347 00 24</a>
                                 </p>
                             </div>
                             <!-- social List -->
@@ -140,10 +136,6 @@
                                 <i class="fab fa-instagram"></i>
                                 <span class="tooltip">Instagram</span>
                                 </div>
-                                <div class="icon youtube">
-                                <i class="fab fa-youtube"></i>
-                                <span class="tooltip">Youtube</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -151,7 +143,7 @@
                 <!-- About box end -->
                 <div class="container-about-list">
                     <div class="container-about-list-small">
-                            <img  src="{% static './assets/img/buicuong2.jpg' %}"  alt="team-2" class="img-responsive">
+                            <img  src="{% static './assets/img/admin3.jpg' %}"  alt="team-2" class="img-responsive">
                             <!-- Detail -->
                             <div class="caption detail">
                                 <div class="caption-show">
@@ -165,7 +157,7 @@
                                         <a href="#">buiquycuong@gmail.com</a>
                                     </p>
                                     <p>
-                                        <i class="fa fa-mobile"></i><a href="">+55 417-634-7071</a>
+                                        <i class="fa fa-mobile"></i><a href="">096 733 65 54</a>
                                     </p>
                                 </div>
                                 <!-- social List -->
@@ -185,10 +177,6 @@
                                     <div class="icon instagram">
                                     <i class="fab fa-instagram"></i>
                                     <span class="tooltip">Instagram</span>
-                                    </div>
-                                    <div class="icon youtube">
-                                    <i class="fab fa-youtube"></i>
-                                    <span class="tooltip">Youtube</span>
                                     </div>
                                 </div>
                             </div>

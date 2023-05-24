@@ -20,16 +20,16 @@
 
         <section class="menu_header">
             <nav class="item-header">
-                <a href="{% url 'main' %}">Trang chủ</a><div id="mobile-menu" class="menu_btn"><i class=" fa-solid fa-bars"></i></div> 
-                <a href="{% url 'services' %}">Dịch Vụ</a>
-                <a href="{% url 'contact' %}">Liên Lạc</a>
-                 {% if user.is_authenticated %}
-                <a href="{% url 'manage' %}">Quản Lý</a>
-                <a href="{% url 'upload' %}">Đăng Tải</a>
-                <a href="{% url 'logout' %}">Đăng Xuất</a>
-                 {% else %}
-                <a href="{% url 'login' %}">Đăng Nhập</a>
-                 {% endif %}
+               <a href="{% url 'main' %}">Trang chủ</a> <div id="mobile-menu" class="menu_btn"><i class=" fa-solid fa-bars"></i></div> 
+               <a href="{% url 'map' %}">Bản Đồ</a>
+               <a href="{% url 'contact' %}">Liên Lạc</a>
+                {% if user.is_authenticated %}
+               <a href="{% url 'manage' %}">Quản Lý</a>
+               <a href="{% url 'upload' %}">Đăng Tải</a>
+               <a href="{% url 'logout' %}">Đăng Xuất</a>
+                {% else %}
+               <a href="{% url 'login' %}">Đăng Nhập</a>
+                {% endif %}
             </nav>
         </section>
     </header>
@@ -37,15 +37,15 @@
 
 
     <div class="container">
-            <h1 class="text_question">Xóa bài đăng {{house_post.id}}</h1>
+            <h1 class="text_question">Đồng ý xóa bài đăng?</h1>
             
             <form class="form" method="post" action="{%url 'delete' house_post.id%}">
                 {% csrf_token %}
                 <div class="cancel">
-                    <a class="cancel_btn" href="{% url 'manage' %}"> cancel</a>
+                    <a class="cancel_btn" href="{% url 'manage' %}"> Hủy</a>
                 </div>
                 <div class="confirm">
-                    <input class="confirm_btn" type="submit" value="Confirm">
+                    <input class="confirm_btn" type="submit" value="Đồng ý">
                 </div>
             </form>
     </div>

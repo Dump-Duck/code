@@ -192,3 +192,32 @@
   margin-top: 10px;
   font-weight: bold;
 }
+
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+#likeButton {
+  margin-right: 10px;
+}
+
+#likeCount,
+#dislikeCount {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.fa {
+  font-size: 20px;
+}
+.fa-thumbs-up:before {
+  content: "\f164";
+}
+
+.fa-thumbs-down:before {
+  content: "\f165";
+}

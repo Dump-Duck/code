@@ -96,7 +96,7 @@
       padding-left: 0;
   }
     .about-list-main {
-      column-count: 3;
+      column-count: 4;
       width: 100%;
       /* column-gap: 130px; */
     }
@@ -123,7 +123,7 @@
     }
     
     .img-responsive {
-      width: 432px;
+      width: 344px;
       height: auto;
       max-height: 324px;
     }

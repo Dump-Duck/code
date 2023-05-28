@@ -1,9 +1,8 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.form_home');
     const username = document.getElementById('username');
     const email = document.getElementById('email_home');
-    let successMessage = document.querySelector('#success-message-home');
-    let inputs = document.querySelectorAll('.input_footer');
+    const successMessage = document.querySelector('#success-message-home');
 
     // Hiển thị thông báo lỗi đầu vào
     function showError(input, message) {
@@ -13,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         small.innerText = message;
     }
 
-    // Hiển thị  thành công
+    // Hiển thị thông báo thành công
     function showSuccess(input) {
         const formControl = input.parentElement;
         formControl.className = 'form-control_home success_home';
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Kiểm tra các trường bắt buộc
     function checkRequired(inputArr) {
         let isRequired = false;
-        inputArr.forEach(function (input) {
+        inputArr.forEach(function(input) {
             if (input.value.trim() === '') {
                 showError(input, `${getFieldName(input)} is required`);
                 isRequired = true;
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Check email is valid
+    // Kiểm tra email hợp lệ
     function checkEmail(input) {
         const emailRegex = /^\S+@\S+\.\S+$/;
         if (!emailRegex.test(input.value)) {
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Submit form
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
 
         let isFormValid = true;

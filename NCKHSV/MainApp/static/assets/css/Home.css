@@ -230,7 +230,7 @@ select {
 
 .filterButton:hover {
   background: transparent;
-  border-color: #333;
+  /* border-color: #333; */
 }
 .filterButton span:hover {
   color: var(--text-color);

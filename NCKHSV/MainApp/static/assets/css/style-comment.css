@@ -1,0 +1,194 @@
+.comments-title {
+  margin: 30px;
+  padding-left: 27px;
+  font-size: 35px;
+}
+
+.comments-list {
+  list-style: none;
+  padding: 0;
+  max-width: 1600px;
+  margin: 0 auto;
+  max-height: 650px;
+  overflow: auto;
+}
+
+.comment {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+}
+
+.comment-author {
+  padding: 20px;
+}
+
+.comment-author img {
+  width: 100%;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+}
+
+.comment-content {
+  flex: 1 0 70%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #fff;
+  max-height: 160px;
+  overflow: auto;
+}
+
+.comment-meta-author {
+  font-size: 18px;
+}
+
+.comment-meta-author a {
+  text-decoration: none;
+  color: #0edb96;
+  font-size: 20px;
+}
+
+.comment-meta-reply a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #0edb96;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.comment-meta {
+  list-style: none;
+  padding: 0;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.comment-meta-reply {
+  text-align: right;
+}
+
+.comment-meta-date {
+  color: #999;
+}
+
+.comment-body {
+  margin-bottom: 10px;
+}
+
+.comment-rating {
+  margin-bottom: 10px;
+}
+
+.comment-rating i {
+  color: #FFD700;
+}
+
+.comments {
+  list-style: none;
+  padding: 0;
+}
+
+.comments li {
+  margin-bottom: 40px;
+}
+.comment-reply {
+  display: flex;
+  /* align-items: center; */
+  padding: 35px;
+  display: none;
+}
+
+.comment-author-reply {
+  margin-right: 10px;
+}
+
+.comment-author-reply img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.input-text-comment-reply {
+  width: 1200px;
+  height: 60px;
+}
+
+
+
+
+/* .comment-reply {
+  display: none;
+} */
+
+  
+
+
+    
+  /* Contact form */
+
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .comments-title {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 35px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .form-group {
+    width: 48%; /* Chỉnh kích thước  */
+    margin-bottom: 10px;
+  }
+  .input-text-comment
+ {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .send-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .button-md {
+    padding: 10px 20px;
+    background-color: #0edb96;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Ngôi sao */
+.star {
+  color: #000;
+  cursor: pointer;
+}
+
+.star.active, .star.hover {
+  color: yellow;
+}
+
+.rating-info {
+  margin-top: 10px;
+  font-weight: bold;
+}

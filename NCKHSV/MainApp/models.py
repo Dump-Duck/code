@@ -52,3 +52,15 @@ class Image(models.Model):
     images = models.FileField(upload_to='MainApp/static/assets/img/house_photo', null=False)
     houses = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
     
+    
+# Comment models
+class comments(models.Model):
+    name = models.CharField(max_length=255, null=False)
+    mail = models.CharField(max_length=255, null=False)
+    comment = models.TextField(null=False)
+    phone = models.IntegerField(null=False)
+    star_rating = models.IntegerField(null=False)
+    date_time = models.DateTimeField(auto_now_add=True)
+    house = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
+    
+    

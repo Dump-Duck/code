@@ -106,6 +106,21 @@ def filter(request):
 def index(request, id):
     house_infomation = houses_for_rent.objects.prefetch_related('house_type', 'district', 'ward').get(id=id)
     images = Image.objects.filter(houses=id)
+    all_comments = comments.objects.filter(house=id).order_by('date_time')
+    
+    if request.method == 'POST':
+        comment_form = request.POST.get('comment')
+        if comment_form.is_valid():
+            name = request.POST.get('full-name')
+            email = request.POST.get('email')
+            comment = request.POST.get('subject')
+            phone = request.POST.get('phone')
+            star_rating = request.POST.get('rating')
+            
+            save_comment = comments.objects.create(name=name, email=email, comment=comment, phone=phone, star_rating=star_rating)
+            save_comment.save()            
+            return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments})
+    
     return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images})
 
 # Upload new post of Inn information

@@ -88,35 +88,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Tạo lượt thích
 document.addEventListener('DOMContentLoaded', function() {
-  var likeButton = document.getElementById("likeButton");
-  var dislikeButton = document.getElementById("dislikeButton");
-  var likeCount = document.getElementById("likeCount");
-  var dislikeCount = document.getElementById("dislikeCount");
-  
-  // Kiểm tra xem có dữ liệu lưu trữ trong Local Storage hay không
-  var storedLikes = localStorage.getItem("likes");
-  var storedDislikes = localStorage.getItem("dislikes");
-  
-  // Khởi tạo số lượt thích và không thích từ dữ liệu lưu trữ (nếu có)
-  var like = storedLikes ? parseInt(storedLikes) : 0;
-  var dislike = storedDislikes ? parseInt(storedDislikes) : 0;
-  
-  // Cập nhật số lượt thích và không thích lên giao diện
-  likeCount.textContent = like;
-  dislikeCount.textContent = dislike;
-  
+  // Lựa chọn các phần tử bằng lớp CSS
+const likeButtons = document.querySelectorAll(".comment-footer .button#likeButton");
+const dislikeButtons = document.querySelectorAll(".comment-footer .button#dislikeButton");
+const likeCounts = document.querySelectorAll(".comment-footer .button#likeButton p#likeCount");
+const dislikeCounts = document.querySelectorAll(".comment-footer .button#dislikeButton p#dislikeCount");
+
+likeButtons.forEach((likeButton, index) => {
   likeButton.addEventListener("click", function() {
-    like++;
-    likeCount.textContent = like;
+    likeCounts[index].textContent = parseInt(likeCounts[index].textContent) + 1;
     // Lưu số lượt thích vào Local Storage
-    localStorage.setItem("likes", like.toString());
+    localStorage.setItem(`likes${index}`, likeCounts[index].textContent);
   });
-  
+});
+
+dislikeButtons.forEach((dislikeButton, index) => {
   dislikeButton.addEventListener("click", function() {
-    dislike++;
-    dislikeCount.textContent = dislike;
+    dislikeCounts[index].textContent = parseInt(dislikeCounts[index].textContent) + 1;
     // Lưu số lượt không thích vào Local Storage
-    localStorage.setItem("dislikes", dislike.toString());
+    localStorage.setItem(`dislikes${index}`, dislikeCounts[index].textContent);
   });
-  
+});
+
+// Khôi phục số lượt thích và không thích từ Local Storage khi tải lại trang
+window.addEventListener("load", function() {
+  likeCounts.forEach((likeCount, index) => {
+    const storedLikes = localStorage.getItem(`likes${index}`);
+    if (storedLikes) {
+      likeCount.textContent = storedLikes;
+    }
+  });
+
+  dislikeCounts.forEach((dislikeCount, index) => {
+    const storedDislikes = localStorage.getItem(`dislikes${index}`);
+    if (storedDislikes) {
+      dislikeCount.textContent = storedDislikes;
+    }
+  });
+});
+
 });

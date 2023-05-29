@@ -221,3 +221,121 @@
 .fa-thumbs-down:before {
   content: "\f165";
 }
+
+/* 
+no-comment */
+.no-comment {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-comment-message {
+  font-size: 18px;
+  font-weight: bold;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.no-comment-message i {
+  margin-right: 5px;
+}
+
+.no-comment-submessage {
+  font-size: 14px;
+  color: gray;
+  margin-top: 10px;
+}
+
+.no-comment-animation {
+  display: inline-block;
+}
+
+.no-comment-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 0 3px;
+  animation: no-comment-pulse 1.5s infinite;
+}
+
+@keyframes no-comment-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* Responsive cho Mac */
+@media screen and (max-width: 1440px) {
+  .comments-title {
+    font-size: 30px;
+    margin: 20px;
+  }
+  .comments-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    max-height: 500px;
+  }
+  .comment {
+    margin-bottom: 20px;
+  }
+  .comment-content {
+    flex: 1 0 65%;
+  }
+  .comment-meta-author a {
+    font-size: 18px;
+  }
+}
+
+/* Responsive cho iPad */
+@media screen and (max-width: 1024px) {
+  .comments-title {
+    font-size: 25px;
+    margin: 15px;
+  }
+  .comments-list {
+    max-width: 800px;
+    margin: 0 auto;
+    max-height: 400px;
+  }
+  .comment {
+    margin-bottom: 15px;
+  }
+  .comment-content {
+    flex: 1 0 70%;
+  }
+  .comment-meta-author a {
+    font-size: 16px;
+  }
+}
+
+/* Responsive cho điện thoại di động */
+@media screen and (max-width: 480px) {
+  .comments-title {
+    font-size: 20px;
+    margin: 10px;
+  }
+  .comments-list {
+    max-width: 300px;
+    margin: 0 auto;
+    max-height: 300px;
+  }
+  .comment {
+    margin-bottom: 10px;
+  }
+  .comment-content {
+    flex: 1 0 75%;
+  }
+  .comment-meta-author a {
+    font-size: 14px;
+  }
+}
+

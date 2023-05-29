@@ -46,14 +46,14 @@
     </header>
 
 
-    <div class="Length">
+    {% comment %} <div class="Length">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
             <div class="range-slider">
                 <div data-min="0" data-max="150000" data-unit="USD" data-name="price" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                 <div class="clearfix"></div>
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
     <form class="search-area" method="post" action="{% url 'search_result' %}">
         {% csrf_token %}
         <div class="search-box">
@@ -177,22 +177,27 @@
 
                             <div class="residential-card_type">
                                 {%if post.wc == 1 %}
-                                <div class="residential-card_type_quanity">
+                                <div class="residential-card_type_quanity" >
                                     <i class="fa-solid fa-bath"></i>
+                                    {% comment %} <span class="tooltip-home">Có nhà tắm</span> {% endcomment %}
                                 </div>
                                 {%endif%}
 
                                 {%if post.car_parking_area == 1 %}
                                 <div class="residential-card_type_quanity">
                                     <i class="fa-solid fa-car"></i>
+                                    {% comment %} <span class="tooltip-home">Có chỗ để ô tô</span> {% endcomment %}
                                 </div>
                                 {%endif%}
 
                                 {%if post.cooking_area == 1 %}
                                 <div class="residential-card_type_quanity">
                                     <i class="fa-sharp fa-solid fa-fire-burner"></i>
+                                    {% comment %} <span class="tooltip-home">Có bếp nấu ăn</span> {% endcomment %}
                                 </div>
                                 {%endif%}
+
+                                
 
                                 <div class="residential-card_house_type">
                                     <div class="residential-card_house_type_text">{{post.house_type.house_type}}</div>

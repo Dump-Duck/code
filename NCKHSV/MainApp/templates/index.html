@@ -193,178 +193,82 @@
 <article>
         <h2 class="comments-title">Đánh giá bình luận</h2>
         <ul class="comments-list">
-            <li>
-              <div class="comment">
-                <div class="comment-author">
-                  <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
-                </div>
-                <div class="comment-content">
-                  <div class="comment-meta">
-                    <div class="comment-meta-author">
-                      Đăng bởi
-                      <a href="#">Admin</a>
-                    </div>
-                    <div class="comment-meta-date">
-                      <span class="hidden-xs">8:42 PM 1/28/2023</span>
-                    </div>
-                  </div>
-                  <div class="comment-body">
-                    <div class="comment-rating">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star-o"></i>
-                    </div>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                  </div>
-                  <div class="comment-footer">
-                    <div id="likeButton" class="button">
-                      <i class="fa fa-thumbs-up"></i>
-                      <p id="likeCount">0</p>
-                    </div>
-                    <div id="dislikeButton" class="button">
-                      <i class="fa fa-thumbs-down"></i>
-                      <p id="dislikeCount">0</p>
-                    </div>
-                    <div class="comment-meta-reply">
-                      <a class="reply" href="#">Phản hồi</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="comment-reply">
-                <div class="comment-author-reply">
-                  <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
-                </div>
-                <form class="reply-form">
-                  <div class="form-group">
-                    <input type="text" class="input-text-comment-reply" name="reply-message" placeholder="Nhập bình luận đánh giá ở đây">
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="button-md button-theme">Gửi đánh giá</button>
-                  </div>
-                </form>
-              </div>
-            </li>
-            
-          
-            <li>
-                <div class="comment">
-                  <div class="comment-author">
-                    <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
-                  </div>
-                  <div class="comment-content">
-                    <div class="comment-meta">
-                      <div class="comment-meta-author">
-                        Đăng bởi
-                        <a href="#">Admin</a>
+              {% if all_comments %}
+                {% for comment in all_comments %}
+                  <li>
+                    <div class="comment">
+                      <div class="comment-author">
+                        <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
                       </div>
-                      <div class="comment-meta-date">
-                        <span class="hidden-xs">8:42 PM 1/28/2023</span>
+                      <div class="comment-content">
+                        <div class="comment-meta">
+                          <div class="comment-meta-author">
+                            Đăng bởi
+                            <a href="#">{{ comment.name }}</a>
+                          </div>
+                          <div class="comment-meta-date">
+                            <span class="hidden-xs">{{ comment.date_time }}</span>
+                          </div>
+                        </div>
+                        <div class="comment-body">
+                          <div class="comment-rating">
+                            {% if comment.star_rating == 1 %}
+                              <i class="fa fa-star"></i>
+                            {% elif comment.star_rating == 2 %}
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            {% elif comment.star_rating == 3 %}
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            {% elif comment.star_rating == 4 %}
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            {% else %}
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                            {% endif %}
+                          </div>
+                          {{ comment.comment }}
+                        </div>
+                        <div class="comment-footer">
+                          <div id="likeButton" class="button">
+                            <i class="fa fa-thumbs-up"></i>
+                            <p id="likeCount">0</p>
+                          </div>
+                          <div id="dislikeButton" class="button">
+                            <i class="fa fa-thumbs-down"></i>
+                            <p id="dislikeCount">0</p>
+                          </div>
+                          <div class="comment-meta-reply">
+                            <a class="reply" href="#">Phản hồi</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div class="comment-body">
-                      <div class="comment-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
+                    <div class="comment-reply">
+                      <div class="comment-author-reply">
+                        <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
                       </div>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                      <form class="reply-form">
+                        <div class="form-group">
+                          <input type="text" class="input-text-comment-reply" name="reply-message" placeholder="Nhập bình luận đánh giá ở đây">
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="button-md button-theme">Gửi đánh giá</button>
+                        </div>
+                      </form>
                     </div>
-                    <div class="comment-footer">
-                      <div id="likeButton" class="button">
-                        <i class="fa fa-thumbs-up"></i>
-                        <p id="likeCount">0</p>
-                      </div>
-                      <div id="dislikeButton" class="button">
-                        <i class="fa fa-thumbs-down"></i>
-                        <p id="dislikeCount">0</p>
-                      </div>
-                      
-                     
-                      
-                      
-                      <div class="comment-meta-reply">
-                        <a class="reply" href="#">Phản hồi</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="comment-reply">
-                  <div class="comment-author-reply">
-                    <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
-                  </div>
-                  <form class="reply-form">
-                    <div class="form-group">
-                      <div class="form-group">
-                        <input type="text" class="input-text-comment-reply" name="reply-message" placeholder="Nhập bình luận đánh giá ở đây">
-                      </div>
-                      
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="button-md button-theme">Gửi đánh giá</button>
-                    </div>
-                  </form>
-                </div>
-              </li>
-
-              <li>
-                <div class="comment">
-                  <div class="comment-author">
-                    <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
-                  </div>
-                  <div class="comment-content">
-                    <div class="comment-meta">
-                      <div class="comment-meta-author">
-                        Đăng bởi
-                        <a href="#">Admin</a>
-                      </div>
-                      <div class="comment-meta-date">
-                        <span class="hidden-xs">8:42 PM 1/28/2023</span>
-                      </div>
-                    </div>
-                    <div class="comment-body">
-                      <div class="comment-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                      </div>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                    </div>
-                    <div class="comment-footer">
-                      <div id="likeButton" class="button">
-                        <i class="fa fa-thumbs-up"></i>
-                        <p id="likeCount">0</p>
-                      </div>
-                      <div id="dislikeButton" class="button">
-                        <i class="fa fa-thumbs-down"></i>
-                        <p id="dislikeCount">0</p>
-                      </div>
-                      <div class="comment-meta-reply">
-                        <a class="reply" href="#">Phản hồi</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="comment-reply">
-                  <div class="comment-author-reply">
-                    <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
-                  </div>
-                  <form class="reply-form">
-                    <div class="form-group">
-                      <input type="text" class="input-text-comment-reply" name="reply-message" placeholder="Nhập bình luận đánh giá ở đây">
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="button-md button-theme">Gửi đánh giá</button>
-                    </div>
-                  </form>
-                </div>
-              </li>
+                  </li>
+                {% endfor %}
+              {% else %}
+                <div>Chưa có bình luận</div>
+              {% endif %}
           </ul>
           
         </article>
@@ -378,14 +282,14 @@
                 <div class="row">
                   <div class="form-group">
                     <div class="name-comment">
-                    <input type="text" name="full-name" class="input-text-comment" placeholder="Tên của bạn">
+                    <input type="text" id="name" name="full-name" class="input-text-comment" placeholder="Tên của bạn">
                 </div>
                   </div>
                   <div class="form-group">
                     <input type="email" name="email" class="input-text-comment" placeholder="Email của bạn">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="subject" class="input-text-comment" placeholder="Nội dung">
+                    <input type="text" id="content" name="subject" class="input-text-comment" placeholder="Nội dung">
                   </div>
                   <div class="form-group">
                     <input type="text" name="phone" class="input-text-comment" placeholder="Số điện thoại">
@@ -399,7 +303,7 @@
                       <i class="fa fa-star star" data-rating="4"></i>
                       <i class="fa fa-star star" data-rating="5"></i>
                     </div>
-                    <input type="hidden" id="rating" name="rating" value="">
+                    <input type="hidden" id="rating" name="rating" value="" required>
                   </div>
                   <div class="form-group">
                     <button type="submit" class="button-md button-theme">Gửi phản hồi</button>
@@ -488,9 +392,5 @@
         }
 
     </script>
-
-            
-
-
 </body>
 </html>

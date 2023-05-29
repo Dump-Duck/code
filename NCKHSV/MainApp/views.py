@@ -1,7 +1,7 @@
 ﻿from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.urls import resolve
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.db.models import Q
 from .forms import *
@@ -109,19 +109,23 @@ def index(request, id):
     all_comments = comments.objects.filter(house=id).order_by('date_time')
     
     if request.method == 'POST':
-        comment_form = request.POST.get('comment')
-        if comment_form.is_valid():
-            name = request.POST.get('full-name')
-            email = request.POST.get('email')
-            comment = request.POST.get('subject')
-            phone = request.POST.get('phone')
-            star_rating = request.POST.get('rating')
+        name = request.POST.get('full-name')
+        email = request.POST.get('email')
+        comment = request.POST.get('subject')
+        phone = request.POST.get('phone')
+        star_rating = request.POST.get('rating')
+        house = houses_for_rent.objects.get(id=id)
+        
+        save_comment = comments.objects.create(name=name, mail=email, comment=comment, phone=phone, star_rating=star_rating, house=house)
+        save_comment.save()
             
-            save_comment = comments.objects.create(name=name, email=email, comment=comment, phone=phone, star_rating=star_rating)
-            save_comment.save()            
-            return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments})
+        # all_comments = comments.objects.filter(id=id).order_by('date_time')
+        # comment_list = [{'name': i.name, 'date_time': i.date_time, 'star_rating': i.star_rating, 'comment': i.comment} for i in all_comments]
+        
+        # return JsonResponse({'comments': comment_list})
+        return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments})
     
-    return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images})
+    return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments})
 
 # Upload new post of Inn information
 def upload(request):

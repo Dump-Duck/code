@@ -435,6 +435,7 @@ select {
 
 .residential-card_type_quanity{
     margin: 0 16px 0 0 ;
+    position: relative;
 }
 
 .residential-card_house_type{
@@ -597,3 +598,20 @@ select {
     font-size: 1.55em;
 }
 
+/* hover icon */
+.icon_bath-info, .icon_car-info, .icon_cooking-info, .icon_air_conditioner-info {
+    position: absolute;
+    display: none;
+    top: 1.5em;
+    left: 1em;
+    background-color: #fff;
+    min-width: 150px;
+    border: 0.1px solid black;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15%;
+}
+
+.bath:hover .icon_bath-info, .car:hover .icon_car-info, .cooking:hover .icon_cooking-info, .air_conditioner:hover .icon_air_conditioner-info{
+    display: block;
+}

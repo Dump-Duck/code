@@ -64,3 +64,7 @@ class comments(models.Model):
     house = models.ForeignKey(houses_for_rent, on_delete=models.CASCADE)
     
     
+# Reply comment models
+class replys(models.Model):
+    comment_id = models.ForeignKey(comments, on_delete=models.CASCADE)
+    content = models.TextField(null=False)

@@ -177,26 +177,35 @@
 
                             <div class="residential-card_type">
                                 {%if post.wc == 1 %}
-                                <div class="residential-card_type_quanity" >
+                                <div class="residential-card_type_quanity bath" >
                                     <i class="fa-solid fa-bath"></i>
+                                    <span class="icon_bath-info">Vệ khép kín</span>
                                     {% comment %} <span class="tooltip-home">Có nhà tắm</span> {% endcomment %}
                                 </div>
                                 {%endif%}
 
                                 {%if post.car_parking_area == 1 %}
-                                <div class="residential-card_type_quanity">
+                                <div class="residential-card_type_quanity car">
                                     <i class="fa-solid fa-car"></i>
+                                    <span class="icon_car-info">Có bãi đậu xe</span>
                                     {% comment %} <span class="tooltip-home">Có chỗ để ô tô</span> {% endcomment %}
                                 </div>
                                 {%endif%}
 
                                 {%if post.cooking_area == 1 %}
-                                <div class="residential-card_type_quanity">
+                                <div class="residential-card_type_quanity cooking">
                                     <i class="fa-sharp fa-solid fa-fire-burner"></i>
+                                    <span class="icon_cooking-info">Có khu vực nấu ăn</span>
                                     {% comment %} <span class="tooltip-home">Có bếp nấu ăn</span> {% endcomment %}
                                 </div>
                                 {%endif%}
 
+                                {% if post.air_conditioner == 1 %}
+                                <div class="residential-card_type_quanity air_conditioner">
+                                    <i><img class="img-air_conditioner" src="/static/assets/img/air_conditioner.png" width="20px" height="18.75px" alt=""></i>
+                                    <span class="icon_air_conditioner-info">Có điều hoà</span>
+                                </div>
+                                {% endif %}
                                 
 
                                 <div class="residential-card_house_type">

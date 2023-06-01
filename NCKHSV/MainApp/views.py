@@ -107,25 +107,30 @@ def index(request, id):
     house_infomation = houses_for_rent.objects.prefetch_related('house_type', 'district', 'ward').get(id=id)
     images = Image.objects.filter(houses=id)
     all_comments = comments.objects.filter(house=id).order_by('date_time')
+    all_replies = replies.objects.all()
     
     if request.method == 'POST':
-        name = request.POST.get('full-name')
-        email = request.POST.get('email')
-        comment = request.POST.get('subject')
-        phone = request.POST.get('phone')
-        star_rating = request.POST.get('rating')
-        house = houses_for_rent.objects.get(id=id)
-        
-        save_comment = comments.objects.create(name=name, mail=email, comment=comment, phone=phone, star_rating=star_rating, house=house)
-        save_comment.save()
+        if 'comment' in request.POST:
+            name = request.POST.get('full-name')
+            email = request.POST.get('email')
+            comment = request.POST.get('subject')
+            phone = request.POST.get('phone')
+            star_rating = request.POST.get('rating')
+            house = houses_for_rent.objects.get(id=id)
             
-        # all_comments = comments.objects.filter(id=id).order_by('date_time')
-        # comment_list = [{'name': i.name, 'date_time': i.date_time, 'star_rating': i.star_rating, 'comment': i.comment} for i in all_comments]
+            save_comment = comments.objects.create(name=name, mail=email, comment=comment, phone=phone, star_rating=star_rating, house=house)
+            save_comment.save()
+            return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments, 'all_replies': all_replies})
         
-        # return JsonResponse({'comments': comment_list})
-        return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments})
+        elif 'reply' in request.POST:
+            comment_id = comments.objects.get(id=request.POST.get('data-comment-id'))
+            content = request.POST.get('content')
+            
+            save_reply = replies.objects.create(comment_id=comment_id, content=content)
+            save_reply.save()
+            return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments, 'all_replies': all_replies})
     
-    return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments})
+    return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments, 'all_replies': all_replies})
 
 # Upload new post of Inn information
 def upload(request):

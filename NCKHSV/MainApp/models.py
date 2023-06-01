@@ -65,6 +65,7 @@ class comments(models.Model):
     
     
 # Reply comment models
-class replys(models.Model):
+class replies(models.Model):
     comment_id = models.ForeignKey(comments, on_delete=models.CASCADE)
     content = models.TextField(null=False)
+    date_time = models.DateTimeField(auto_now_add=True)

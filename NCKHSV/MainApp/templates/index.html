@@ -254,9 +254,53 @@
                       </div>
                     </div>
                     {% comment %} Rep comment {% endcomment %}
+                    {% if all_replies %}
+                      {% for reply in all_replies %}
+                        {% if reply.id == comment.id %}
+                        <div class="reply-{{ reply.id }}"><div class="comment-reply">
+                            <div class="comment-reply-cmt">
+                              <div class="comment-author">
+                                <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
+                              </div>
+                              <div class="comment-content-reply-cmt">
+                                <div class="comment-meta">
+                                  
+                                  <div class="comment-meta-author">
+                                    <div class="reply-comment-by">
+                                      Trả lời đánh giá của {{ comment.name }}
+                                    </div>
+                                    Đăng bởi
+                                    <a href="#">Người ẩn danh</a>
+                                  </div>
+                                  <div class="comment-meta-date">
+                                    <span class="hidden-xs">{{ reply.date_time }}</span>
+                                  </div>
+                                </div>
+                                <div class="comment-body-reply-cmt">
+                                  <div class="comment-input-wrapper">
+                                    <input class="input-reply-cmt" name="content" type="text" value="{{ reply.content }}" readonly>
+                                  </div>
+                                </div>
+                                <div class="comment-footer-reply-cmt">
+                                  <div class="form-group-reply-cmt">
+                                    <button type="submit" class="button-md button-theme submit-comment-button">Gửi đánh giá</button>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </form>
+                          <div id="submitted-comment" style="display: none;">
+                            <!-- Nội dung bình luận đã được gửi sẽ được hiển thị ở đây -->
+                          </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                      {% endif %}
                     
                     <div class="comment-reply">
-                      <form class="reply-form">
+                      <form class="reply-form" name="reply" data-comment-id="{{ comment.id }}" method="post">
+                        {% csrf_token %}
                         <div class="comment-reply-cmt">
                           <div class="comment-author">
                             <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
@@ -272,12 +316,12 @@
                                 <a href="#">Người ẩn danh</a>
                               </div>
                               <div class="comment-meta-date">
-                                <span class="hidden-xs">{{ comment.date_time }}</span>
+                                <span class="hidden-xs"></span>
                               </div>
                             </div>
                             <div class="comment-body-reply-cmt">
                               <div class="comment-input-wrapper">
-                                <input class="input-reply-cmt" type="text">
+                                <input class="input-reply-cmt" name="content" type="text">
                               </div>
                             </div>
                             <div class="comment-footer-reply-cmt">

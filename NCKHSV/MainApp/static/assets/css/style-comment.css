@@ -56,8 +56,10 @@
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
-  margin: 20px;
+  margin: -15px;
+  margin-right: 3px;
 }
+
 
 .comment-meta {
   list-style: none;
@@ -119,6 +121,9 @@
   width: 1200px;
   height: 60px;
 }
+.reply-comment-by {
+  color: #999;
+}
 
 
 
@@ -126,9 +131,47 @@
 /* .comment-reply {
   display: none;
 } */
+.comment-reply-cmt {
+  margin-top: 0px;
+  display: flex;
+  align-items: flex-start;
+  height: auto;
+  margin-left: 80px;
+  margin-bottom: 30px;
 
-  
+}
+.comment-content-reply-cmt {
+            /* width: 102px; */
+    flex: 1 0 70%;
+    border: 1px solid #ccc;
+    padding: 40px;
+    background-color: #fff;
+    /* overflow: auto; */
+    height: 100px;
+} 
+.comment-footer-reply-cmt {
+  margin: 5px;
+  float: right;
+}
+.form-group-reply-cmt {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.input-reply-cmt {
 
+    width: 100%; 
+    padding: 10px;  
+    border: 1px solid #ccc;  /* Đặt viền xung quanh input */
+    border-radius: 4px;  /* Đặt góc bo tròn cho input */
+    font-size: 14px;  
+}
+
+#submitted-comment {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
 
     
   /* Contact form */

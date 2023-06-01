@@ -128,3 +128,75 @@ window.addEventListener("load", function() {
 });
 
 });
+// function submitComment(event) {
+//   event.preventDefault();
+
+//   var commentReply = event.target.closest('.comment-reply');
+//   var inputComment = commentReply.querySelector('.input-reply-cmt');
+//   var commentValue = inputComment.value;
+
+//   var commentBodyContainer = commentReply.querySelector('.comment-body');
+//   var submittedComment = commentReply.querySelector('#submitted-comment');
+
+//   if (commentBodyContainer && submittedComment) {
+//     commentBodyContainer.textContent = commentValue;
+//     submittedComment.style.display = 'block';
+//     submittedComment.textContent = 'Nội dung bình luận đã được gửi: ' + commentValue;
+//   }
+
+//   var commentFooter = commentReply.querySelector('.comment-footer-reply-cmt');
+//   if (commentFooter) {
+//     commentFooter.style.display = 'none';
+//   }
+// }
+// document.addEventListener('DOMContentLoaded', function() {
+//   var replyLinks = document.querySelectorAll('.reply');
+//   var commentReplies = document.querySelectorAll('.comment-reply');
+//   var submittedComments = [];
+
+//   replyLinks.forEach(function(replyLink, index) {
+//     replyLink.addEventListener('click', function(event) {
+//       event.preventDefault();
+
+//       // Ẩn tất cả các phần tử "comment-reply"
+//       commentReplies.forEach(function(commentReply) {
+//         commentReply.style.display = 'none';
+//       });
+
+//       // Hiển thị phần tử "comment-reply" tương ứng với replyLink được nhấp
+//       commentReplies[index].style.display = 'block';
+
+//       // Tìm nút submit trong phần reply
+//       var submitButton = commentReplies[index].querySelector('.button-theme');
+
+//       // Gán sự kiện click cho nút submit
+//       submitButton.addEventListener('click', function(event) {
+//         submitComment(event);
+//       });
+//     });
+//   });
+
+//   function submitComment(event) {
+//     event.preventDefault();
+
+//     var commentReply = event.target.closest('.comment-reply');
+//     var inputComment = commentReply.querySelector('.input-reply-cmt');
+//     var commentValue = inputComment.value;
+
+//     var commentBodyContainer = commentReply.querySelector('.comment-body');
+//     var submittedComment = commentReply.querySelector('#submitted-comment');
+
+//     if (commentBodyContainer && submittedComment) {
+//       commentBodyContainer.textContent = commentValue;
+//       submittedComment.style.display = 'block';
+//       submittedComment.textContent = 'Nội dung bình luận đã được gửi: ' + commentValue;
+//     }
+
+//     var commentFooter = commentReply.querySelector('.comment-footer-reply-cmt');
+//     if (commentFooter) {
+//       commentFooter.style.display = 'none';
+//     }
+
+//     submittedComments.push(commentReply);
+//   }
+// });

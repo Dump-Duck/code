@@ -253,19 +253,47 @@
                         </div>
                       </div>
                     </div>
+                    {% comment %} Rep comment {% endcomment %}
+                    
                     <div class="comment-reply">
-                      <div class="comment-author-reply">
-                        <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
-                      </div>
                       <form class="reply-form">
-                        <div class="form-group">
-                          <input type="text" class="input-text-comment-reply" name="reply-message" placeholder="Nhập bình luận đánh giá ở đây">
-                        </div>
-                        <div class="form-group">
-                          <button type="submit" class="button-md button-theme">Gửi đánh giá</button>
+                        <div class="comment-reply-cmt">
+                          <div class="comment-author">
+                            <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">
+                          </div>
+                          <div class="comment-content-reply-cmt">
+                            <div class="comment-meta">
+                              
+                              <div class="comment-meta-author">
+                                <div class="reply-comment-by">
+                                  Trả lời đánh giá của 
+                                </div>
+                                Đăng bởi
+                                <a href="#">Người ẩn danh</a>
+                              </div>
+                              <div class="comment-meta-date">
+                                <span class="hidden-xs">{{ comment.date_time }}</span>
+                              </div>
+                            </div>
+                            <div class="comment-body-reply-cmt">
+                              <div class="comment-input-wrapper">
+                                <input class="input-reply-cmt" type="text">
+                              </div>
+                            </div>
+                            <div class="comment-footer-reply-cmt">
+                              <div class="form-group-reply-cmt">
+                                <button type="submit" class="button-md button-theme submit-comment-button">Gửi đánh giá</button>
+                              </div>
+                            </div>
+                            
+                          </div>
                         </div>
                       </form>
+                      <div id="submitted-comment" style="display: none;">
+                        <!-- Nội dung bình luận đã được gửi sẽ được hiển thị ở đây -->
+                      </div>
                     </div>
+                    
                   </li>
                 {% endfor %}
               {% else %}

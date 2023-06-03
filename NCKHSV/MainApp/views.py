@@ -110,7 +110,7 @@ def index(request, id):
     all_replies = replies.objects.all()
     
     if request.method == 'POST':
-        if 'comment' in request.POST:
+        if 'subject' in request.POST:
             name = request.POST.get('full-name')
             email = request.POST.get('email')
             comment = request.POST.get('subject')
@@ -122,7 +122,7 @@ def index(request, id):
             save_comment.save()
             return render(request, 'index.html', {'house_infomation': house_infomation, 'images': images, 'all_comments': all_comments, 'all_replies': all_replies})
         
-        elif 'reply' in request.POST:
+        elif 'content' in request.POST:
             comment_id = comments.objects.get(id=request.POST.get('data-comment-id'))
             content = request.POST.get('content')
             

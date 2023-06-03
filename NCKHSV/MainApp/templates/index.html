@@ -299,8 +299,9 @@
                       {% endif %}
                     
                     <div class="comment-reply">
-                      <form class="reply-form" name="reply" data-comment-id="{{ comment.id }}" method="post">
+                      <form class="reply-form" name="reply" method="post">
                         {% csrf_token %}
+                        <input type="hidden" name="data-comment-id" value="{{ comment.id }}" />
                         <div class="comment-reply-cmt">
                           <div class="comment-author">
                             <img src="{% static './assets/img/avatar-5.png' %}" alt="avatar-5">

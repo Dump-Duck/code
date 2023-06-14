@@ -7,12 +7,6 @@ body {
 }
 
 
-#mobile-menu{
-
-}
-
-
-
 .header{
     display: flex;
     height: 60px;
@@ -54,7 +48,7 @@ outline: none;
 }
 
 .item-header a{
-padding: 8px 0;
+    padding: 8px 0;
 }
 
 .item-header a::after {
@@ -63,7 +57,7 @@ padding: 8px 0;
     left: 0;
     width: 100%;
     height: 4px;
-    background: rgba(249, 193, 193, 0.503);
+    background: rgba(110, 182, 255, 0.488);
     content: '';
     opacity: 0;
     -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -105,7 +99,7 @@ padding: 8px 0;
   
   .searchTerm {
     width: 100%;
-    border: 3px solid #F6BDC0;
+    border: 3px solid #4ed3ff;
     border-right: none;
     padding: 5px;
     height: 60px;
@@ -115,14 +109,14 @@ padding: 8px 0;
   }
   
   .searchTerm:focus{
-    color: #F6BDC0;
+    color: #4ed3ff;
   }
   
   .searchButton {
     width: 60px;
     height: 76px;
-    border: 1px solid #F6BDC0;
-    background: #F6BDC0;
+    border: 1px solid #4ed3ff;
+    background: #4ed3ff;
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
@@ -150,7 +144,6 @@ padding: 8px 0;
 }
 
 .search_select{
-    border-bottom: 1px solid #7e7e7e7b;
     margin: 0 16px 0 36px;
 }
 
@@ -162,7 +155,7 @@ select {
     outline:0;
     box-shadow:none;
     border:0!important; 
-    background: #F6BDC0;
+    background: #4ed3ff;
     background-image: none;
     flex: 1;
     padding: 0 .5em;
@@ -180,7 +173,7 @@ select {
     line-height: 3;
     overflow: hidden;
     border-radius: .25em;
-    margin: 0 0 40px 8px;
+    margin: 0 0 70px 8px;
  }
  .select::after {
     content: '\25BC';
@@ -188,8 +181,8 @@ select {
     top: 0;
     right: 0;
     padding: 1em 1.5em;
-    background: #f3979c;
-    color:#c6c7c6;
+    background: #4274ff;
+    color:#fff;
     cursor:pointer;
     pointer-events:none;
     transition:.25s all ease;
@@ -271,7 +264,7 @@ select {
 .branding_landlords{
     display: flex;
     justify-content: space-between;
-    background-color: #F6BDC0;
+    background-color: #4ed3ff;
     padding: 10px 0;
     height: 40px;
     border-top-left-radius: 10px ;
@@ -365,8 +358,6 @@ select {
     background-color: var(--white-color);
     color: var(--text-color);
     margin-top: -4px;
-    border-bottom-left-radius: 10px ;
-    border-bottom-right-radius: 10px ;
 }
 
 .residential-card_item{
@@ -450,7 +441,7 @@ select {
 /* footer */
 
 .footer{
-    background-color: #111;
+    background-color: #0091ff;
     display: grid;
     grid-template-columns: 30% 20% 20% 30%;
     grid-column-gap: 10px;
@@ -515,9 +506,17 @@ select {
     width: 40px;
     border: none;
     height: 25px;
-    background-color: #e64141;
+    background-color: #2463e6;
     color: var(--white-color);
+    outline: none;
 }
+
+.input_submit:hover{
+    cursor: pointer;
+    opacity: .7;
+
+}
+
 .input_footer{
     margin-top: 20px;
     width: 100%;
@@ -530,14 +529,11 @@ select {
     color: white;
 }
 .input_submit-btn{
+    border: none;
     margin-top: 15px;
     padding: 0;
 }
 
-.input_submit-btn:hover{
-    opacity: .7;
-    cursor: pointer;
-}
 #success-message-home {
     color: green;
     font-weight: bold;
@@ -562,7 +558,7 @@ select {
 
 .next_page_number{
     margin: 0 28px;
-    background-color: #F6BDC0;
+    background-color: #4ed3ff;
     color: var(--white-color);
     width: 100px;
     padding: 16px;
@@ -571,7 +567,7 @@ select {
 }
 
 .last_page_number{
-    background-color: #F6BDC0;
+    background-color: #4ed3ff;
     color: var(--white-color);
     width: 100px;
     padding: 16px;
@@ -581,7 +577,7 @@ select {
 
 
 .first_page_number, .previous_page_number{
-    background-color: #F6BDC0;
+    background-color: #4ed3ff;
     color: var(--white-color);
     width: 100px;
     padding: 16px;
